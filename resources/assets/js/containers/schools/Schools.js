@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import PageComponent from '../../components/PageComponent'
 import TopSection from '../../components/TopSection'
@@ -37,80 +38,28 @@ export default class Schools extends Component {
       })
     } else if (this.props.location.pathname === '/etablissements') {
       // fetch schools corresponding to search criteria
-      this.setState({
-        schools: [
-          {
-            code_uai: '0750680G',
-            code_uai_agence_comptable: '0750680G',
-            type_etablissement: 'Lycée',
-            nom: 'Lycée Arago',
-            adresse: '4 Place de la Nation',
-            code_postal: '75012',
-            commune: 'Paris',
-            departement: '75 - Paris',
-            region: 'Île-de-France',
-            academie: 'Paris',
-            telephone: '01 43 07 37 40',
-            ca: 'Jusqu’à un million €',
-            memo: 'Rénovation en cours',
-            up_to_date: '2014-01-01'
-          },
-          {
-            code_uai: '0750676C',
-            code_uai_agence_comptable: '0750680G',
-            type_etablissement: 'Lycée',
-            nom: 'Lycée polyvalent Dorian',
-            adresse: '74 avenue Philippe Auguste',
-            code_postal: '75011',
-            commune: 'Paris',
-            departement: '75 - Paris',
-            region: 'Île-de-France',
-            academie: 'Paris',
-            telephone: '01 44 93 81 30',
-            ca: 'Jusqu’à deux millions €',
-            memo: '',
-            up_to_date: '2014-01-01'
-          },
-          {
-            code_uai: '0754528P',
-            code_uai_agence_comptable: '0750680G',
-            type_etablissement: 'Collège',
-            nom: 'Collège Pilâtre de Rozier',
-            adresse: '11 rue Bouvier',
-            code_postal: '75011',
-            commune: 'Paris',
-            departement: '75 - Paris',
-            region: 'Île-de-France',
-            academie: 'Paris',
-            telephone: '01 43 56 74 51',
-            ca: 'Jusqu’à 500 000 €',
-            memo: '',
-            up_to_date: '2014-01-01'
-          }
-        ]
-      })
+      let url = this.props.location
+      const requestUrl = 'http://localhost:8888/public/api/schools' + url.search
+      console.log(requestUrl)
+      axios.get(requestUrl)
+        .then(schools => {
+          this.setState({ schools: schools.data })
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     } else if (this.props.location.pathname === '/agences') {
       // fetch agencies corresponding to search criteria
-      this.setState({
-        schools: [
-          {
-            code_uai: '0750680G',
-            code_uai_agence_comptable: '0750680G',
-            type_etablissement: 'Lycée',
-            nom: 'Lycée Arago',
-            adresse: '4 Place de la Nation',
-            code_postal: '75012',
-            commune: 'Paris',
-            departement: '75 - Paris',
-            region: 'Île-de-France',
-            academie: 'Paris',
-            telephone: '01 43 07 37 40',
-            ca: 'Jusqu’à un million €',
-            memo: 'Rénovation en cours',
-            up_to_date: '2014-01-01'
-          }
-        ]
-      })
+      let url = this.props.location
+      const requestUrl = 'http://localhost:8888/public/api/agencies' + url.search
+      console.log(requestUrl)
+      axios.get(requestUrl)
+        .then(schools => {
+          this.setState({ schools: schools.data })
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     } else {
       return <div>404 not found</div>
     }
