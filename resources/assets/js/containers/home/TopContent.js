@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 
-// import sextant from '../../img/sextant.png'
+// import sextant from '/public/images/sextant.png'
 
 export default class TopContent extends Component {
   componentDidMount () {
-    // this.timer = setInterval(function () {
-    //   let degrees = ((window.pageYOffset) / 10) + 30
-    //   document.getElementById('sextant').style.transform = 'rotate(' + degrees + 'deg)'
-    // }, 10)
+    this.timer = setInterval(function () {
+      let degrees = ((window.pageYOffset) / 10) + 30
+      document.getElementById('sextant').style.transform = 'rotate(' + degrees + 'deg)'
+    }, 10)
   }
 
   componentWillUnmount () {
-    // clearInterval(this.timer)
+    clearInterval(this.timer)
   }
 
   render () {
@@ -29,7 +29,7 @@ export default class TopContent extends Component {
           </div>
         </div>
         <div className='sextant-box'>
-          <img id='sextant' className='sextant' src={'sextant'} alt='sextant' />
+          <img id='sextant' className='sextant' src="{{asset('images/sextant.png')}}" alt='sextant' />
         </div>
       </div>
     )

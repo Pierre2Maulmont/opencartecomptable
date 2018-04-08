@@ -22,8 +22,8 @@ export default class About extends Component {
   render () {
     return (
       <div className='about-box'>
-        <img id='img1' alt='map' src={'map'} />
-        <img id='img2' alt='map' src={'mapWithMan'} />
+        <img id='img1' alt='map' src={'images/map'} />
+        <img id='img2' alt='map' src={'images/mapWithMan'} />
 
         <div className='container'>
           <div id='about-columns' className='row about-colums'>
