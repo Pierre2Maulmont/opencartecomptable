@@ -1,14 +1,28 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-@import "variables";
+@import "base/variables";
+@import "base/mixins";
+@import "base/reset";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Components
+@import "components/header";
+@import "components/footer";
+@import "components/topsection";
+@import "components/formsection";
+@import "components/resultssection";
+@import "components/table";
+@import "components/infomodal";
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+
+// containers
+@import "containers/app";
+@import "containers/home";
+@import "containers/statistics";
+@import "containers/addschool";
+@import "containers/changeagency";
+@import "containers/changeinfo";
+@import "containers/changememo";
+@import "containers/admin";

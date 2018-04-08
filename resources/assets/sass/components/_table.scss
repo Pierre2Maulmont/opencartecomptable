@@ -1,0 +1,30 @@
+.my-table th {
+  padding: 0px 0px 20px 0px;
+  font-family: Playfair Display;
+  font-weight: 400;
+  color: #ad662b;
+}
+
+.my-table td {
+  padding: 18px 10px;
+  min-width: 130px;
+  /* border: 1px solid black; */
+}
+
+.my-table tr {
+  border-bottom: 1px solid #bac6c6;
+}
+
+.my-table {
+  font-size: 18px;
+  color: #505050;
+}
+
+.school-name {
+  color: #0d7067;
+}
+
+.school-name:hover {
+  cursor: pointer;
+  color: #558782;
+}

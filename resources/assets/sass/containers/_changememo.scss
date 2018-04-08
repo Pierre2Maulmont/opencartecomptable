@@ -1,0 +1,40 @@
+.form-section-box_change-memo {
+  -webkit-transition: 1s;
+  transition: 1s;
+  height: 300px;
+}
+
+.form-section-box_change-memo_reduced {
+  height: 300px;
+}
+
+.change-memo-form {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+}
+
+.change-memo-form-hide {
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change-memo-form-sent {
+  position: absolute;
+  top: 60px;
+  font-size: 20px;
+  font-family: Playfair Display;
+  color: #505050;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change-memo-form-sent-show {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,43 @@
+.header-box {
+  position: fixed;
+  z-index: 90;
+  height: 70px;
+  background-color: rgba(249, 247, 243, 0.92);
+  width: 100%;
+}
+
+.header__links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__left {
+  padding-top: 28px;
+  font-family: Playfair Display;
+  font-size: 20px;
+}
+
+.header__left a {
+  color: black;
+  text-decoration: none;
+}
+
+.header__right {
+  padding-top: 33px;
+  display: flex;
+  font-family: Open Sans;
+}
+
+.header__right a {
+  margin-left: 20px;
+  color: #505050;
+  text-decoration: none;
+}
+
+.header__right a:hover {
+  color: 	#7b8484;
+}
+
+.header__left a:hover {
+  color: 	black;
+}

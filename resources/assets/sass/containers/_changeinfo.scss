@@ -1,0 +1,40 @@
+.form-section-box_change-info {
+  -webkit-transition: 1s;
+  transition: 1s;
+  height: 850px;
+}
+
+.form-section-box_change-info_reduced {
+  height: 300px;
+}
+
+.change-info-form {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+}
+
+.change-info-form-hide {
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change-info-form-sent {
+  position: absolute;
+  top: 60px;
+  font-size: 20px;
+  font-family: Playfair Display;
+  color: #505050;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change-info-form-sent-show {
+  opacity: 1;
+  visibility: visible;
+}
