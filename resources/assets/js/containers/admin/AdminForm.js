@@ -1,20 +1,15 @@
 import React, { Component } from 'react'
 
+import Form from '../../components/Form'
+
 export default class SearchForm extends Component {
   render () {
     return (
       <div>
-        <form>
-          <input type='text' name='email' placeholder='Email' />
-          <input type='password' name='password' placeholder='password' />
-          <div
-            className='my-button my-button_blue-bg'
-            name='ajouter'
-            onClick={() => { this.props.handleSubmission() }}
-          >
-            Ajouter
-          </div>
-        </form>
+        <Form
+          form={'adminForm'}
+          handleSubmission={this.props.handleSubmission()}
+        />
       </div>
     )
   }
