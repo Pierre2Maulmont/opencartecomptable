@@ -1,0 +1,27 @@
+.footer-box {
+  height: 150px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  /* background-color: #f9f7f3; */
+}
+
+.footer-logo {
+  height: 20px;
+}
+
+.footer-box a {
+  margin-top: 5px;
+  color: #505050;
+  text-decoration: none;
+}
+
+.footer-box a:hover {
+  color: #7b8484;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,40 @@
+.form-section-box_change-agency {
+  -webkit-transition: 1s;
+  transition: 1s;
+  height: 280px;
+}
+
+.form-section-box_change-agency_reduced {
+  height: 280px;
+}
+
+.change-agency-form {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+}
+
+.change-agency-form-hide {
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change-agency-form-sent {
+  position: absolute;
+  top: 60px;
+  font-size: 20px;
+  font-family: Playfair Display;
+  color: #505050;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change-agency-form-sent-show {
+  opacity: 1;
+  visibility: visible;
+}

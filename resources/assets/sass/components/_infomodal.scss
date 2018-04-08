@@ -1,0 +1,111 @@
+.school-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(75, 81, 80, 0.4);
+  z-index: 95;
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.school-modal-content {
+  position: fixed;
+  top: 400px !important;
+  width: 550px;
+  height: 600px;
+  background: #f9f7f3;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 2px;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  font-family: Open Sans;
+  color: #505050;
+}
+
+.school-modal-top {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.school-modal-header {
+  margin-top: 15px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  font-family: Playfair Display;
+}
+
+.school-modal-title {
+
+}
+
+.school-modal-close {
+  margin-right: 20px;
+  color: #e00f0f;
+  font-weight: bold;
+}
+
+.school-modal-close:hover {
+  cursor: pointer;
+  color: #e55e5e;
+}
+
+.school-modal-top-content {
+  margin-left: 20px;
+  margin-top: 25px;
+  padding-left: 20px;
+  border-left: 1px solid #7b8484;
+  height: 80px;
+}
+
+.update-date-grey {
+  color: #bac6c6;
+}
+
+.update-icon {
+  margin-right: 15px;
+  font-size: 22px;
+  color: #0d7067;
+}
+
+.update-icon:hover {
+  cursor: pointer;
+  color: #558782;
+}
+
+.update-message {
+  font-size: 17px;
+}
+
+.school-modal-bottom {
+  width: 100%;
+  flex-grow: 2;
+  background: #dcefed;;
+  display: flex;
+  justify-content: space-around;
+}
+
+.school-modal-info {
+  width: 35%;
+  margin-top: 25px;
+}
+
+.school-modal-info>p {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: -5px;
+}
+
+.school-modal-button {
+  width: 120px;
+}
