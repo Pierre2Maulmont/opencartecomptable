@@ -7,35 +7,20 @@ export default class ChangeMemoForm extends Component {
     return (
       <div>
         <form>
+          <textarea name='memo' id='memo' placeholder={school.memo} />
 
-          <table>
-            <tbody>
+          <Waypoint
+            onEnter={() => { _handleWaypoint(true) }}
+            onLeave={() => { _handleWaypoint(false) }}
+          />
 
-              <tr>
-                <td>
-                  <textarea name='memo' id='memo' placeholder={school.memo} />
-                </td>
-              </tr>
-
-              <Waypoint
-                onEnter={() => { _handleWaypoint(true) }}
-                onLeave={() => { _handleWaypoint(false) }}
-              />
-
-              <tr>
-                <td>
-                  <div
-                    className='my-button my-button_blue-bg my-nav-button'
-                    name='modifier'
-                    onClick={() => { handleSubmission() }}
-                  >
-                    Modifier
-                  </div>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
+          <div
+            className='my-button my-button_blue-bg my-nav-button'
+            name='modifier'
+            onClick={() => { handleSubmission() }}
+          >
+            Modifier
+          </div>
         </form>
       </div>
     )

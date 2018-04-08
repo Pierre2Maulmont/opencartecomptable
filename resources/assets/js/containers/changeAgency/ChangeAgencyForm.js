@@ -7,35 +7,20 @@ export default class ChangeAgencyForm extends Component {
     return (
       <div>
         <form>
+          <input type='text' id='code_uai' name='code_uai' placeholder='UAI nouvelle agence' />
 
-          <table>
-            <tbody>
+          <Waypoint
+            onEnter={() => { _handleWaypoint(true) }}
+            onLeave={() => { _handleWaypoint(false) }}
+          />
 
-              <tr>
-                <td>
-                  <input type='text' id='code_uai' name='code_uai' placeholder='UAI nouvelle agence' />
-                </td>
-              </tr>
-
-              <Waypoint
-                onEnter={() => { _handleWaypoint(true) }}
-                onLeave={() => { _handleWaypoint(false) }}
-              />
-
-              <tr>
-                <td>
-                  <div
-                    className='my-button my-button_blue-bg my-nav-button'
-                    name='modifier'
-                    onClick={() => { handleSubmission() }}
-                  >
-                    Modifier
-                  </div>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
+          <div
+            className='my-button my-button_blue-bg my-nav-button'
+            name='modifier'
+            onClick={() => { handleSubmission() }}
+          >
+            Modifier
+          </div>
         </form>
       </div>
     )

@@ -12,13 +12,12 @@ p {
 }
 
 a {
-  /* color: #a81717; */
-  color: #26a69a;
+  color: #26a69a !important;
 }
 
 a:hover {
-  color: #3ec1b6;
-  text-decoration: none;
+  color: #3ec1b6 !important;
+  text-decoration: none !important;
 }
 
 
@@ -134,7 +133,7 @@ forms
 */
 
 input, select {
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
   width: 230px;
   height: 30px;
   background-color: #f9f7f3;
@@ -143,10 +142,11 @@ input, select {
   outline: none;
   padding-left: 10px;
   border-radius: 2px;
+  display: block;
 }
 
 textarea {
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
   width: 230px;
   background-color: #f9f7f3;
   color: #0d7067;

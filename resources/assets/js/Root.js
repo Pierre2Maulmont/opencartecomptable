@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
+import { HashRouter } from 'react-router-dom'
+import { CookiesProvider } from 'react-cookie'
 
 import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
-import { HashRouter } from 'react-router-dom'
 import { Scroller } from './components/scroller'
-import { CookiesProvider } from 'react-cookie'
-
-// import './App.css'
 
 class Root extends Component {
   render () {

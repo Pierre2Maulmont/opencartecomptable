@@ -38000,13 +38000,13 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Header__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Body__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Footer__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_router_dom__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_scroller__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_cookie__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_cookie__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_cookie__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_cookie__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Header__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Body__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Footer__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_scroller__ = __webpack_require__(121);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38024,8 +38024,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// import './App.css'
-
 var Root = function (_Component) {
   _inherits(Root, _Component);
 
@@ -38039,10 +38037,10 @@ var Root = function (_Component) {
     key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_6_react_cookie__["CookiesProvider"],
+        __WEBPACK_IMPORTED_MODULE_2_react_cookie__["CookiesProvider"],
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_4_react_router_dom__["a" /* HashRouter */],
+          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["a" /* HashRouter */],
           null,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
@@ -38055,10 +38053,10 @@ var Root = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'border vert left' }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'border vert right' })
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_scroller__["a" /* Scroller */], null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Header__["a" /* default */], null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_Body__["a" /* default */], null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Footer__["a" /* default */], null)
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_scroller__["a" /* Scroller */], null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Header__["a" /* default */], null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Body__["a" /* default */], null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Footer__["a" /* default */], null)
           )
         )
       );
@@ -60666,140 +60664,68 @@ var SearchForm = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'form',
               { method: 'post' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'Code UAI' }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'table',
-                null,
+                'select',
+                { name: 'type_etablissement', id: 'type_etablissement' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'tbody',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'Code UAI' })
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'select',
-                        { name: 'type_etablissement', id: 'type_etablissement' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { defaultValue: '' },
-                          'Type d\u2019\xE9tablissement'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'Coll\xE8ge' },
-                          'Coll\xE8ge'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'Lyc\xE9e' },
-                          'Lyc\xE9e'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'Lyc\xE9e professionnel' },
-                          'Lyc\xE9e professionnel'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'Etablissement r\xE9gional d\u2019enseignement adapt\xE9' },
-                          'Etablissement r\xE9gional d\u2019enseignement adapt\xE9'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'Lyc\xE9e agricole' },
-                          'Lyc\xE9e agricole'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'Etablissement scolaire public innovant' },
-                          'Etablissement scolaire public innovant'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'Centre de formation d\u2019apprentis' },
-                          'Centre de formation d\u2019apprentis'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          'option',
-                          { value: 'GRETA' },
-                          'GRETA'
-                        )
-                      )
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'nom', name: 'nom', placeholder: 'Nom' })
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'academie', name: 'academie', placeholder: 'Acad\xE9mie' })
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'region', name: 'region', placeholder: 'R\xE9gion' })
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'departement', name: 'departement', placeholder: 'D\xE9partement' })
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'commune', name: 'commune', placeholder: 'Commune' })
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'tr',
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'td',
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* NavLink */],
-                        {
-                          className: 'my-button my-button_blue-bg',
-                          to: url
-                        },
-                        'Rechercher'
-                      )
-                    )
-                  )
+                  'option',
+                  { defaultValue: '' },
+                  'Type d\u2019\xE9tablissement'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'Coll\xE8ge' },
+                  'Coll\xE8ge'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'Lyc\xE9e' },
+                  'Lyc\xE9e'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'Lyc\xE9e professionnel' },
+                  'Lyc\xE9e professionnel'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'Etablissement r\xE9gional d\u2019enseignement adapt\xE9' },
+                  'Etablissement r\xE9gional d\u2019enseignement adapt\xE9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'Lyc\xE9e agricole' },
+                  'Lyc\xE9e agricole'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'Etablissement scolaire public innovant' },
+                  'Etablissement scolaire public innovant'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'Centre de formation d\u2019apprentis' },
+                  'Centre de formation d\u2019apprentis'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: 'GRETA' },
+                  'GRETA'
                 )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'nom', name: 'nom', placeholder: 'Nom' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'academie', name: 'academie', placeholder: 'Acad\xE9mie' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'region', name: 'region', placeholder: 'R\xE9gion' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'departement', name: 'departement', placeholder: 'D\xE9partement' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'commune', name: 'commune', placeholder: 'Commune' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* NavLink */],
+                {
+                  className: 'my-button my-button_blue-bg',
+                  to: url
+                },
+                'Rechercher'
               )
             )
           )
@@ -61200,504 +61126,384 @@ var SearchForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'form',
           null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'Code UAI*' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_uai_agence_comptable', id: 'code_uai_agence_comptable', placeholder: 'Code UAI agence*' }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'table',
-            null,
+            'select',
+            { name: 'type_etablissement', id: 'type_etablissement' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'tbody',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'Code UAI*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_uai_agence_comptable', id: 'code_uai_agence_comptable', placeholder: 'Code UAI agence*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'type_etablissement', id: 'type_etablissement' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: '' },
-                      'Type d\u2019\xE9tablissement*'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Coll\xE8ge' },
-                      'Coll\xE8ge'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyc\xE9e' },
-                      'Lyc\xE9e'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyc\xE9e professionnel' },
-                      'Lyc\xE9e professionnel'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Etablissement r\xE9gional d\u2019enseignement adapt\xE9' },
-                      'Etablissement r\xE9gional d\u2019enseignement adapt\xE9'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyc\xE9e agricole' },
-                      'Lyc\xE9e agricole'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Etablissement scolaire public innovant' },
-                      'Etablissement scolaire public innovant'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Centre de formation d\u2019apprentis' },
-                      'Centre de formation d\u2019apprentis'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'GRETA' },
-                      'GRETA'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'nom', id: 'nom', placeholder: 'Nom*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'adresse', id: 'adresse', placeholder: 'Adresse*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_postal', id: 'code_postal', placeholder: 'Code postal*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'commune', id: 'commune', placeholder: 'Commune*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
-                onEnter: function onEnter() {
-                  _handleWaypoint(true);
-                },
-                onLeave: function onLeave() {
-                  _handleWaypoint(false);
-                }
-              }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'departement', id: 'departement', placeholder: 'D\xE9partement*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'region', id: 'region' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: '' },
-                      'R\xE9gion*'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Occitanie' },
-                      'Occitanie'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Ile-de-France' },
-                      'Ile-de-France'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nouvelle Aquitaine' },
-                      'Nouvelle Aquitaine'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Bretagne' },
-                      'Bretagne'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Bourgogne-Franche-Comt\xE9' },
-                      'Bourgogne-Franche-Comt\xE9'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Grand Est' },
-                      'Grand Est'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Pays de la Loire' },
-                      'Pays de la Loire'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Hauts-de-France' },
-                      'Hauts-de-France'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Auvergne-Rh\xF4ne-Alpes' },
-                      'Auvergne-Rh\xF4ne-Alpes'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Centre-Val de Loire' },
-                      'Centre-Val de Loire'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Provence-Alpes-C\xF4te d\u2019Azur' },
-                      'Provence-Alpes-C\xF4te d\u2019Azur'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Normandie' },
-                      'Normandie'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guadeloupe' },
-                      'Guadeloupe'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Corse' },
-                      'Corse'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Martinique' },
-                      'Martinique'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'La R\xE9union' },
-                      'La R\xE9union'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guyane' },
-                      'Guyane'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Mayotte' },
-                      'Mayotte'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Collectivit\xE9 d\u2019outre-mer' },
-                      'Collectivit\xE9 d\u2019outre-mer'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'academie', id: 'academie' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: '' },
-                      'Acad\xE9mie*'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lille' },
-                      'Lille'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Amiens' },
-                      'Amiens'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Rouen' },
-                      'Rouen'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Reims' },
-                      'Reims'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nancy-Metz' },
-                      'Nancy-Metz'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Strasbourg' },
-                      'Strasbourg'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Besan\xE7on' },
-                      'Besan\xE7on'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Dijon' },
-                      'Dijon'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Paris' },
-                      'Paris'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Cr\xE9teil' },
-                      'Cr\xE9teil'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Versailles' },
-                      'Versailles'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Orl\xE9ans-Tour' },
-                      'Orl\xE9ans-Tour'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Caen' },
-                      'Caen'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Rennes' },
-                      'Rennes'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nantes' },
-                      'Nantes'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Poitiers' },
-                      'Poitiers'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Limoges' },
-                      'Limoges'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyon' },
-                      'Lyon'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Clermont-Ferrand' },
-                      'Clermont-Ferrand'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Grenoble' },
-                      'Grenoble'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Aix-Marseille' },
-                      'Aix-Marseille'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nice' },
-                      'Nice'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Montpellier' },
-                      'Montpellier'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Toulouse' },
-                      'Toulouse'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Bordeaux' },
-                      'Bordeaux'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Corse' },
-                      'Corse'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guyane' },
-                      'Guyane'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Martinique' },
-                      'Martinique'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guadeloupe' },
-                      'Guadeloupe'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'La R\xE9union' },
-                      'La R\xE9union'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Mayotte' },
-                      'Mayotte'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Saint-Pierre-et-Miquelon' },
-                      'Saint-Pierre-et-Miquelon'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'telephone', id: 'telephone', placeholder: 'T\xE9l\xE9phone*' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'ca', id: 'ca' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: '' },
-                      'Total recettes annuelles'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Jusqu\u2019\xE0 500 000 \u20AC' },
-                      'Jusqu\u2019\xE0 500 000 \u20AC'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Jusqu\u2019\xE0 un million \u20AC' },
-                      'Jusqu\u2019\xE0 un million \u20AC'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Jusqu\u2019\xE0 deux millions \u20AC' },
-                      'Jusqu\u2019\xE0 deux millions \u20AC'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Plus de deux millions \u20AC' },
-                      'Plus de deux millions \u20AC'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'memo', id: 'memo', placeholder: 'Informations compl\xE9mentaires' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    {
-                      className: 'my-button my-button_blue-bg',
-                      name: 'ajouter',
-                      onClick: function onClick() {
-                        _this2.props.handleSubmission();
-                      }
-                    },
-                    'Ajouter'
-                  )
-                )
-              )
+              'option',
+              { value: '' },
+              'Type d\u2019\xE9tablissement*'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Coll\xE8ge' },
+              'Coll\xE8ge'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyc\xE9e' },
+              'Lyc\xE9e'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyc\xE9e professionnel' },
+              'Lyc\xE9e professionnel'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Etablissement r\xE9gional d\u2019enseignement adapt\xE9' },
+              'Etablissement r\xE9gional d\u2019enseignement adapt\xE9'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyc\xE9e agricole' },
+              'Lyc\xE9e agricole'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Etablissement scolaire public innovant' },
+              'Etablissement scolaire public innovant'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Centre de formation d\u2019apprentis' },
+              'Centre de formation d\u2019apprentis'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'GRETA' },
+              'GRETA'
             )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'nom', id: 'nom', placeholder: 'Nom*' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'adresse', id: 'adresse', placeholder: 'Adresse*' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_postal', id: 'code_postal', placeholder: 'Code postal*' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'commune', id: 'commune', placeholder: 'Commune*' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
+            onEnter: function onEnter() {
+              _handleWaypoint(true);
+            },
+            onLeave: function onLeave() {
+              _handleWaypoint(false);
+            }
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'departement', id: 'departement', placeholder: 'D\xE9partement*' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'select',
+            { name: 'region', id: 'region' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: '' },
+              'R\xE9gion*'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Occitanie' },
+              'Occitanie'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Ile-de-France' },
+              'Ile-de-France'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nouvelle Aquitaine' },
+              'Nouvelle Aquitaine'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Bretagne' },
+              'Bretagne'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Bourgogne-Franche-Comt\xE9' },
+              'Bourgogne-Franche-Comt\xE9'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Grand Est' },
+              'Grand Est'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Pays de la Loire' },
+              'Pays de la Loire'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Hauts-de-France' },
+              'Hauts-de-France'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Auvergne-Rh\xF4ne-Alpes' },
+              'Auvergne-Rh\xF4ne-Alpes'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Centre-Val de Loire' },
+              'Centre-Val de Loire'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Provence-Alpes-C\xF4te d\u2019Azur' },
+              'Provence-Alpes-C\xF4te d\u2019Azur'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Normandie' },
+              'Normandie'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guadeloupe' },
+              'Guadeloupe'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Corse' },
+              'Corse'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Martinique' },
+              'Martinique'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'La R\xE9union' },
+              'La R\xE9union'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guyane' },
+              'Guyane'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Mayotte' },
+              'Mayotte'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Collectivit\xE9 d\u2019outre-mer' },
+              'Collectivit\xE9 d\u2019outre-mer'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'select',
+            { name: 'academie', id: 'academie' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: '' },
+              'Acad\xE9mie*'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lille' },
+              'Lille'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Amiens' },
+              'Amiens'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Rouen' },
+              'Rouen'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Reims' },
+              'Reims'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nancy-Metz' },
+              'Nancy-Metz'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Strasbourg' },
+              'Strasbourg'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Besan\xE7on' },
+              'Besan\xE7on'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Dijon' },
+              'Dijon'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Paris' },
+              'Paris'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Cr\xE9teil' },
+              'Cr\xE9teil'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Versailles' },
+              'Versailles'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Orl\xE9ans-Tour' },
+              'Orl\xE9ans-Tour'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Caen' },
+              'Caen'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Rennes' },
+              'Rennes'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nantes' },
+              'Nantes'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Poitiers' },
+              'Poitiers'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Limoges' },
+              'Limoges'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyon' },
+              'Lyon'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Clermont-Ferrand' },
+              'Clermont-Ferrand'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Grenoble' },
+              'Grenoble'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Aix-Marseille' },
+              'Aix-Marseille'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nice' },
+              'Nice'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Montpellier' },
+              'Montpellier'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Toulouse' },
+              'Toulouse'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Bordeaux' },
+              'Bordeaux'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Corse' },
+              'Corse'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guyane' },
+              'Guyane'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Martinique' },
+              'Martinique'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guadeloupe' },
+              'Guadeloupe'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'La R\xE9union' },
+              'La R\xE9union'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Mayotte' },
+              'Mayotte'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Saint-Pierre-et-Miquelon' },
+              'Saint-Pierre-et-Miquelon'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'telephone', id: 'telephone', placeholder: 'T\xE9l\xE9phone*' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'select',
+            { name: 'ca', id: 'ca' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: '' },
+              'Total recettes annuelles'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Jusqu\u2019\xE0 500 000 \u20AC' },
+              'Jusqu\u2019\xE0 500 000 \u20AC'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Jusqu\u2019\xE0 un million \u20AC' },
+              'Jusqu\u2019\xE0 un million \u20AC'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Jusqu\u2019\xE0 deux millions \u20AC' },
+              'Jusqu\u2019\xE0 deux millions \u20AC'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Plus de deux millions \u20AC' },
+              'Plus de deux millions \u20AC'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'memo', id: 'memo', placeholder: 'Informations compl\xE9mentaires' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              className: 'my-button my-button_blue-bg',
+              name: 'ajouter',
+              onClick: function onClick() {
+                _this2.props.handleSubmission();
+              }
+            },
+            'Ajouter'
           )
         )
       );
@@ -63859,49 +63665,25 @@ var ChangeAgencyForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'form',
           null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'UAI nouvelle agence' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
+            onEnter: function onEnter() {
+              _handleWaypoint(true);
+            },
+            onLeave: function onLeave() {
+              _handleWaypoint(false);
+            }
+          }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'table',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'tbody',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'UAI nouvelle agence' })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
-                onEnter: function onEnter() {
-                  _handleWaypoint(true);
-                },
-                onLeave: function onLeave() {
-                  _handleWaypoint(false);
-                }
-              }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    {
-                      className: 'my-button my-button_blue-bg my-nav-button',
-                      name: 'modifier',
-                      onClick: function onClick() {
-                        handleSubmission();
-                      }
-                    },
-                    'Modifier'
-                  )
-                )
-              )
-            )
+            'div',
+            {
+              className: 'my-button my-button_blue-bg my-nav-button',
+              name: 'modifier',
+              onClick: function onClick() {
+                handleSubmission();
+              }
+            },
+            'Modifier'
           )
         )
       );
@@ -64075,486 +63857,382 @@ var ChangeInfoForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'form',
           null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: school.code_uai }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'table',
-            null,
+            'select',
+            { name: 'type_etablissement', id: 'type_etablissement' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'tbody',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: school.code_uai })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'type_etablissement', id: 'type_etablissement' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { selected: true, value: school.type_etablissement },
-                      school.type_etablissement
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Coll\xE8ge' },
-                      'Coll\xE8ge'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyc\xE9e' },
-                      'Lyc\xE9e'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyc\xE9e professionnel' },
-                      'Lyc\xE9e professionnel'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Etablissement r\xE9gional d\u2019enseignement adapt\xE9' },
-                      'Etablissement r\xE9gional d\u2019enseignement adapt\xE9'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyc\xE9e agricole' },
-                      'Lyc\xE9e agricole'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Etablissement scolaire public innovant' },
-                      'Etablissement scolaire public innovant'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Centre de formation d\u2019apprentis' },
-                      'Centre de formation d\u2019apprentis'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'GRETA' },
-                      'GRETA'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'nom', id: 'nom', placeholder: school.nom })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'adresse', id: 'adresse', placeholder: school.adresse })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_postal', id: 'code_postal', placeholder: school.code_postal })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'commune', id: 'commune', placeholder: school.commune })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
-                onEnter: function onEnter() {
-                  _handleWaypoint(true);
-                },
-                onLeave: function onLeave() {
-                  _handleWaypoint(false);
-                }
-              }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'departement', id: 'departement', placeholder: school.departement })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'region', id: 'region' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { selected: true, value: school.region },
-                      school.region
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Occitanie' },
-                      'Occitanie'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Ile-de-France' },
-                      'Ile-de-France'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nouvelle Aquitaine' },
-                      'Nouvelle Aquitaine'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Bretagne' },
-                      'Bretagne'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Bourgogne-Franche-Comt\xE9' },
-                      'Bourgogne-Franche-Comt\xE9'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Grand Est' },
-                      'Grand Est'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Pays de la Loire' },
-                      'Pays de la Loire'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Hauts-de-France' },
-                      'Hauts-de-France'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Auvergne-Rh\xF4ne-Alpes' },
-                      'Auvergne-Rh\xF4ne-Alpes'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Centre-Val de Loire' },
-                      'Centre-Val de Loire'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Provence-Alpes-C\xF4te d\u2019Azur' },
-                      'Provence-Alpes-C\xF4te d\u2019Azur'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Normandie' },
-                      'Normandie'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guadeloupe' },
-                      'Guadeloupe'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Corse' },
-                      'Corse'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Martinique' },
-                      'Martinique'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'La R\xE9union' },
-                      'La R\xE9union'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guyane' },
-                      'Guyane'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Mayotte' },
-                      'Mayotte'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Collectivit\xE9 d\u2019outre-mer' },
-                      'Collectivit\xE9 d\u2019outre-mer'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'academie', id: 'academie' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { selected: true, value: school.academie },
-                      school.academie
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lille' },
-                      'Lille'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Amiens' },
-                      'Amiens'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Rouen' },
-                      'Rouen'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Reims' },
-                      'Reims'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nancy-Metz' },
-                      'Nancy-Metz'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Strasbourg' },
-                      'Strasbourg'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Besan\xE7on' },
-                      'Besan\xE7on'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Dijon' },
-                      'Dijon'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Paris' },
-                      'Paris'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Cr\xE9teil' },
-                      'Cr\xE9teil'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Versailles' },
-                      'Versailles'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Orl\xE9ans-Tour' },
-                      'Orl\xE9ans-Tour'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Caen' },
-                      'Caen'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Rennes' },
-                      'Rennes'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nantes' },
-                      'Nantes'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Poitiers' },
-                      'Poitiers'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Limoges' },
-                      'Limoges'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Lyon' },
-                      'Lyon'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Clermont-Ferrand' },
-                      'Clermont-Ferrand'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Grenoble' },
-                      'Grenoble'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Aix-Marseille' },
-                      'Aix-Marseille'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Nice' },
-                      'Nice'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Montpellier' },
-                      'Montpellier'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Toulouse' },
-                      'Toulouse'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Bordeaux' },
-                      'Bordeaux'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Corse' },
-                      'Corse'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guyane' },
-                      'Guyane'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Martinique' },
-                      'Martinique'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Guadeloupe' },
-                      'Guadeloupe'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'La R\xE9union' },
-                      'La R\xE9union'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Mayotte' },
-                      'Mayotte'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Saint-Pierre-et-Miquelon' },
-                      'Saint-Pierre-et-Miquelon'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'telephone', id: 'telephone', placeholder: school.telephone })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'select',
-                    { name: 'ca', id: 'ca' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { selected: true, value: school.ca },
-                      school.ca
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Jusqu\u2019\xE0 500 000 \u20AC' },
-                      'Jusqu\u2019\xE0 500 000 \u20AC'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Jusqu\u2019\xE0 un million \u20AC' },
-                      'Jusqu\u2019\xE0 un million \u20AC'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Jusqu\u2019\xE0 deux millions \u20AC' },
-                      'Jusqu\u2019\xE0 deux millions \u20AC'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'option',
-                      { value: 'Plus de deux millions \u20AC' },
-                      'Plus de deux millions \u20AC'
-                    )
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    {
-                      className: 'my-button my-button_blue-bg',
-                      name: 'modifier',
-                      onClick: function onClick() {
-                        handleSubmission();
-                      }
-                    },
-                    'Modifier'
-                  )
-                )
-              )
+              'option',
+              { selected: true, value: school.type_etablissement },
+              school.type_etablissement
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Coll\xE8ge' },
+              'Coll\xE8ge'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyc\xE9e' },
+              'Lyc\xE9e'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyc\xE9e professionnel' },
+              'Lyc\xE9e professionnel'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Etablissement r\xE9gional d\u2019enseignement adapt\xE9' },
+              'Etablissement r\xE9gional d\u2019enseignement adapt\xE9'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyc\xE9e agricole' },
+              'Lyc\xE9e agricole'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Etablissement scolaire public innovant' },
+              'Etablissement scolaire public innovant'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Centre de formation d\u2019apprentis' },
+              'Centre de formation d\u2019apprentis'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'GRETA' },
+              'GRETA'
             )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'nom', id: 'nom', placeholder: school.nom }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'adresse', id: 'adresse', placeholder: school.adresse }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_postal', id: 'code_postal', placeholder: school.code_postal }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'commune', id: 'commune', placeholder: school.commune }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
+            onEnter: function onEnter() {
+              _handleWaypoint(true);
+            },
+            onLeave: function onLeave() {
+              _handleWaypoint(false);
+            }
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'departement', id: 'departement', placeholder: school.departement }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'select',
+            { name: 'region', id: 'region' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { selected: true, value: school.region },
+              school.region
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Occitanie' },
+              'Occitanie'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Ile-de-France' },
+              'Ile-de-France'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nouvelle Aquitaine' },
+              'Nouvelle Aquitaine'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Bretagne' },
+              'Bretagne'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Bourgogne-Franche-Comt\xE9' },
+              'Bourgogne-Franche-Comt\xE9'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Grand Est' },
+              'Grand Est'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Pays de la Loire' },
+              'Pays de la Loire'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Hauts-de-France' },
+              'Hauts-de-France'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Auvergne-Rh\xF4ne-Alpes' },
+              'Auvergne-Rh\xF4ne-Alpes'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Centre-Val de Loire' },
+              'Centre-Val de Loire'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Provence-Alpes-C\xF4te d\u2019Azur' },
+              'Provence-Alpes-C\xF4te d\u2019Azur'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Normandie' },
+              'Normandie'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guadeloupe' },
+              'Guadeloupe'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Corse' },
+              'Corse'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Martinique' },
+              'Martinique'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'La R\xE9union' },
+              'La R\xE9union'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guyane' },
+              'Guyane'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Mayotte' },
+              'Mayotte'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Collectivit\xE9 d\u2019outre-mer' },
+              'Collectivit\xE9 d\u2019outre-mer'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'select',
+            { name: 'academie', id: 'academie' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { selected: true, value: school.academie },
+              school.academie
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lille' },
+              'Lille'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Amiens' },
+              'Amiens'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Rouen' },
+              'Rouen'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Reims' },
+              'Reims'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nancy-Metz' },
+              'Nancy-Metz'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Strasbourg' },
+              'Strasbourg'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Besan\xE7on' },
+              'Besan\xE7on'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Dijon' },
+              'Dijon'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Paris' },
+              'Paris'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Cr\xE9teil' },
+              'Cr\xE9teil'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Versailles' },
+              'Versailles'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Orl\xE9ans-Tour' },
+              'Orl\xE9ans-Tour'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Caen' },
+              'Caen'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Rennes' },
+              'Rennes'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nantes' },
+              'Nantes'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Poitiers' },
+              'Poitiers'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Limoges' },
+              'Limoges'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Lyon' },
+              'Lyon'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Clermont-Ferrand' },
+              'Clermont-Ferrand'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Grenoble' },
+              'Grenoble'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Aix-Marseille' },
+              'Aix-Marseille'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Nice' },
+              'Nice'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Montpellier' },
+              'Montpellier'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Toulouse' },
+              'Toulouse'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Bordeaux' },
+              'Bordeaux'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Corse' },
+              'Corse'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guyane' },
+              'Guyane'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Martinique' },
+              'Martinique'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Guadeloupe' },
+              'Guadeloupe'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'La R\xE9union' },
+              'La R\xE9union'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Mayotte' },
+              'Mayotte'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Saint-Pierre-et-Miquelon' },
+              'Saint-Pierre-et-Miquelon'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'telephone', id: 'telephone', placeholder: school.telephone }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'select',
+            { name: 'ca', id: 'ca' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { selected: true, value: school.ca },
+              school.ca
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Jusqu\u2019\xE0 500 000 \u20AC' },
+              'Jusqu\u2019\xE0 500 000 \u20AC'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Jusqu\u2019\xE0 un million \u20AC' },
+              'Jusqu\u2019\xE0 un million \u20AC'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Jusqu\u2019\xE0 deux millions \u20AC' },
+              'Jusqu\u2019\xE0 deux millions \u20AC'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'option',
+              { value: 'Plus de deux millions \u20AC' },
+              'Plus de deux millions \u20AC'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              className: 'my-button my-button_blue-bg',
+              name: 'modifier',
+              onClick: function onClick() {
+                handleSubmission();
+              }
+            },
+            'Modifier'
           )
         )
       );
@@ -64721,49 +64399,25 @@ var ChangeMemoForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'form',
           null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'memo', id: 'memo', placeholder: school.memo }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
+            onEnter: function onEnter() {
+              _handleWaypoint(true);
+            },
+            onLeave: function onLeave() {
+              _handleWaypoint(false);
+            }
+          }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'table',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'tbody',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'memo', id: 'memo', placeholder: school.memo })
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
-                onEnter: function onEnter() {
-                  _handleWaypoint(true);
-                },
-                onLeave: function onLeave() {
-                  _handleWaypoint(false);
-                }
-              }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'tr',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'td',
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    {
-                      className: 'my-button my-button_blue-bg my-nav-button',
-                      name: 'modifier',
-                      onClick: function onClick() {
-                        handleSubmission();
-                      }
-                    },
-                    'Modifier'
-                  )
-                )
-              )
-            )
+            'div',
+            {
+              className: 'my-button my-button_blue-bg my-nav-button',
+              name: 'modifier',
+              onClick: function onClick() {
+                handleSubmission();
+              }
+            },
+            'Modifier'
           )
         )
       );
