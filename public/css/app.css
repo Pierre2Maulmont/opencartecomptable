@@ -19,17 +19,17 @@ body {
 
 ::-moz-selection {
   color: whitesmoke;
-  background: #39ba69;
+  background: #ad662b;
 }
 
 ::selection {
   color: whitesmoke;
-  background: #39ba69;
+  background: #ad662b;
 }
 
 ::-moz-selection {
   color: whitesmoke;
-  background: #39ba69;
+  background: #ad662b;
 }
 
 .header-box {
@@ -91,7 +91,6 @@ body {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  /* background-color: #f9f7f3; */
 }
 
 .footer-logo {
@@ -214,7 +213,6 @@ body {
 .my-table td {
   padding: 18px 10px;
   min-width: 130px;
-  /* border: 1px solid black; */
 }
 
 .my-table tr {
@@ -364,7 +362,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Playfair Display;
+  font-family: Playfair Display !important;
 }
 
 .highlight {
@@ -378,6 +376,7 @@ p {
 
 a {
   color: #26a69a !important;
+  text-decoration: none;
 }
 
 a:hover {

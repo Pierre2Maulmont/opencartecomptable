@@ -19,7 +19,7 @@
   top: 400px !important;
   width: 550px;
   height: 600px;
-  background: #f9f7f3;
+  background: $backgroundColor;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 2px;
@@ -28,7 +28,7 @@
   flex-direction: column;
   font-size: 15px;
   font-family: Open Sans;
-  color: #505050;
+  color: $greyText;
 }
 
 .school-modal-top {
@@ -51,7 +51,7 @@
 
 .school-modal-close {
   margin-right: 20px;
-  color: #e00f0f;
+  color: $red;
   font-weight: bold;
 }
 
@@ -64,23 +64,23 @@
   margin-left: 20px;
   margin-top: 25px;
   padding-left: 20px;
-  border-left: 1px solid #7b8484;
+  border-left: 1px solid $lightGrayBorder;
   height: 80px;
 }
 
 .update-date-grey {
-  color: #bac6c6;
+  color: $lightGreenishGray;
 }
 
 .update-icon {
   margin-right: 15px;
   font-size: 22px;
-  color: #0d7067;
+  color: $greenButton;
 }
 
 .update-icon:hover {
   cursor: pointer;
-  color: #558782;
+  color: $greenButtonHovered;
 }
 
 .update-message {
@@ -90,7 +90,7 @@
 .school-modal-bottom {
   width: 100%;
   flex-grow: 2;
-  background: #dcefed;;
+  background: $blueBackground;
   display: flex;
   justify-content: space-around;
 }

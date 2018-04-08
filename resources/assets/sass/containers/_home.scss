@@ -10,7 +10,7 @@ TopContent
 .top-content-text-box {
   margin-top: 50px;
   height: 90px;
-  border-right: 1px solid #7b8484;
+  border-right: 1px solid $lightGrayBorder;
   transition: 1s;
 }
 
@@ -29,7 +29,7 @@ TopContent
   padding-left: 90px;
   font-size: 20px;
   font-family: Open Sans;
-  color: #505050;
+  color: $greyText;
 }
 
 .top-content-img-section {
@@ -64,7 +64,7 @@ SearchFormSection
 
 .search-form-box {
   height: 350px;
-  background-color: #dcefed;
+  background-color: $blueBackground;
   z-index: 300;
   -webkit-transition: 0.5s; /* Safari */
   transition: 0.5s;
@@ -93,7 +93,7 @@ SearchFormSection
   height: 50px;
   -webkit-transition: 2s; /* Safari */
   transition: 2s;
-  border-right: 1px solid #7b8484;
+  border-right: 1px solid $lightGrayBorder;
 }
 
 .search-form-agencies-expand {
@@ -155,7 +155,7 @@ SearchFormSection
 .search-form-content-title {
   font-size: 17px;
   margin-top: 30px;
-  color: #505050;
+  color: $greyText;
 }
 
 .search-form-content-title-left {
@@ -183,7 +183,7 @@ About
 
 .about-box {
   height: 1650px;
-  background-color: #f9f7f3;
+  background-color: $backgroundColor;
   z-index: 10;
   position: relative;
 }
@@ -200,7 +200,7 @@ About
 }
 
 .about-left-column {
-  border-right: 1px solid #7b8484;
+  border-right: 1px solid $lightGrayBorder;
   justify-content: space-between;
   padding-bottom: 50px;
 }
@@ -232,7 +232,7 @@ About
   margin-left: 30px;
   font-size: 20px;
   font-family: Open Sans;
-  color: #505050;
+  color: $greyText;
 }
 
 .first-paragraph {

@@ -1,9 +1,9 @@
 h3, h4, h5, h6 {
-  font-family: Playfair Display;
+  font-family: Playfair Display !important;
 }
 
 .highlight {
-  color: #ad662b;
+  color: $highlight;
   font-weight: 600;
 }
 
@@ -12,14 +12,14 @@ p {
 }
 
 a {
-  color: #26a69a !important;
+  color: $greenLink !important;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #3ec1b6 !important;
+  color: $greenLinkHovered !important;
   text-decoration: none !important;
 }
-
 
 /*
 borders
@@ -69,7 +69,7 @@ smooth page appearing
 */
 
 .page-component {
-  background-color: #f9f7f3;
+  background-color: $backgroundColor;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -83,7 +83,6 @@ smooth page appearing
   opacity: 0;
   visibility: hidden;
 }
-
 
 /*
 buttons
@@ -99,9 +98,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #0d7067 !important;
+  color: $greenButton !important;
   font-size: 20px;
-  border: 1px solid #0d7067 !important;
+  border: 1px solid $greenButton !important;
   border-radius: 2px;
 }
 
@@ -114,17 +113,17 @@ button {
 
 .my-button:hover {
   cursor: pointer;
-  color: #558782 !important;
-  border: 1px solid #7eaaa6 !important;
+  color: $greenButtonHovered !important;
+  border: 1px solid $greenButtonBorderHovered !important;
 }
 
 .my-button_blue-bg {
-  background-color: #dcefed !important;
+  background-color: $blueBackground !important;
 }
 
 
 .my-button_white-bg {
-  background-color: #f9f7f3 !important;
+  background-color: $backgroundColor !important;
 }
 
 
@@ -136,8 +135,8 @@ input, select {
   margin-bottom: 30px !important;
   width: 230px;
   height: 30px;
-  background-color: #f9f7f3;
-  color: #0d7067;
+  background-color: $backgroundColor;
+  color: $greenButton;
   border: none;
   outline: none;
   padding-left: 10px;
@@ -148,8 +147,8 @@ input, select {
 textarea {
   margin-bottom: 30px !important;
   width: 230px;
-  background-color: #f9f7f3;
-  color: #0d7067;
+  background-color: $backgroundColor;
+  color: $greenButton;
   border: none;
   outline: none;
   padding-left: 10px;

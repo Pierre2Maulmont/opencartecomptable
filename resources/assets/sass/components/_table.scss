@@ -8,23 +8,22 @@
 .my-table td {
   padding: 18px 10px;
   min-width: 130px;
-  /* border: 1px solid black; */
 }
 
 .my-table tr {
-  border-bottom: 1px solid #bac6c6;
+  border-bottom: 1px solid $lightGreenishGray;
 }
 
 .my-table {
   font-size: 18px;
-  color: #505050;
+  color: $greyText;
 }
 
 .school-name {
-  color: #0d7067;
+  color: $greenButton;
 }
 
 .school-name:hover {
   cursor: pointer;
-  color: #558782;
+  color: $greenButtonHovered;
 }

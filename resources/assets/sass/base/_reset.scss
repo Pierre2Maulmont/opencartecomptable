@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #f9f7f3 !important;
+  background-color: $backgroundColor !important;
 }
 
 *, *:before, *:after {
@@ -15,10 +15,10 @@ body {
 
 ::selection {
   color: whitesmoke;
-  background: #39ba69;
+  background: $highlight;
 }
 
 ::-moz-selection {
 color: whitesmoke;
-background: #39ba69;
+background: $highlight;
 }

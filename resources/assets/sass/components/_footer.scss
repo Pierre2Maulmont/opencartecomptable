@@ -3,7 +3,6 @@
   padding-bottom: 30px;
   display: flex;
   align-items: flex-end;
-  /* background-color: #f9f7f3; */
 }
 
 .footer-logo {
@@ -12,12 +11,12 @@
 
 .footer-box a {
   margin-top: 5px;
-  color: #505050 !important;
+  color: $greyText !important;
   text-decoration: none !important;
 }
 
 .footer-box a:hover {
-  color: #7b8484 !important;
+  color: $lightGrayBorder !important;
 }
 
 .test {

@@ -30,12 +30,12 @@
 
 .header__right a {
   margin-left: 20px;
-  color: #505050 !important;
+  color: $greyText !important;
   text-decoration: none !important;
 }
 
 .header__right a:hover {
-  color: 	#7b8484 !important;
+  color: 	$lightGrayBorder !important;
 }
 
 .header__left a:hover {
