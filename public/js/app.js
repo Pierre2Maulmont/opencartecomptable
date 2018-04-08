@@ -58225,8 +58225,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// import sextant from '/public/images/sextant.png'
-
 var TopContent = function (_Component) {
   _inherits(TopContent, _Component);
 
@@ -58288,7 +58286,7 @@ var TopContent = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'sextant-box' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'sextant', className: 'sextant', src: '{{asset(\'images/sextant.png\')}}', alt: 'sextant' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'sextant', className: 'sextant', alt: 'sextant', src: '/public/images/sextant.png' })
         )
       );
     }
@@ -58566,9 +58564,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// import map from '../../img/map.jpg'
-// import mapWithMan from '../../img/map_with_man.jpeg'
-
 var About = function (_Component) {
   _inherits(About, _Component);
 
@@ -58582,7 +58577,6 @@ var About = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.timer = setInterval(function () {
-        // let degrees = (window.pageYOffset / 5)
         var degrees = window.pageYOffset / 4;
         document.getElementById('img1').style.transform = 'translate(0, ' + degrees + 'px)';
         document.getElementById('img2').style.transform = 'translate(0, ' + degrees + 'px)';
@@ -58599,8 +58593,8 @@ var About = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'about-box' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img1', alt: 'map', src: 'images/map' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img2', alt: 'map', src: 'images/mapWithMan' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img1', alt: 'map', src: '/public/images/map.jpg' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img2', alt: 'map', src: '/public/images/map_with_man.jpeg' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'container' },

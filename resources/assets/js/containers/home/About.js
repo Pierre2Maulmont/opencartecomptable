@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 
 import AboutParagraph from './AboutParagraph'
 
-// import map from '../../img/map.jpg'
-// import mapWithMan from '../../img/map_with_man.jpeg'
-
 export default class About extends Component {
   componentDidMount () {
     this.timer = setInterval(function () {
-      // let degrees = (window.pageYOffset / 5)
       let degrees = (window.pageYOffset / 4)
       document.getElementById('img1').style.transform = 'translate(0, ' + degrees + 'px)'
       document.getElementById('img2').style.transform = 'translate(0, ' + degrees + 'px)'
@@ -22,8 +18,8 @@ export default class About extends Component {
   render () {
     return (
       <div className='about-box'>
-        <img id='img1' alt='map' src={'images/map'} />
-        <img id='img2' alt='map' src={'images/mapWithMan'} />
+        <img id='img1' alt='map' src='/public/images/map.jpg' />
+        <img id='img2' alt='map' src='/public/images/map_with_man.jpeg' />
 
         <div className='container'>
           <div id='about-columns' className='row about-colums'>

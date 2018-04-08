@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-// import sextant from '/public/images/sextant.png'
-
 export default class TopContent extends Component {
   componentDidMount () {
     this.timer = setInterval(function () {
@@ -29,7 +27,7 @@ export default class TopContent extends Component {
           </div>
         </div>
         <div className='sextant-box'>
-          <img id='sextant' className='sextant' src="{{asset('images/sextant.png')}}" alt='sextant' />
+          <img id='sextant' className='sextant' alt='sextant' src='/public/images/sextant.png' />
         </div>
       </div>
     )
