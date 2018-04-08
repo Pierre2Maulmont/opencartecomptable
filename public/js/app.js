@@ -61115,11 +61115,15 @@ var SearchForm = function (_Component) {
   }
 
   _createClass(SearchForm, [{
+    key: 'handleSubmission',
+    value: function handleSubmission(school) {
+      // console.log(school)
+      this.props.handleSubmission();
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          _handleWaypoint = _props._handleWaypoint,
-          handleSubmission = _props.handleSubmission;
+      var _handleWaypoint = this.props._handleWaypoint;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
@@ -61127,7 +61131,7 @@ var SearchForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Form__["a" /* default */], {
           form: 'addSchoolForm',
           _handleWaypoint: _handleWaypoint,
-          handleSubmission: handleSubmission
+          handleSubmission: this.handleSubmission.bind(this)
         })
       );
     }
@@ -63277,11 +63281,15 @@ var ChangeAgencyForm = function (_Component) {
   }
 
   _createClass(ChangeAgencyForm, [{
+    key: 'handleSubmission',
+    value: function handleSubmission(agency) {
+      console.log(agency);
+      this.props.handleSubmission();
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          _handleWaypoint = _props._handleWaypoint,
-          handleSubmission = _props.handleSubmission;
+      var _handleWaypoint = this.props._handleWaypoint;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
@@ -63289,7 +63297,7 @@ var ChangeAgencyForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Form__["a" /* default */], {
           form: 'changeAgencyForm',
           _handleWaypoint: _handleWaypoint,
-          handleSubmission: handleSubmission
+          handleSubmission: this.handleSubmission.bind(this)
         })
       );
     }
@@ -63450,11 +63458,16 @@ var ChangeInfoForm = function (_Component) {
   }
 
   _createClass(ChangeInfoForm, [{
+    key: 'handleSubmission',
+    value: function handleSubmission(school) {
+      console.log(school);
+      this.props.handleSubmission();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
           _handleWaypoint = _props._handleWaypoint,
-          handleSubmission = _props.handleSubmission,
           school = _props.school;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -63463,7 +63476,7 @@ var ChangeInfoForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Form__["a" /* default */], {
           form: 'changeInfoForm',
           _handleWaypoint: _handleWaypoint,
-          handleSubmission: handleSubmission,
+          handleSubmission: this.handleSubmission.bind(this),
           school: school
         })
       );
@@ -63617,11 +63630,16 @@ var ChangeMemoForm = function (_Component) {
   }
 
   _createClass(ChangeMemoForm, [{
+    key: 'handleSubmission',
+    value: function handleSubmission(school) {
+      console.log(school);
+      this.props.handleSubmission();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
           _handleWaypoint = _props._handleWaypoint,
-          handleSubmission = _props.handleSubmission,
           school = _props.school;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -63630,7 +63648,7 @@ var ChangeMemoForm = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Form__["a" /* default */], {
           form: 'changeMemoForm',
           _handleWaypoint: _handleWaypoint,
-          handleSubmission: handleSubmission,
+          handleSubmission: this.handleSubmission.bind(this),
           school: school
         })
       );
@@ -63757,6 +63775,12 @@ var SearchForm = function (_Component) {
   }
 
   _createClass(SearchForm, [{
+    key: 'handleSubmission',
+    value: function handleSubmission(adminInput) {
+      // console.log(adminInput)
+      this.props.handleSubmission();
+    }
+  }, {
     key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -63764,7 +63788,7 @@ var SearchForm = function (_Component) {
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Form__["a" /* default */], {
           form: 'adminForm',
-          handleSubmission: this.props.handleSubmission()
+          handleSubmission: this.handleSubmission.bind(this)
         })
       );
     }
@@ -63785,6 +63809,8 @@ var SearchForm = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_waypoint__ = __webpack_require__(126);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -63797,15 +63823,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Form = function (_Component) {
   _inherits(Form, _Component);
 
-  function Form() {
+  function Form(props) {
     _classCallCheck(this, Form);
 
-    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+    _this.handleInputChange = _this.handleInputChange.bind(_this);
+    return _this;
   }
 
   _createClass(Form, [{
+    key: 'handleInputChange',
+    value: function handleInputChange(e) {
+      var value = e.target.value;
+      var field = e.target.name;
+      this.setState(_defineProperty({}, field, value));
+    }
+  }, {
     key: 'renderAddSchoolForm',
     value: function renderAddSchoolForm() {
+      var _this2 = this;
+
       var _props = this.props,
           _handleWaypoint = _props._handleWaypoint,
           handleSubmission = _props.handleSubmission;
@@ -63813,11 +63851,23 @@ var Form = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'Code UAI*' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_uai_agence_comptable', id: 'code_uai_agence_comptable', placeholder: 'Code UAI agence*' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          id: 'code_uai',
+          name: 'code_uai',
+          placeholder: 'Code UAI*',
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'code_uai_agence_comptable',
+          id: 'code_uai_agence_comptable',
+          placeholder: 'Code UAI agence*',
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'type_etablissement', id: 'type_etablissement' },
+          { name: 'type_etablissement', id: 'type_etablissement', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { value: '' },
@@ -63864,10 +63914,34 @@ var Form = function (_Component) {
             'GRETA'
           )
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'nom', id: 'nom', placeholder: 'Nom*' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'adresse', id: 'adresse', placeholder: 'Adresse*' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_postal', id: 'code_postal', placeholder: 'Code postal*' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'commune', id: 'commune', placeholder: 'Commune*' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'nom',
+          id: 'nom',
+          placeholder: 'Nom*',
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'adresse',
+          id: 'adresse',
+          placeholder: 'Adresse*',
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'code_postal',
+          id: 'code_postal',
+          placeholder: 'Code postal*',
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'commune',
+          id: 'commune',
+          placeholder: 'Commune*',
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -63876,10 +63950,16 @@ var Form = function (_Component) {
             _handleWaypoint(false);
           }
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'departement', id: 'departement', placeholder: 'D\xE9partement*' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'departement',
+          id: 'departement',
+          placeholder: 'D\xE9partement*',
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'region', id: 'region' },
+          { name: 'region', id: 'region', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { value: '' },
@@ -63983,7 +64063,7 @@ var Form = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'academie', id: 'academie' },
+          { name: 'academie', id: 'academie', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { value: '' },
@@ -64150,10 +64230,16 @@ var Form = function (_Component) {
             'Saint-Pierre-et-Miquelon'
           )
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'telephone', id: 'telephone', placeholder: 'T\xE9l\xE9phone*' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'telephone',
+          id: 'telephone',
+          placeholder: 'T\xE9l\xE9phone*',
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'ca', id: 'ca' },
+          { name: 'ca', id: 'ca', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { value: '' },
@@ -64180,14 +64266,19 @@ var Form = function (_Component) {
             'Plus de deux millions \u20AC'
           )
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'memo', id: 'memo', placeholder: 'Informations compl\xE9mentaires' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+          name: 'memo',
+          id: 'memo',
+          placeholder: 'Informations compl\xE9mentaires',
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
             className: 'my-button my-button_blue-bg',
             name: 'ajouter',
             onClick: function onClick() {
-              handleSubmission();
+              handleSubmission(_this2.state);
             }
           },
           'Ajouter'
@@ -64197,6 +64288,8 @@ var Form = function (_Component) {
   }, {
     key: 'renderChangeAgencyForm',
     value: function renderChangeAgencyForm() {
+      var _this3 = this;
+
       var _props2 = this.props,
           _handleWaypoint = _props2._handleWaypoint,
           handleSubmission = _props2.handleSubmission;
@@ -64204,7 +64297,13 @@ var Form = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: 'UAI nouvelle agence' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          id: 'code_uai',
+          name: 'code_uai',
+          placeholder: 'UAI nouvelle agence',
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -64219,7 +64318,7 @@ var Form = function (_Component) {
             className: 'my-button my-button_blue-bg my-nav-button',
             name: 'modifier',
             onClick: function onClick() {
-              handleSubmission();
+              handleSubmission(_this3.state);
             }
           },
           'Modifier'
@@ -64229,20 +64328,32 @@ var Form = function (_Component) {
   }, {
     key: 'renderAdminForm',
     value: function renderAdminForm() {
+      var _this4 = this;
+
       var handleSubmission = this.props.handleSubmission;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'email', placeholder: 'Email' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', name: 'password', placeholder: 'password' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'email',
+          placeholder: 'Email',
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'password',
+          name: 'password',
+          placeholder: 'password',
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
             className: 'my-button my-button_blue-bg',
             name: 'ajouter',
             onClick: function onClick() {
-              handleSubmission();
+              handleSubmission(_this4.state);
             }
           },
           'Ajouter'
@@ -64252,6 +64363,8 @@ var Form = function (_Component) {
   }, {
     key: 'renderChangeInfoForm',
     value: function renderChangeInfoForm() {
+      var _this5 = this;
+
       var _props3 = this.props,
           _handleWaypoint = _props3._handleWaypoint,
           handleSubmission = _props3.handleSubmission,
@@ -64260,10 +64373,16 @@ var Form = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'code_uai', name: 'code_uai', placeholder: school.code_uai }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          id: 'code_uai',
+          name: 'code_uai',
+          placeholder: school.code_uai,
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'type_etablissement', id: 'type_etablissement' },
+          { name: 'type_etablissement', id: 'type_etablissement', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { selected: true, value: school.type_etablissement },
@@ -64310,10 +64429,34 @@ var Form = function (_Component) {
             'GRETA'
           )
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'nom', id: 'nom', placeholder: school.nom }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'adresse', id: 'adresse', placeholder: school.adresse }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'code_postal', id: 'code_postal', placeholder: school.code_postal }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'commune', id: 'commune', placeholder: school.commune }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'nom',
+          id: 'nom',
+          placeholder: school.nom,
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'adresse',
+          id: 'adresse',
+          placeholder: school.adresse,
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'code_postal',
+          id: 'code_postal',
+          placeholder: school.code_postal,
+          onChange: this.handleInputChange
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'commune',
+          id: 'commune',
+          placeholder: school.commune,
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -64322,10 +64465,16 @@ var Form = function (_Component) {
             _handleWaypoint(false);
           }
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'departement', id: 'departement', placeholder: school.departement }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'departement',
+          id: 'departement',
+          placeholder: school.departement,
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'region', id: 'region' },
+          { name: 'region', id: 'region', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { selected: true, value: school.region },
@@ -64429,7 +64578,7 @@ var Form = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'academie', id: 'academie' },
+          { name: 'academie', id: 'academie', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { selected: true, value: school.academie },
@@ -64596,10 +64745,16 @@ var Form = function (_Component) {
             'Saint-Pierre-et-Miquelon'
           )
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'telephone', id: 'telephone', placeholder: school.telephone }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'text',
+          name: 'telephone',
+          id: 'telephone',
+          placeholder: school.telephone,
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { name: 'ca', id: 'ca' },
+          { name: 'ca', id: 'ca', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { selected: true, value: school.ca },
@@ -64632,7 +64787,7 @@ var Form = function (_Component) {
             className: 'my-button my-button_blue-bg',
             name: 'modifier',
             onClick: function onClick() {
-              handleSubmission();
+              handleSubmission(_this5.state);
             }
           },
           'Modifier'
@@ -64642,6 +64797,8 @@ var Form = function (_Component) {
   }, {
     key: 'renderChangeMemoForm',
     value: function renderChangeMemoForm() {
+      var _this6 = this;
+
       var _props4 = this.props,
           _handleWaypoint = _props4._handleWaypoint,
           handleSubmission = _props4.handleSubmission,
@@ -64650,7 +64807,12 @@ var Form = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'memo', id: 'memo', placeholder: school.memo }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+          name: 'memo',
+          id: 'memo',
+          placeholder: school.memo,
+          onChange: this.handleInputChange
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -64665,7 +64827,7 @@ var Form = function (_Component) {
             className: 'my-button my-button_blue-bg my-nav-button',
             name: 'modifier',
             onClick: function onClick() {
-              handleSubmission();
+              handleSubmission(_this6.state);
             }
           },
           'Modifier'

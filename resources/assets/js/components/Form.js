@@ -2,15 +2,40 @@ import React, { Component } from 'react'
 import Waypoint from 'react-waypoint'
 
 export default class Form extends Component {
+  constructor (props) {
+    super(props)
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange (e) {
+    let value = e.target.value
+    let field = e.target.name
+    this.setState({
+      [field]: value
+    })
+  }
+
   renderAddSchoolForm () {
     let { _handleWaypoint, handleSubmission } = this.props
     return (
       <form>
-        <input type='text' id='code_uai' name='code_uai' placeholder='Code UAI*' />
+        <input
+          type='text'
+          id='code_uai'
+          name='code_uai'
+          placeholder='Code UAI*'
+          onChange={this.handleInputChange}
+        />
 
-        <input type='text' name='code_uai_agence_comptable' id='code_uai_agence_comptable' placeholder='Code UAI agence*' />
+        <input
+          type='text'
+          name='code_uai_agence_comptable'
+          id='code_uai_agence_comptable'
+          placeholder='Code UAI agence*'
+          onChange={this.handleInputChange}
+        />
 
-        <select name='type_etablissement' id='type_etablissement'>
+        <select name='type_etablissement' id='type_etablissement' onChange={this.handleInputChange}>
           <option value=''>Type d’établissement*</option>
           <option value='Collège'>Collège</option>
           <option value='Lycée'>Lycée</option>
@@ -22,22 +47,52 @@ export default class Form extends Component {
           <option value='GRETA'>GRETA</option>
         </select>
 
-        <input type='text' name='nom' id='nom' placeholder='Nom*' />
+        <input
+          type='text'
+          name='nom'
+          id='nom'
+          placeholder='Nom*'
+          onChange={this.handleInputChange}
+        />
 
-        <input type='text' name='adresse' id='adresse' placeholder='Adresse*' />
+        <input
+          type='text'
+          name='adresse'
+          id='adresse'
+          placeholder='Adresse*'
+          onChange={this.handleInputChange}
+        />
 
-        <input type='text' name='code_postal' id='code_postal' placeholder='Code postal*' />
+        <input
+          type='text'
+          name='code_postal'
+          id='code_postal'
+          placeholder='Code postal*'
+          onChange={this.handleInputChange}
+        />
 
-        <input type='text' name='commune' id='commune' placeholder='Commune*' />
+        <input
+          type='text'
+          name='commune'
+          id='commune'
+          placeholder='Commune*'
+          onChange={this.handleInputChange}
+        />
 
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
           onLeave={() => { _handleWaypoint(false) }}
         />
 
-        <input type='text' name='departement' id='departement' placeholder='Département*' />
+        <input
+          type='text'
+          name='departement'
+          id='departement'
+          placeholder='Département*'
+          onChange={this.handleInputChange}
+        />
 
-        <select name='region' id='region'>
+        <select name='region' id='region' onChange={this.handleInputChange}>
           <option value=''>Région*</option>
           <option value='Occitanie'>Occitanie</option>
           <option value='Ile-de-France'>Ile-de-France</option>
@@ -60,7 +115,7 @@ export default class Form extends Component {
           <option value='Collectivité d’outre-mer'>Collectivité d’outre-mer</option>
         </select>
 
-        <select name='academie' id='academie'>
+        <select name='academie' id='academie' onChange={this.handleInputChange}>
           <option value=''>Académie*</option>
           <option value='Lille'>Lille</option>
           <option value='Amiens'>Amiens</option>
@@ -96,9 +151,15 @@ export default class Form extends Component {
           <option value='Saint-Pierre-et-Miquelon'>Saint-Pierre-et-Miquelon</option>
         </select>
 
-        <input type='text' name='telephone' id='telephone' placeholder='Téléphone*' />
+        <input
+          type='text'
+          name='telephone'
+          id='telephone'
+          placeholder='Téléphone*'
+          onChange={this.handleInputChange}
+        />
 
-        <select name='ca' id='ca'>
+        <select name='ca' id='ca' onChange={this.handleInputChange}>
           <option value=''>Total recettes annuelles</option>
           <option value='Jusqu’à 500 000 €'>Jusqu’à 500 000 €</option>
           <option value='Jusqu’à un million €'>Jusqu’à un million €</option>
@@ -106,12 +167,17 @@ export default class Form extends Component {
           <option value='Plus de deux millions €'>Plus de deux millions €</option>
         </select>
 
-        <textarea name='memo' id='memo' placeholder='Informations complémentaires' />
+        <textarea
+          name='memo'
+          id='memo'
+          placeholder='Informations complémentaires'
+          onChange={this.handleInputChange}
+        />
 
         <div
           className='my-button my-button_blue-bg'
           name='ajouter'
-          onClick={() => { handleSubmission() }}
+          onClick={() => { handleSubmission(this.state) }}
         >
           Ajouter
         </div>
@@ -123,7 +189,13 @@ export default class Form extends Component {
     let { _handleWaypoint, handleSubmission } = this.props
     return (
       <form>
-        <input type='text' id='code_uai' name='code_uai' placeholder='UAI nouvelle agence' />
+        <input
+          type='text'
+          id='code_uai'
+          name='code_uai'
+          placeholder='UAI nouvelle agence'
+          onChange={this.handleInputChange}
+        />
 
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
@@ -133,7 +205,7 @@ export default class Form extends Component {
         <div
           className='my-button my-button_blue-bg my-nav-button'
           name='modifier'
-          onClick={() => { handleSubmission() }}
+          onClick={() => { handleSubmission(this.state) }}
         >
           Modifier
         </div>
@@ -145,12 +217,22 @@ export default class Form extends Component {
     let { handleSubmission } = this.props
     return (
       <form>
-        <input type='text' name='email' placeholder='Email' />
-        <input type='password' name='password' placeholder='password' />
+        <input
+          type='text'
+          name='email'
+          placeholder='Email'
+          onChange={this.handleInputChange}
+        />
+        <input
+          type='password'
+          name='password'
+          placeholder='password'
+          onChange={this.handleInputChange}
+        />
         <div
           className='my-button my-button_blue-bg'
           name='ajouter'
-          onClick={() => { handleSubmission() }}
+          onClick={() => { handleSubmission(this.state) }}
         >
           Ajouter
         </div>
@@ -162,9 +244,15 @@ export default class Form extends Component {
     const { _handleWaypoint, handleSubmission, school } = this.props
     return (
       <form>
-        <input type='text' id='code_uai' name='code_uai' placeholder={school.code_uai} />
+        <input
+          type='text'
+          id='code_uai'
+          name='code_uai'
+          placeholder={school.code_uai}
+          onChange={this.handleInputChange}
+        />
 
-        <select name='type_etablissement' id='type_etablissement'>
+        <select name='type_etablissement' id='type_etablissement' onChange={this.handleInputChange}>
           <option selected value={school.type_etablissement}>{school.type_etablissement}</option>
           <option value='Collège'>Collège</option>
           <option value='Lycée'>Lycée</option>
@@ -176,22 +264,52 @@ export default class Form extends Component {
           <option value='GRETA'>GRETA</option>
         </select>
 
-        <input type='text' name='nom' id='nom' placeholder={school.nom} />
+        <input
+          type='text'
+          name='nom'
+          id='nom'
+          placeholder={school.nom}
+          onChange={this.handleInputChange}
+        />
 
-        <input type='text' name='adresse' id='adresse' placeholder={school.adresse} />
+        <input
+          type='text'
+          name='adresse'
+          id='adresse'
+          placeholder={school.adresse}
+          onChange={this.handleInputChange}
+        />
 
-        <input type='text' name='code_postal' id='code_postal' placeholder={school.code_postal} />
+        <input
+          type='text'
+          name='code_postal'
+          id='code_postal'
+          placeholder={school.code_postal}
+          onChange={this.handleInputChange}
+        />
 
-        <input type='text' name='commune' id='commune' placeholder={school.commune} />
+        <input
+          type='text'
+          name='commune'
+          id='commune'
+          placeholder={school.commune}
+          onChange={this.handleInputChange}
+        />
 
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
           onLeave={() => { _handleWaypoint(false) }}
         />
 
-        <input type='text' name='departement' id='departement' placeholder={school.departement} />
+        <input
+          type='text'
+          name='departement'
+          id='departement'
+          placeholder={school.departement}
+          onChange={this.handleInputChange}
+        />
 
-        <select name='region' id='region'>
+        <select name='region' id='region' onChange={this.handleInputChange}>
           <option selected value={school.region}>{school.region}</option>
           <option value='Occitanie'>Occitanie</option>
           <option value='Ile-de-France'>Ile-de-France</option>
@@ -214,7 +332,7 @@ export default class Form extends Component {
           <option value='Collectivité d’outre-mer'>Collectivité d’outre-mer</option>
         </select>
 
-        <select name='academie' id='academie'>
+        <select name='academie' id='academie' onChange={this.handleInputChange}>
           <option selected value={school.academie}>{school.academie}</option>
           <option value='Lille'>Lille</option>
           <option value='Amiens'>Amiens</option>
@@ -250,9 +368,15 @@ export default class Form extends Component {
           <option value='Saint-Pierre-et-Miquelon'>Saint-Pierre-et-Miquelon</option>
         </select>
 
-        <input type='text' name='telephone' id='telephone' placeholder={school.telephone} />
+        <input
+          type='text'
+          name='telephone'
+          id='telephone'
+          placeholder={school.telephone}
+          onChange={this.handleInputChange}
+        />
 
-        <select name='ca' id='ca'>
+        <select name='ca' id='ca' onChange={this.handleInputChange}>
           <option selected value={school.ca}>{school.ca}</option>
           <option value='Jusqu’à 500 000 €'>Jusqu’à 500 000 €</option>
           <option value='Jusqu’à un million €'>Jusqu’à un million €</option>
@@ -263,7 +387,7 @@ export default class Form extends Component {
         <div
           className='my-button my-button_blue-bg'
           name='modifier'
-          onClick={() => { handleSubmission() }}
+          onClick={() => { handleSubmission(this.state) }}
         >
           Modifier
         </div>
@@ -275,7 +399,12 @@ export default class Form extends Component {
     const { _handleWaypoint, handleSubmission, school } = this.props
     return (
       <form>
-        <textarea name='memo' id='memo' placeholder={school.memo} />
+        <textarea
+          name='memo'
+          id='memo'
+          placeholder={school.memo}
+          onChange={this.handleInputChange}
+        />
 
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
@@ -285,7 +414,7 @@ export default class Form extends Component {
         <div
           className='my-button my-button_blue-bg my-nav-button'
           name='modifier'
-          onClick={() => { handleSubmission() }}
+          onClick={() => { handleSubmission(this.state) }}
         >
           Modifier
         </div>
