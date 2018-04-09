@@ -19,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('schools', 'SchoolsController@index');
 
+Route::get('etablissements/{etablissement}', 'SchoolsController@singleSchool');
+
 // Route::get('test')

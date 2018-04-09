@@ -15,29 +15,7 @@ export default class Schools extends Component {
 
   componentDidMount () {
     let pathname = this.props.location.pathname
-    if (pathname === '/etablissements/0750680G') {
-      // fetch corresponding school
-      this.setState({
-        schools: [
-          {
-            code_uai: '0750680G',
-            code_uai_agence_comptable: '0750680G',
-            type_etablissement: 'Lycée',
-            nom: 'Arago',
-            adresse: '4 Place de la Nation',
-            code_postal: '75012',
-            commune: 'Paris',
-            departement: '75 - Paris',
-            region: 'Île-de-France',
-            academie: 'Paris',
-            telephone: '01 43 07 37 40',
-            ca: 'Jusqu’à un million €',
-            memo: 'Rénovation en cours',
-            up_to_date: '2014-01-01'
-          }
-        ]
-      })
-    } else if (pathname === '/etablissements' || pathname === '/agences') {
+    if (pathname === '/etablissements' || pathname === '/agences') {
       // fetch schools corresponding to search criteria
       let isAgencies = pathname === '/agences' ? '&agencies' : ''
       let url = this.props.location
@@ -50,7 +28,16 @@ export default class Schools extends Component {
           console.log(error)
         })
     } else {
-      return <div>404 not found</div>
+      // fetch corresponding school
+      let url = this.props.location
+      const requestUrl = 'http://localhost:8888/public/api' + url.pathname
+      axios.get(requestUrl)
+        .then(school => {
+          this.setState({ schools: school.data })
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   }
 
@@ -59,10 +46,7 @@ export default class Schools extends Component {
     let title = ''
     let text = ''
     let isAgencySearch = false
-    if (this.props.location.pathname === '/etablissements/0750680G') {
-      title = 'Etablissement :'
-      text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence de cet établissement<br>Vous pouvez visualiser les informations de l’établissement en cliquant sur son nom'
-    } else if (this.props.location.pathname === '/etablissements') {
+    if (this.props.location.pathname === '/etablissements') {
       title = 'Établissements correspondant à vos critères de recherche :'
       text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence en question<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom'
     } else if (this.props.location.pathname === '/agences') {
@@ -70,7 +54,12 @@ export default class Schools extends Component {
       title = 'Agences correspondant à vos critères de recherche :'
       text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence en question<br>Vous pouvez visualiser les informations de l’établissement agence en cliquant sur son nom'
     } else {
-      return <div>404 not found</div>
+      let schoolName = ''
+      if (schools[0] !== undefined) {
+        schoolName = schools[0]['nom']
+      }
+      title = schoolName
+      text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence de cet établissement<br>Vous pouvez visualiser les informations de l’établissement en cliquant sur son nom'
     }
 
     return (

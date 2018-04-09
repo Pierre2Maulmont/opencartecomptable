@@ -62714,27 +62714,7 @@ var Schools = function (_Component) {
       var _this2 = this;
 
       var pathname = this.props.location.pathname;
-      if (pathname === '/etablissements/0750680G') {
-        // fetch corresponding school
-        this.setState({
-          schools: [{
-            code_uai: '0750680G',
-            code_uai_agence_comptable: '0750680G',
-            type_etablissement: 'Lycée',
-            nom: 'Arago',
-            adresse: '4 Place de la Nation',
-            code_postal: '75012',
-            commune: 'Paris',
-            departement: '75 - Paris',
-            region: 'Île-de-France',
-            academie: 'Paris',
-            telephone: '01 43 07 37 40',
-            ca: 'Jusqu’à un million €',
-            memo: 'Rénovation en cours',
-            up_to_date: '2014-01-01'
-          }]
-        });
-      } else if (pathname === '/etablissements' || pathname === '/agences') {
+      if (pathname === '/etablissements' || pathname === '/agences') {
         // fetch schools corresponding to search criteria
         var isAgencies = pathname === '/agences' ? '&agencies' : '';
         var url = this.props.location;
@@ -62745,11 +62725,14 @@ var Schools = function (_Component) {
           console.log(error);
         });
       } else {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          null,
-          '404 not found'
-        );
+        // fetch corresponding school
+        var _url = this.props.location;
+        var _requestUrl = 'http://localhost:8888/public/api' + _url.pathname;
+        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(_requestUrl).then(function (school) {
+          _this2.setState({ schools: school.data });
+        }).catch(function (error) {
+          console.log(error);
+        });
       }
     }
   }, {
@@ -62760,10 +62743,7 @@ var Schools = function (_Component) {
       var title = '';
       var text = '';
       var isAgencySearch = false;
-      if (this.props.location.pathname === '/etablissements/0750680G') {
-        title = 'Etablissement :';
-        text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence de cet établissement<br>Vous pouvez visualiser les informations de l’établissement en cliquant sur son nom';
-      } else if (this.props.location.pathname === '/etablissements') {
+      if (this.props.location.pathname === '/etablissements') {
         title = 'Établissements correspondant à vos critères de recherche :';
         text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence en question<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom';
       } else if (this.props.location.pathname === '/agences') {
@@ -62771,11 +62751,12 @@ var Schools = function (_Component) {
         title = 'Agences correspondant à vos critères de recherche :';
         text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence en question<br>Vous pouvez visualiser les informations de l’établissement agence en cliquant sur son nom';
       } else {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          null,
-          '404 not found'
-        );
+        var schoolName = '';
+        if (schools[0] !== undefined) {
+          schoolName = schools[0]['nom'];
+        }
+        title = schoolName;
+        text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence de cet établissement<br>Vous pouvez visualiser les informations de l’établissement en cliquant sur son nom';
       }
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

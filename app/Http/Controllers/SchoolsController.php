@@ -68,6 +68,14 @@ class SchoolsController extends Controller
       return $schools;
     }
 
+    public function singleSchool($code_uai)
+    {
+      $sql = 'select * from etablissements where code_uai = ?';
+      $school = DB::select($sql, [$code_uai]);
+
+      return $school;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
