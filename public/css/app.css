@@ -267,7 +267,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-size: 15px;
+  font-size: 18px;
   font-family: Open Sans;
   color: #505050;
 }
@@ -309,6 +309,7 @@ body {
   padding-left: 20px;
   border-left: 1px solid #7b8484;
   height: 80px;
+  font-size: 15px;
 }
 
 .update-date-grey {

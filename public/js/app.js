@@ -17616,7 +17616,7 @@ var ResultsTable = function (_Component) {
                     { className: 'school-name' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoModal__["a" /* default */], {
                       modalText: item.nom,
-                      school: { updateDate: '2014-01-01' }
+                      school: item
                     })
                   )
                 ),
@@ -62992,7 +62992,7 @@ var App = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'school-modal-title' },
-                'Nom du lyc\xE9e'
+                school.nom
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -63006,11 +63006,11 @@ var App = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'p',
                 null,
-                'Ces informations \xE9taient \xE0 jour le : ',
+                'Ces informations \xE9taient \xE0 jour le :\xA0',
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'span',
-                  { className: school.updateDate === '2014-01-01' ? 'update-date-grey' : '' },
-                  school.updateDate
+                  { className: school.up_to_date === '2014-01-01' ? 'update-date-grey' : '' },
+                  school.up_to_date
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -63032,44 +63032,44 @@ var App = function (_Component) {
               'div',
               { className: 'school-modal-info school-modal-info-left' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h4',
+                'h5',
                 null,
                 'Type d\u2019\xE9tablissement :'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'p',
                 null,
-                'Lyc\xE9e'
+                school.type_etablissement
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h4',
+                'h5',
                 null,
                 'Adresse :'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'p',
                 null,
-                '4 Place de la Nation'
+                school.adresse
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h4',
+                'h5',
                 null,
                 'T\xE9l\xE9phone :'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'p',
                 null,
-                '00 00 00 00 00'
+                school.telephone
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h4',
+                'h5',
                 null,
                 'Total recettes annuelles\xA0:'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'p',
                 null,
-                'Plus de deux millions \u20AC'
+                school.ca ? school.ca : '-'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -63085,14 +63085,14 @@ var App = function (_Component) {
               'div',
               { className: 'school-modal-info school-modal-info-right' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h4',
+                'h5',
                 null,
                 'Informations compl\xE9mentaires :'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'p',
                 null,
-                'En r\xE9novation'
+                school.memo ? school.memo : '-'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',

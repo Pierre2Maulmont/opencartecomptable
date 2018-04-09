@@ -26,7 +26,7 @@
   outline: none;
   display: flex;
   flex-direction: column;
-  font-size: 15px;
+  font-size: 18px;
   font-family: Open Sans;
   color: $greyText;
 }
@@ -66,6 +66,7 @@
   padding-left: 20px;
   border-left: 1px solid $lightGrayBorder;
   height: 80px;
+  font-size: 15px;
 }
 
 .update-date-grey {

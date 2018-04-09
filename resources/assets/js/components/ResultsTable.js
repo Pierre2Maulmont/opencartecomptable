@@ -48,7 +48,7 @@ export default class ResultsTable extends Component {
                       <span className='school-name'>
                         <InfoModal
                           modalText={item.nom}
-                          school={{updateDate: '2014-01-01'}}
+                          school={item}
                         />
                       </span>
                     </td>

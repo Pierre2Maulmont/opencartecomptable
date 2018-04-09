@@ -48,27 +48,37 @@ export default class App extends Component {
         >
           <div className='school-modal-top'>
             <div className='school-modal-header'>
-              <div className='school-modal-title'>Nom du lycée</div>
+              <div className='school-modal-title'>{school.nom}</div>
               <div className='school-modal-close' onClick={this.closeModal}>&times;</div>
             </div>
             <div className='school-modal-top-content'>
-              <p>Ces informations étaient à jour le : <span className={school.updateDate === '2014-01-01' ? 'update-date-grey' : ''}>{school.updateDate}</span></p>
-              <p><i className='fa fa-thumbs-up update-icon' /><span className='update-message'>Je confirme que ces informations sont aujourd’hui à jour</span></p>
+              <p>
+                Ces informations étaient à jour le :&nbsp;
+                <span className={school.up_to_date === '2014-01-01' ? 'update-date-grey' : ''}>
+                  {school.up_to_date}
+                </span>
+              </p>
+              <p>
+                <i className='fa fa-thumbs-up update-icon' />
+                <span className='update-message'>
+                  Je confirme que ces informations sont aujourd’hui à jour
+                </span>
+              </p>
             </div>
           </div>
           <div className='school-modal-bottom'>
             <div className='school-modal-info school-modal-info-left'>
-              <h4>Type d’établissement :</h4>
-              <p>Lycée</p>
+              <h5>Type d’établissement :</h5>
+              <p>{school.type_etablissement}</p>
 
-              <h4>Adresse :</h4>
-              <p>4 Place de la Nation</p>
+              <h5>Adresse :</h5>
+              <p>{school.adresse}</p>
 
-              <h4>Téléphone :</h4>
-              <p>00 00 00 00 00</p>
+              <h5>Téléphone :</h5>
+              <p>{school.telephone}</p>
 
-              <h4>Total recettes annuelles&nbsp;:</h4>
-              <p>Plus de deux millions €</p>
+              <h5>Total recettes annuelles&nbsp;:</h5>
+              <p>{school.ca ? school.ca : '-'}</p>
 
               <div className='school-modal-button'>
                 <NavLink className='my-button my-small-button' to={'/etablissements/0750680G/modifier-informations'}>Modifier</NavLink>
@@ -76,8 +86,8 @@ export default class App extends Component {
             </div>
 
             <div className='school-modal-info school-modal-info-right'>
-              <h4>Informations complémentaires :</h4>
-              <p>En rénovation</p>
+              <h5>Informations complémentaires :</h5>
+              <p>{school.memo ? school.memo : '-'}</p>
 
               <div className='school-modal-button'>
                 <NavLink className='my-button my-small-button' to={'/etablissements/0750680G/modifier-informations-complementaires'}>Modifier</NavLink>
