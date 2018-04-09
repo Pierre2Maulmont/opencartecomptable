@@ -62713,7 +62713,8 @@ var Schools = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      if (this.props.location.pathname === '/etablissements/0750680G') {
+      var pathname = this.props.location.pathname;
+      if (pathname === '/etablissements/0750680G') {
         // fetch corresponding school
         this.setState({
           schools: [{
@@ -62733,22 +62734,12 @@ var Schools = function (_Component) {
             up_to_date: '2014-01-01'
           }]
         });
-      } else if (this.props.location.pathname === '/etablissements') {
+      } else if (pathname === '/etablissements' || pathname === '/agences') {
         // fetch schools corresponding to search criteria
+        var isAgencies = pathname === '/agences' ? '&agencies' : '';
         var url = this.props.location;
-        var requestUrl = 'http://localhost:8888/public/api/schools' + url.search;
-        console.log(requestUrl);
+        var requestUrl = 'http://localhost:8888/public/api/schools' + url.search + isAgencies;
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (schools) {
-          _this2.setState({ schools: schools.data });
-        }).catch(function (error) {
-          console.log(error);
-        });
-      } else if (this.props.location.pathname === '/agences') {
-        // fetch agencies corresponding to search criteria
-        var _url = this.props.location;
-        var _requestUrl = 'http://localhost:8888/public/api/agencies' + _url.search;
-        console.log(_requestUrl);
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(_requestUrl).then(function (schools) {
           _this2.setState({ schools: schools.data });
         }).catch(function (error) {
           console.log(error);

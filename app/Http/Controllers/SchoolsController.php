@@ -18,6 +18,10 @@ class SchoolsController extends Controller
       $sql = 'select * from etablissements where ';
       $values = [];
 
+      if ($request->has('agencies')) {
+        $sql = $sql . ' code_uai_agence_comptable = code_uai AND ';
+      }
+
       if ($request->has('code_uai')) {
         $sql = $sql . 'code_uai = ? AND ';
         array_push($values, $request->input('code_uai'));

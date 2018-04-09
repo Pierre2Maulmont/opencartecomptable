@@ -14,7 +14,8 @@ export default class Schools extends Component {
   }
 
   componentDidMount () {
-    if (this.props.location.pathname === '/etablissements/0750680G') {
+    let pathname = this.props.location.pathname
+    if (pathname === '/etablissements/0750680G') {
       // fetch corresponding school
       this.setState({
         schools: [
@@ -36,23 +37,11 @@ export default class Schools extends Component {
           }
         ]
       })
-    } else if (this.props.location.pathname === '/etablissements') {
+    } else if (pathname === '/etablissements' || pathname === '/agences') {
       // fetch schools corresponding to search criteria
+      let isAgencies = pathname === '/agences' ? '&agencies' : ''
       let url = this.props.location
-      const requestUrl = 'http://localhost:8888/public/api/schools' + url.search
-      console.log(requestUrl)
-      axios.get(requestUrl)
-        .then(schools => {
-          this.setState({ schools: schools.data })
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    } else if (this.props.location.pathname === '/agences') {
-      // fetch agencies corresponding to search criteria
-      let url = this.props.location
-      const requestUrl = 'http://localhost:8888/public/api/agencies' + url.search
-      console.log(requestUrl)
+      const requestUrl = 'http://localhost:8888/public/api/schools' + url.search + isAgencies
       axios.get(requestUrl)
         .then(schools => {
           this.setState({ schools: schools.data })
