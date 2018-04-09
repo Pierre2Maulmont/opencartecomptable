@@ -76,6 +76,14 @@ class SchoolsController extends Controller
       return $school;
     }
 
+    public function agency($code_uai_agence_comptable)
+    {
+      $sql = 'select * from etablissements where code_uai_agence_comptable = ?';
+      $schools = DB::select($sql, [$code_uai_agence_comptable]);
+
+      return $schools;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -17629,7 +17629,7 @@ var ResultsTable = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* NavLink */],
                     {
                       className: 'my-button my-small-button my-button_blue-bg',
-                      to: '/agences/0750680G'
+                      to: '/agences/' + item.code_uai_agence_comptable
                     },
                     item.code_uai_agence_comptable
                   )
@@ -64208,9 +64208,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_TopSection__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_ResultsTable__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_PageComponent__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TopSection__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ResultsTable__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_PageComponent__ = __webpack_require__(7);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64218,6 +64220,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -64242,54 +64245,15 @@ var Agency = function (_Component) {
   _createClass(Agency, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       // fetch corresponding agency schools
-      this.setState({
-        schools: [{
-          code_uai: '0750680G',
-          code_uai_agence_comptable: '0750680G',
-          type_etablissement: 'Lycée',
-          nom: 'Lycée Arago',
-          adresse: '4 Place de la Nation',
-          code_postal: '75012',
-          commune: 'Paris',
-          departement: '75 - Paris',
-          region: 'Île-de-France',
-          academie: 'Paris',
-          telephone: '01 43 07 37 40',
-          ca: 'Jusqu’à un million €',
-          memo: 'Rénovation en cours',
-          up_to_date: '2014-01-01'
-        }, {
-          code_uai: '0750676C',
-          code_uai_agence_comptable: '0750680G',
-          type_etablissement: 'Lycée',
-          nom: 'Lycée polyvalent Dorian',
-          adresse: '74 avenue Philippe Auguste',
-          code_postal: '75011',
-          commune: 'Paris',
-          departement: '75 - Paris',
-          region: 'Île-de-France',
-          academie: 'Paris',
-          telephone: '01 44 93 81 30',
-          ca: 'Jusqu’à deux millions €',
-          memo: '',
-          up_to_date: '2014-01-01'
-        }, {
-          code_uai: '0754528P',
-          code_uai_agence_comptable: '0750680G',
-          type_etablissement: 'Collège',
-          nom: 'Collège Pilâtre de Rozier',
-          adresse: '11 rue Bouvier',
-          code_postal: '75011',
-          commune: 'Paris',
-          departement: '75 - Paris',
-          region: 'Île-de-France',
-          academie: 'Paris',
-          telephone: '01 43 56 74 51',
-          ca: 'Jusqu’à 500 000 €',
-          memo: '',
-          up_to_date: '2014-01-01'
-        }]
+      var url = this.props.location;
+      var requestUrl = 'http://localhost:8888/public/api' + url.pathname;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (schools) {
+        _this2.setState({ schools: schools.data });
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }, {
@@ -64297,17 +64261,18 @@ var Agency = function (_Component) {
     value: function render() {
       var schools = this.state.schools;
 
+      var agencyId = this.props.location.pathname.substring(9, 17);
       var title = 'Agence : Lycée Arago - 0750680G - 3 établissements';
       var text = 'Département : 75 - Paris | Région : Île-de-France | Académie : Paris<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom';
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_3__components_PageComponent__["a" /* default */],
+        __WEBPACK_IMPORTED_MODULE_4__components_PageComponent__["a" /* default */],
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_TopSection__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_TopSection__["a" /* default */], {
           title: title,
           text: text,
           smallText: true
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_ResultsTable__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ResultsTable__["a" /* default */], {
           schools: schools,
           isAgencyView: true
         })

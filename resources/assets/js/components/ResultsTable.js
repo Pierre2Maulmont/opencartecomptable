@@ -37,7 +37,7 @@ export default class ResultsTable extends Component {
                       !isAgencyView && <td>
                         <NavLink
                           className='my-button my-small-button my-button_blue-bg'
-                          to={'/agences/0750680G'}
+                          to={'/agences/' + item.code_uai_agence_comptable}
                         >
                           {item.code_uai_agence_comptable}
                         </NavLink>

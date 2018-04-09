@@ -21,4 +21,6 @@ Route::get('schools', 'SchoolsController@index');
 
 Route::get('etablissements/{etablissement}', 'SchoolsController@singleSchool');
 
+Route::get('agences/{agence}', 'SchoolsController@agency');
+
 // Route::get('test')
