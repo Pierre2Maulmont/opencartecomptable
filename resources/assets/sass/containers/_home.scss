@@ -243,16 +243,26 @@ About
   margin-top: 40px;
 }
 
-#img1 {
+.img1 {
   position: absolute;
   top: 0px;
   right: 90px;
   height: 300px;
+  transform: rotate(1deg);
+}
+
+.img2 {
+  position: absolute;
+  top: 390px;
+  left: 50px;
+  height: 200px;
+  transform: rotate(-3deg);
 }
 
 #img2 {
-  position: absolute;
-  top: 300px;
-  left: 50px;
   height: 200px;
+}
+
+#img1 {
+  height: 300px;
 }

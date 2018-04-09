@@ -107,7 +107,7 @@ body {
   color: #7b8484 !important;
 }
 
-.test {
+.footer-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -798,18 +798,30 @@ About
   margin-top: 40px;
 }
 
-#img1 {
+.img1 {
   position: absolute;
   top: 0px;
   right: 90px;
   height: 300px;
+  -webkit-transform: rotate(1deg);
+          transform: rotate(1deg);
+}
+
+.img2 {
+  position: absolute;
+  top: 390px;
+  left: 50px;
+  height: 200px;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
 }
 
 #img2 {
-  position: absolute;
-  top: 300px;
-  left: 50px;
   height: 200px;
+}
+
+#img1 {
+  height: 300px;
 }
 
 .map-container {

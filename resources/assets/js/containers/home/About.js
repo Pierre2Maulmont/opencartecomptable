@@ -18,8 +18,12 @@ export default class About extends Component {
   render () {
     return (
       <div className='about-box'>
-        <img id='img1' alt='map' src='/public/images/map.jpg' />
-        <img id='img2' alt='map' src='/public/images/map_with_man.jpeg' />
+        <div className='img1'>
+          <img id='img1' alt='map' src='/public/images/map.jpg' />
+        </div>
+        <div className='img2'>
+          <img id='img2' alt='map' src='/public/images/map_with_man.jpeg' />
+        </div>
 
         <div className='container'>
           <div id='about-columns' className='row about-colums'>
@@ -27,7 +31,7 @@ export default class About extends Component {
             <div className='col-sm-6 about-column about-left-column'>
               <AboutParagraph
                 title='Une information claire et rapidement accessible…'
-                para1='Le site <span className="highlight">Open Carte Comptable</span> offre la possibilité de rechercher des agences comptables et établissements (consulter la composition des agences et les informations des établissements). Vous pouvez voir les statistiques par académie en cliquant <a href="/#/statistiques">ici</a>.'
+                para1='Le site <span className="highlight">Open Carte Comptable</span> offre la possibilité de rechercher des agences comptables et établissements (consulter la composition des agences et les informations des établissements). Vous pouvez voir les statistiques par académie en cliquant <a href="#/statistiques">ici</a>.'
                 para2='En présentant une cartographie nationale des regroupements comptables, cet outil est particulièrement utile à l&rsquo;agent qui va muter et souhaite <span className="highlight">connaître le détail des agences des établissements qui l&rsquo;intéressent</span>.'
               />
               <AboutParagraph
@@ -40,7 +44,7 @@ export default class About extends Component {
             <div className='col-sm-6 about-column about-right-column'>
               <AboutParagraph
                 title='…mise à jour par la communauté '
-                para1='Votre établissement a changé d&rsquo;agence ? Une information n&rsquo;est plus à jour ? Vous pouvez <span className="highlight">modifier simplement les données d&rsquo;Open Carte Comptable</span>, tout comme vous pouvez <a href="/#/ajouter-etablissement">ajouter un établissement</a>.'
+                para1='Votre établissement a changé d&rsquo;agence ? Une information n&rsquo;est plus à jour ? Vous pouvez <span className="highlight">modifier simplement les données d&rsquo;Open Carte Comptable</span>, tout comme vous pouvez <a href="#/ajouter-etablissement">ajouter un établissement</a>.'
               />
             </div>
           </div>

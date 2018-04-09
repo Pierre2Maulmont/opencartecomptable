@@ -58946,8 +58946,16 @@ var About = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'about-box' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img1', alt: 'map', src: '/public/images/map.jpg' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img2', alt: 'map', src: '/public/images/map_with_man.jpeg' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'img1' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img1', alt: 'map', src: '/public/images/map.jpg' })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'img2' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img2', alt: 'map', src: '/public/images/map_with_man.jpeg' })
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'container' },
@@ -58959,7 +58967,7 @@ var About = function (_Component) {
               { className: 'col-sm-6 about-column about-left-column' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AboutParagraph__["a" /* default */], {
                 title: 'Une information claire et rapidement accessible\u2026',
-                para1: 'Le site <span className="highlight">Open Carte Comptable</span> offre la possibilit\xE9 de rechercher des agences comptables et \xE9tablissements (consulter la composition des agences et les informations des \xE9tablissements). Vous pouvez voir les statistiques par acad\xE9mie en cliquant <a href="/#/statistiques">ici</a>.',
+                para1: 'Le site <span className="highlight">Open Carte Comptable</span> offre la possibilit\xE9 de rechercher des agences comptables et \xE9tablissements (consulter la composition des agences et les informations des \xE9tablissements). Vous pouvez voir les statistiques par acad\xE9mie en cliquant <a href="#/statistiques">ici</a>.',
                 para2: 'En pr\xE9sentant une cartographie nationale des regroupements comptables, cet outil est particuli\xE8rement utile \xE0 l\u2019agent qui va muter et souhaite <span className="highlight">conna\xEEtre le d\xE9tail des agences des \xE9tablissements qui l\u2019int\xE9ressent</span>.'
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AboutParagraph__["a" /* default */], {
@@ -58973,7 +58981,7 @@ var About = function (_Component) {
               { className: 'col-sm-6 about-column about-right-column' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AboutParagraph__["a" /* default */], {
                 title: '\u2026mise \xE0 jour par la communaut\xE9 ',
-                para1: 'Votre \xE9tablissement a chang\xE9 d\u2019agence ? Une information n\u2019est plus \xE0 jour ? Vous pouvez <span className="highlight">modifier simplement les donn\xE9es d\u2019Open Carte Comptable</span>, tout comme vous pouvez <a href="/#/ajouter-etablissement">ajouter un \xE9tablissement</a>.'
+                para1: 'Votre \xE9tablissement a chang\xE9 d\u2019agence ? Une information n\u2019est plus \xE0 jour ? Vous pouvez <span className="highlight">modifier simplement les donn\xE9es d\u2019Open Carte Comptable</span>, tout comme vous pouvez <a href="#/ajouter-etablissement">ajouter un \xE9tablissement</a>.'
               })
             )
           )
@@ -65010,7 +65018,7 @@ var Footer = function (_Component) {
           { className: 'container' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'row test' },
+            { className: 'row footer-content' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'a',
               { href: 'https://openacademie.beta.gouv.fr/', target: '_blank', rel: 'noopener noreferrer' },
