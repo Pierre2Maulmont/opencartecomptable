@@ -17669,7 +17669,7 @@ var ResultsTable = function (_Component) {
                 isAgencyView && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'td',
                   null,
-                  item.ca
+                  item.ca ? item.ca : '-'
                 ),
                 isAgencyView && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'td',
@@ -17685,7 +17685,7 @@ var ResultsTable = function (_Component) {
                       className: 'my-button my-small-button my-button_blue-bg',
                       to: '/etablissements/0750680G/changer-agence'
                     },
-                    'Changer d\u2019agence'
+                    'Changer\xA0d\u2019agence'
                   )
                 )
               );
@@ -64262,8 +64262,25 @@ var Agency = function (_Component) {
       var schools = this.state.schools;
 
       var agencyId = this.props.location.pathname.substring(9, 17);
-      var title = 'Agence : Lycée Arago - 0750680G - 3 établissements';
-      var text = 'Département : 75 - Paris | Région : Île-de-France | Académie : Paris<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom';
+      var agencyName = '';
+      var agencyDepartment = '';
+      var agencyRegion = '';
+      var agencyAcademy = '';
+      Object.keys(schools).map(function (item) {
+        if (schools[item] !== undefined) {
+          if (schools[item]['code_uai'] === agencyId) {
+            agencyName = schools[item]['nom'];
+            agencyDepartment = schools[item]['departement'];
+            agencyRegion = schools[item]['region'];
+            agencyAcademy = schools[item]['academie'];
+          }
+        }
+      });
+
+      var title = 'Agence : ' + agencyName + ' - ' + agencyId + ' - ' + schools.length + ' établissements';
+
+      var text = 'Département : ' + agencyDepartment + ' | Région : ' + agencyRegion + ' | Académie : ' + agencyAcademy + '<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom';
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_4__components_PageComponent__["a" /* default */],
         null,

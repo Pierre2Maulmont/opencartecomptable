@@ -68,7 +68,7 @@ export default class ResultsTable extends Component {
                     }
 
                     {
-                      isAgencyView && <td>{item.ca}</td>
+                      isAgencyView && <td>{item.ca ? item.ca : '-'}</td>
                     }
 
                     {
@@ -80,7 +80,7 @@ export default class ResultsTable extends Component {
                         className='my-button my-small-button my-button_blue-bg'
                         to={'/etablissements/0750680G/changer-agence'}
                       >
-                      Changer d’agence
+                      Changer&nbsp;d’agence
                       </NavLink>
                     </td>
 

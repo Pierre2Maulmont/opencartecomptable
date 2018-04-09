@@ -29,8 +29,30 @@ export default class Agency extends Component {
   render () {
     let { schools } = this.state
     let agencyId = this.props.location.pathname.substring(9, 17)
-    let title = 'Agence : Lycée Arago - 0750680G - 3 établissements'
-    let text = 'Département : 75 - Paris | Région : Île-de-France | Académie : Paris<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom'
+    let agencyName = ''
+    let agencyDepartment = ''
+    let agencyRegion = ''
+    let agencyAcademy = ''
+    Object.keys(schools).map(item => {
+      if (schools[item] !== undefined) {
+        if (schools[item]['code_uai'] === agencyId) {
+          agencyName = schools[item]['nom']
+          agencyDepartment = schools[item]['departement']
+          agencyRegion = schools[item]['region']
+          agencyAcademy = schools[item]['academie']
+        }
+      }
+    })
+
+    let title = 'Agence : ' + agencyName + ' - ' +
+      agencyId + ' - ' +
+      schools.length + ' établissements'
+
+    let text = 'Département : ' + agencyDepartment +
+      ' | Région : ' + agencyRegion +
+      ' | Académie : ' + agencyAcademy +
+      '<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom'
+
     return (
       <PageComponent>
         <TopSection
