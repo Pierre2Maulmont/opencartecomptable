@@ -13,7 +13,6 @@ export default class SearchFormSection extends Component {
 
   handleClick (searchType) {
     if (this.state.searchType !== '') {
-      console.log('dif')
       this.setState({
         searchType: ''
       })

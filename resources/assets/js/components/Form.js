@@ -5,6 +5,7 @@ export default class Form extends Component {
   constructor (props) {
     super(props)
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   handleInputChange (e) {
@@ -13,6 +14,12 @@ export default class Form extends Component {
     this.setState({
       [field]: value
     })
+  }
+
+  handleKeyPress (event) {
+    if (event.key === 'Enter') {
+      this.props.handleSubmission(this.state)
+    }
   }
 
   renderAddSchoolForm () {
@@ -25,6 +32,7 @@ export default class Form extends Component {
           name='code_uai'
           placeholder='Code UAI*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -33,6 +41,7 @@ export default class Form extends Component {
           id='code_uai_agence_comptable'
           placeholder='Code UAI agence*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <select name='type_etablissement' id='type_etablissement' onChange={this.handleInputChange}>
@@ -53,6 +62,7 @@ export default class Form extends Component {
           id='nom'
           placeholder='Nom*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -61,6 +71,7 @@ export default class Form extends Component {
           id='adresse'
           placeholder='Adresse*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -69,6 +80,7 @@ export default class Form extends Component {
           id='code_postal'
           placeholder='Code postal*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -77,6 +89,7 @@ export default class Form extends Component {
           id='commune'
           placeholder='Commune*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <Waypoint
@@ -90,6 +103,7 @@ export default class Form extends Component {
           id='departement'
           placeholder='Département*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <select name='region' id='region' onChange={this.handleInputChange}>
@@ -157,6 +171,7 @@ export default class Form extends Component {
           id='telephone'
           placeholder='Téléphone*'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <select name='ca' id='ca' onChange={this.handleInputChange}>
@@ -195,6 +210,7 @@ export default class Form extends Component {
           name='code_uai'
           placeholder='UAI nouvelle agence'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <Waypoint
@@ -222,12 +238,14 @@ export default class Form extends Component {
           name='email'
           placeholder='Email'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
         <input
           type='password'
           name='password'
           placeholder='password'
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
         <div
           className='my-button my-button_blue-bg'
@@ -250,6 +268,7 @@ export default class Form extends Component {
           name='code_uai'
           placeholder={school.code_uai}
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <select name='type_etablissement' id='type_etablissement' onChange={this.handleInputChange}>
@@ -270,6 +289,7 @@ export default class Form extends Component {
           id='nom'
           placeholder={school.nom}
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -278,6 +298,7 @@ export default class Form extends Component {
           id='adresse'
           placeholder={school.adresse}
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -286,6 +307,7 @@ export default class Form extends Component {
           id='code_postal'
           placeholder={school.code_postal}
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -294,6 +316,7 @@ export default class Form extends Component {
           id='commune'
           placeholder={school.commune}
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <Waypoint
@@ -307,6 +330,7 @@ export default class Form extends Component {
           id='departement'
           placeholder={school.departement}
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <select name='region' id='region' onChange={this.handleInputChange}>
@@ -374,6 +398,7 @@ export default class Form extends Component {
           id='telephone'
           placeholder={school.telephone}
           onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
         />
 
         <select name='ca' id='ca' onChange={this.handleInputChange}>

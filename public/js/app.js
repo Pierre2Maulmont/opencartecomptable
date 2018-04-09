@@ -4542,6 +4542,7 @@ var Form = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
     _this.handleInputChange = _this.handleInputChange.bind(_this);
+    _this.handleKeyPress = _this.handleKeyPress.bind(_this);
     return _this;
   }
 
@@ -4551,6 +4552,13 @@ var Form = function (_Component) {
       var value = e.target.value;
       var field = e.target.name;
       this.setState(_defineProperty({}, field, value));
+    }
+  }, {
+    key: 'handleKeyPress',
+    value: function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        this.props.handleSubmission(this.state);
+      }
     }
   }, {
     key: 'renderAddSchoolForm',
@@ -4569,14 +4577,16 @@ var Form = function (_Component) {
           id: 'code_uai',
           name: 'code_uai',
           placeholder: 'Code UAI*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'code_uai_agence_comptable',
           id: 'code_uai_agence_comptable',
           placeholder: 'Code UAI agence*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
@@ -4632,28 +4642,32 @@ var Form = function (_Component) {
           name: 'nom',
           id: 'nom',
           placeholder: 'Nom*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'adresse',
           id: 'adresse',
           placeholder: 'Adresse*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'code_postal',
           id: 'code_postal',
           placeholder: 'Code postal*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'commune',
           id: 'commune',
           placeholder: 'Commune*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
@@ -4668,7 +4682,8 @@ var Form = function (_Component) {
           name: 'departement',
           id: 'departement',
           placeholder: 'D\xE9partement*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
@@ -4948,7 +4963,8 @@ var Form = function (_Component) {
           name: 'telephone',
           id: 'telephone',
           placeholder: 'T\xE9l\xE9phone*',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
@@ -5015,7 +5031,8 @@ var Form = function (_Component) {
           id: 'code_uai',
           name: 'code_uai',
           placeholder: 'UAI nouvelle agence',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
@@ -5052,13 +5069,15 @@ var Form = function (_Component) {
           type: 'text',
           name: 'email',
           placeholder: 'Email',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'password',
           name: 'password',
           placeholder: 'password',
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
@@ -5091,7 +5110,8 @@ var Form = function (_Component) {
           id: 'code_uai',
           name: 'code_uai',
           placeholder: school.code_uai,
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
@@ -5147,28 +5167,32 @@ var Form = function (_Component) {
           name: 'nom',
           id: 'nom',
           placeholder: school.nom,
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'adresse',
           id: 'adresse',
           placeholder: school.adresse,
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'code_postal',
           id: 'code_postal',
           placeholder: school.code_postal,
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'commune',
           id: 'commune',
           placeholder: school.commune,
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
@@ -5183,7 +5207,8 @@ var Form = function (_Component) {
           name: 'departement',
           id: 'departement',
           placeholder: school.departement,
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
@@ -5463,7 +5488,8 @@ var Form = function (_Component) {
           name: 'telephone',
           id: 'telephone',
           placeholder: school.telephone,
-          onChange: this.handleInputChange
+          onChange: this.handleInputChange,
+          onKeyPress: this.handleKeyPress
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
@@ -58336,7 +58362,6 @@ var SearchFormSection = function (_Component) {
     key: 'handleClick',
     value: function handleClick(searchType) {
       if (this.state.searchType !== '') {
-        console.log('dif');
         this.setState({
           searchType: ''
         });
@@ -58422,6 +58447,7 @@ var SearchForm = function (_Component) {
     var _this = _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).call(this, props));
 
     _this.handleInputChange = _this.handleInputChange.bind(_this);
+    _this.handleKeyPress = _this.handleKeyPress.bind(_this);
     return _this;
   }
 
@@ -58448,6 +58474,13 @@ var SearchForm = function (_Component) {
       });
       url = url.substring(0, url.lastIndexOf('&'));
       window.location = url;
+    }
+  }, {
+    key: 'handleKeyPress',
+    value: function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        this.handleSubmission(this.state);
+      }
     }
   }, {
     key: 'render',
@@ -58493,7 +58526,8 @@ var SearchForm = function (_Component) {
                 id: 'code_uai',
                 name: 'code_uai',
                 placeholder: 'Code UAI',
-                onChange: this.handleInputChange
+                onChange: this.handleInputChange,
+                onKeyPress: this.handleKeyPress
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'select',
@@ -58549,7 +58583,8 @@ var SearchForm = function (_Component) {
                 id: 'nom',
                 name: 'nom',
                 placeholder: 'Nom',
-                onChange: this.handleInputChange
+                onChange: this.handleInputChange,
+                onKeyPress: this.handleKeyPress
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'select',
@@ -58829,14 +58864,16 @@ var SearchForm = function (_Component) {
                 id: 'departement',
                 name: 'departement',
                 placeholder: 'D\xE9partement',
-                onChange: this.handleInputChange
+                onChange: this.handleInputChange,
+                onKeyPress: this.handleKeyPress
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
                 type: 'text',
                 id: 'commune',
                 name: 'commune',
                 placeholder: 'Commune',
-                onChange: this.handleInputChange
+                onChange: this.handleInputChange,
+                onKeyPress: this.handleKeyPress
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',

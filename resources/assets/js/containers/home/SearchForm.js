@@ -4,6 +4,7 @@ export default class SearchForm extends Component {
   constructor (props) {
     super(props)
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   handleClick (searchType) {
@@ -28,6 +29,12 @@ export default class SearchForm extends Component {
     window.location = url
   }
 
+  handleKeyPress (event) {
+    if (event.key === 'Enter') {
+      this.handleSubmission(this.state)
+    }
+  }
+
   render () {
     let { type, text, currentSearchType, side } = this.props
     return (
@@ -49,6 +56,7 @@ export default class SearchForm extends Component {
                 name='code_uai'
                 placeholder='Code UAI'
                 onChange={this.handleInputChange}
+                onKeyPress={this.handleKeyPress}
               />
 
               <select name='type_etablissement' id='type_etablissement' onChange={this.handleInputChange}>
@@ -69,6 +77,7 @@ export default class SearchForm extends Component {
                 name='nom'
                 placeholder='Nom'
                 onChange={this.handleInputChange}
+                onKeyPress={this.handleKeyPress}
               />
 
               <select name='region' id='region' onChange={this.handleInputChange}>
@@ -136,6 +145,7 @@ export default class SearchForm extends Component {
                 name='departement'
                 placeholder='Département'
                 onChange={this.handleInputChange}
+                onKeyPress={this.handleKeyPress}
               />
 
               <input
@@ -144,6 +154,7 @@ export default class SearchForm extends Component {
                 name='commune'
                 placeholder='Commune'
                 onChange={this.handleInputChange}
+                onKeyPress={this.handleKeyPress}
               />
 
               <div
