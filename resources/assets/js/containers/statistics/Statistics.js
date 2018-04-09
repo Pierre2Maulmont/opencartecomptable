@@ -38,7 +38,7 @@ export default class Statistiques extends Component {
             </div>
 
             <div className='map-legend-icons-text'>
-              Cliquez sur les icones pour obtenir le nombre moyen d’établissements par agence de chaque académie
+              Cliquez sur les icônes pour obtenir le nombre moyen d’établissements par agence de chaque académie
             </div>
 
             <div className='map-legend-show-ranking'>

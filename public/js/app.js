@@ -62532,7 +62532,7 @@ var Statistiques = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'map-legend-icons-text' },
-              'Cliquez sur les icones pour obtenir le nombre moyen d\u2019\xE9tablissements par agence de chaque acad\xE9mie'
+              'Cliquez sur les ic\xF4nes pour obtenir le nombre moyen d\u2019\xE9tablissements par agence de chaque acad\xE9mie'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',

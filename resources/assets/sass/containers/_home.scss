@@ -53,8 +53,8 @@ TopContent
 .sextant-box {
   width: 390px;
   position: fixed;
-  top: 270px;
-  right: -20px;
+  top: 275px;
+  right: 150px;
   z-index: -1;
 }
 
@@ -236,7 +236,7 @@ About
 }
 
 .first-paragraph {
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .second-paragraph {
@@ -246,16 +246,14 @@ About
 .img1 {
   position: absolute;
   top: 0px;
-  right: 90px;
-  height: 300px;
+  right: 140px;
   transform: rotate(1deg);
 }
 
 .img2 {
   position: absolute;
   top: 390px;
-  left: 50px;
-  height: 200px;
+  left: 120px;
   transform: rotate(-3deg);
 }
 
@@ -264,5 +262,5 @@ About
 }
 
 #img1 {
-  height: 300px;
+  height: 260px;
 }
