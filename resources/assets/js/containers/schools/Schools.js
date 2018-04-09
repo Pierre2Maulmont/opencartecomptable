@@ -47,11 +47,11 @@ export default class Schools extends Component {
     let text = ''
     let isAgencySearch = false
     if (this.props.location.pathname === '/etablissements') {
-      title = 'Établissements correspondant à vos critères de recherche :'
+      title = 'Établissements correspondant à vos critères de recherche (' + schools.length + ') :'
       text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence en question<br>Vous pouvez visualiser les informations d’un établissement en cliquant sur son nom'
     } else if (this.props.location.pathname === '/agences') {
       isAgencySearch = true
-      title = 'Agences correspondant à vos critères de recherche :'
+      title = 'Agences correspondant à vos critères de recherche (' + schools.length + ') :'
       text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence en question<br>Vous pouvez visualiser les informations de l’établissement agence en cliquant sur son nom'
     } else {
       let schoolName = ''
