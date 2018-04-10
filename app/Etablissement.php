@@ -17,15 +17,16 @@ class Etablissement extends Model
 
   public static function singleSchool($code_uai)
   {
-    $sql = 'select * from etablissements where code_uai = ?';
-    $school = DB::select($sql, [$code_uai]);
+    $school = Etablissement::where('code_uai', $code_uai)
+                ->get();
     return $school;
   }
 
   public static function agency($code_uai_agence_comptable)
   {
-    $sql = 'select * from etablissements where code_uai_agence_comptable = ? ORDER BY nom DESC';
-    $schools = DB::select($sql, [$code_uai_agence_comptable]);
+    $schools = Etablissement::where('code_uai_agence_comptable', $code_uai_agence_comptable)
+                  ->orderBy('nom', 'desc')
+                  ->get();
     return $schools;
   }
 
@@ -35,6 +36,12 @@ class Etablissement extends Model
             ->where('code_uai', $code_uai)
             ->update(['code_uai_agence_comptable' => $new_agency]);
     return;
+
+    // not working...?
+    // $school = Etablissement::where('code_uai', $code_uai);
+    // $school->code_uai_agence_comptable = $new_agency;
+    // $school->save();
+    // return;
   }
 
   public static function editMemo($code_uai, $memo)

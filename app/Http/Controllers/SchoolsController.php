@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Etablissement;
-use Illuminate\Support\Facades\DB;
 
 class SchoolsController extends Controller
 {
