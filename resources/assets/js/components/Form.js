@@ -18,6 +18,8 @@ export default class Form extends Component {
 
   handleKeyPress (event) {
     if (event.key === 'Enter') {
+      // praise the lord for event.preventDefault
+      event.preventDefault()
       this.props.handleSubmission(this.state)
     }
   }

@@ -63,24 +63,19 @@ class SchoolsController extends Controller
       $sql = substr($sql, 0, -4);
       $sql = $sql . ' ORDER BY nom';
 
-      $schools = DB::select($sql, $values);
-
+      $schools = Etablissement::index($sql, $values);
       return $schools;
     }
 
     public function singleSchool($code_uai)
     {
-      $sql = 'select * from etablissements where code_uai = ?';
-      $school = DB::select($sql, [$code_uai]);
-
+      $school = Etablissement::singleSchool($code_uai);
       return $school;
     }
 
     public function agency($code_uai_agence_comptable)
     {
-      $sql = 'select * from etablissements where code_uai_agence_comptable = ?';
-      $schools = DB::select($sql, [$code_uai_agence_comptable]);
-
+      $schools = Etablissement::agency($code_uai_agence_comptable);
       return $schools;
     }
 
