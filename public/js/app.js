@@ -64407,7 +64407,7 @@ var ChangeAgency = function (_Component) {
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_TopSection__["a" /* default */], {
           title: nom + ' - ' + codeUai,
-          text: 'Changez cet établissement d’agence (agence actuelle : ' + codeUaiAgence + ')',
+          text: 'Changez cet \xE9tablissement d\u2019agence (agence actuelle : <a href="/public/#/agences/' + codeUaiAgence + '">' + codeUaiAgence + '</a>)',
           scrolledPast: this.state.scrolledPast
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

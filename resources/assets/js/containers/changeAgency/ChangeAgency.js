@@ -64,7 +64,7 @@ export default class ChangeAgency extends Component {
       <PageComponent>
         <TopSection
           title={nom + ' - ' + codeUai}
-          text={'Changez cet établissement d’agence (agence actuelle : ' + codeUaiAgence + ')'}
+          text={`Changez cet établissement d’agence (agence actuelle : <a href="/public/#/agences/${codeUaiAgence}">` + codeUaiAgence + '</a>)'}
           scrolledPast={this.state.scrolledPast}
         />
 
