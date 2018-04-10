@@ -22,42 +22,23 @@ class SchoolsController extends Controller
         $sql = $sql . ' code_uai_agence_comptable = code_uai AND ';
       }
 
-      if ($request->has('code_uai')) {
-        $sql = $sql . 'code_uai = ? AND ';
-        array_push($values, $request->input('code_uai'));
+      $exactMatch = ['code_uai', 'type_etablissement', 'academie', 'region'];
+
+      foreach ($exactMatch as $criterion) {
+        if ($request->has($criterion)) {
+          $sql = $sql . $criterion . ' = ? AND ';
+          array_push($values, $request->input($criterion));
+        }
       }
 
-      if ($request->has('type_etablissement')) {
-        $sql = $sql . 'type_etablissement = ? AND ';
-        array_push($values, $request->input('type_etablissement'));
-      }
+      $inexactMatch = ['nom', 'departement', 'commune'];
 
-      if ($request->has('nom')) {
-        $sql = $sql . 'nom LIKE ? AND ';
-        $name = '%' . $request->input('nom') . '%';
-        array_push($values, $name);
-      }
-
-      if ($request->has('academie')) {
-        $sql = $sql . 'academie = ? AND ';
-        array_push($values, $request->input('academie'));
-      }
-
-      if ($request->has('region')) {
-        $sql = $sql . 'region = ? AND ';
-        array_push($values, $request->input('region'));
-      }
-
-      if ($request->has('departement')) {
-        $sql = $sql . 'departement LIKE ? AND ';
-        $name = '%' . $request->input('departement') . '%';
-        array_push($values, $name);
-      }
-
-      if ($request->has('commune')) {
-        $sql = $sql . 'commune LIKE ? AND ';
-        $name = '%' . $request->input('commune') . '%';
-        array_push($values, $name);
+      foreach ($inexactMatch as $criterion) {
+        if ($request->has($criterion)) {
+          $sql = $sql . $criterion . ' LIKE ? AND ';
+          $criterion = '%' . $request->input($criterion) . '%';
+          array_push($values, $criterion);
+        }
       }
 
       $sql = substr($sql, 0, -4);
