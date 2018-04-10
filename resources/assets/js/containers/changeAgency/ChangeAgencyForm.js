@@ -4,8 +4,7 @@ import Form from '../../components/Form'
 
 export default class ChangeAgencyForm extends Component {
   handleSubmission (agency) {
-    console.log(agency)
-    this.props.handleSubmission()
+    this.props.handleSubmission(agency)
   }
   render () {
     const { _handleWaypoint } = this.props

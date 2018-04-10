@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import PageComponent from '../../components/PageComponent'
 import TopSection from '../../components/TopSection'
@@ -18,34 +19,52 @@ export default class ChangeAgency extends Component {
   }
 
   componentDidMount () {
-    const school = {
-      code_uai: '0750680G',
-      code_uai_agence_comptable: '0750680G',
-      type_etablissement: 'Lycée',
-      nom: 'Arago'
-    }
-    this.setState({
-      school: school
-    })
+    // fetch corresponding school
+    let url = this.props.location.pathname.substring(0, 24)
+    const requestUrl = 'http://localhost:8888/public/api' + url
+    axios.get(requestUrl)
+      .then(school => {
+        this.setState({ school: school.data })
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   _handleWaypoint (scrolledPast) {
     this.setState({ scrolledPast: scrolledPast })
   }
 
-  handleSubmission () {
-    this.setState({
-      isFormSent: true
-    })
+  handleSubmission (agency) {
+    let codeUai = this.state.school[0]['code_uai']
+    axios.put('http://localhost:8888/public/api/etablissements/' + codeUai, agency)
+      .then(response => {
+        if (response.status === 200) {
+          this.setState({
+            isFormSent: true
+          })
+        } else {
+          this.setState({
+            isFormSent: true,
+            failure: true
+          })
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render () {
-    let { isFormSent, school } = this.state
+    let { isFormSent, failure, school } = this.state
+    let nom = school && school[0]['nom']
+    let codeUai = school && school[0]['code_uai']
+    let codeUaiAgence = school && school[0]['code_uai_agence_comptable']
     return (
       <PageComponent>
         <TopSection
-          title={school.type_etablissement + ' ' + school.nom + ' - ' + school.code_uai}
-          text={'Changez cet établissement d’agence (agence actuelle : ' + school.code_uai_agence_comptable + ')'}
+          title={nom + ' - ' + codeUai}
+          text={'Changez cet établissement d’agence (agence actuelle : ' + codeUaiAgence + ')'}
           scrolledPast={this.state.scrolledPast}
         />
 
@@ -62,7 +81,8 @@ export default class ChangeAgency extends Component {
           </div>
 
           <div className={'change-agency-form-sent' + (isFormSent ? ' change-agency-form-sent-show' : '')}>
-            Changement d’agence effectué! Merci pour votre contribution
+            { !failure && 'Changement d’agence effectué! Merci pour votre contribution'}
+            { failure && 'Nous sommes désolés, il semble qu’il y ait eu un problème...' }
           </div>
 
         </FormSection>

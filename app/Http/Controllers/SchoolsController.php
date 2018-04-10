@@ -98,9 +98,22 @@ class SchoolsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $code_uai)
     {
-        //
+        if ($request->has('$new_agency')) {
+
+          $response = Etablissement::editAgency($code_uai, $request->input('$new_agency'));
+          return $response;
+
+        } else if (false) {
+          // Etablissement::editInfos();
+
+        } else if (false) {
+          // Etablissement::editMemo();
+
+        } else {
+          return 'noooon';
+        }
     }
 
     /**

@@ -209,7 +209,7 @@ export default class Form extends Component {
         <input
           type='text'
           id='code_uai'
-          name='code_uai'
+          name='$new_agency'
           placeholder='UAI nouvelle agence'
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}

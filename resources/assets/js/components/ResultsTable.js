@@ -78,7 +78,7 @@ export default class ResultsTable extends Component {
                     <td>
                       <NavLink
                         className='my-button my-small-button my-button_blue-bg'
-                        to={'/etablissements/0750680G/changer-agence'}
+                        to={'/etablissements/' + item.code_uai + '/changer-agence'}
                       >
                       Changer&nbsp;d’agence
                       </NavLink>

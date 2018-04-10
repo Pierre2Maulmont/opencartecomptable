@@ -5031,7 +5031,7 @@ var Form = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           id: 'code_uai',
-          name: 'code_uai',
+          name: '$new_agency',
           placeholder: 'UAI nouvelle agence',
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
@@ -17685,7 +17685,7 @@ var ResultsTable = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* NavLink */],
                     {
                       className: 'my-button my-small-button my-button_blue-bg',
-                      to: '/etablissements/0750680G/changer-agence'
+                      to: '/etablissements/' + item.code_uai + '/changer-agence'
                     },
                     'Changer\xA0d\u2019agence'
                   )
@@ -64311,10 +64311,12 @@ var Agency = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PageComponent__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TopSection__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_FormSection__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ChangeAgencyForm__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_TopSection__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_FormSection__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ChangeAgencyForm__ = __webpack_require__(211);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64322,6 +64324,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -64351,14 +64354,15 @@ var ChangeAgency = function (_Component) {
   _createClass(ChangeAgency, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var school = {
-        code_uai: '0750680G',
-        code_uai_agence_comptable: '0750680G',
-        type_etablissement: 'Lycée',
-        nom: 'Arago'
-      };
-      this.setState({
-        school: school
+      var _this2 = this;
+
+      // fetch corresponding school
+      var url = this.props.location.pathname.substring(0, 24);
+      var requestUrl = 'http://localhost:8888/public/api' + url;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (school) {
+        _this2.setState({ school: school.data });
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }, {
@@ -64368,9 +64372,23 @@ var ChangeAgency = function (_Component) {
     }
   }, {
     key: 'handleSubmission',
-    value: function handleSubmission() {
-      this.setState({
-        isFormSent: true
+    value: function handleSubmission(agency) {
+      var _this3 = this;
+
+      var codeUai = this.state.school[0]['code_uai'];
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('http://localhost:8888/public/api/etablissements/' + codeUai, agency).then(function (response) {
+        if (response.status === 200) {
+          _this3.setState({
+            isFormSent: true
+          });
+        } else {
+          _this3.setState({
+            isFormSent: true,
+            failure: true
+          });
+        }
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }, {
@@ -64378,25 +64396,29 @@ var ChangeAgency = function (_Component) {
     value: function render() {
       var _state = this.state,
           isFormSent = _state.isFormSent,
+          failure = _state.failure,
           school = _state.school;
 
+      var nom = school && school[0]['nom'];
+      var codeUai = school && school[0]['code_uai'];
+      var codeUaiAgence = school && school[0]['code_uai_agence_comptable'];
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_1__components_PageComponent__["a" /* default */],
+        __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__["a" /* default */],
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_TopSection__["a" /* default */], {
-          title: school.type_etablissement + ' ' + school.nom + ' - ' + school.code_uai,
-          text: 'Changez cet établissement d’agence (agence actuelle : ' + school.code_uai_agence_comptable + ')',
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_TopSection__["a" /* default */], {
+          title: nom + ' - ' + codeUai,
+          text: 'Changez cet établissement d’agence (agence actuelle : ' + codeUaiAgence + ')',
           scrolledPast: this.state.scrolledPast
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3__components_FormSection__["a" /* default */],
+          __WEBPACK_IMPORTED_MODULE_4__components_FormSection__["a" /* default */],
           {
             form: 'change-agency' + (isFormSent ? ' form-section-box_change-agency_reduced' : '')
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'change-agency-form' + (isFormSent ? ' change-agency-form-hide' : '') },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ChangeAgencyForm__["a" /* default */], {
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__ChangeAgencyForm__["a" /* default */], {
               school: school,
               _handleWaypoint: this._handleWaypoint,
               handleSubmission: this.handleSubmission
@@ -64405,7 +64427,8 @@ var ChangeAgency = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'change-agency-form-sent' + (isFormSent ? ' change-agency-form-sent-show' : '') },
-            'Changement d\u2019agence effectu\xE9! Merci pour votre contribution'
+            !failure && 'Changement d’agence effectué! Merci pour votre contribution',
+            failure && 'Nous sommes désolés, il semble qu’il y ait eu un problème...'
           )
         )
       );
@@ -64449,8 +64472,7 @@ var ChangeAgencyForm = function (_Component) {
   _createClass(ChangeAgencyForm, [{
     key: 'handleSubmission',
     value: function handleSubmission(agency) {
-      console.log(agency);
-      this.props.handleSubmission();
+      this.props.handleSubmission(agency);
     }
   }, {
     key: 'render',

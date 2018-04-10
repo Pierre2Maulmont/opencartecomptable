@@ -29,4 +29,12 @@ class Etablissement extends Model
     return $schools;
   }
 
+  public static function editAgency($code_uai, $new_agency)
+  {
+    DB::table('etablissements')
+            ->where('code_uai', $code_uai)
+            ->update(['code_uai_agence_comptable' => $new_agency]);
+    return;
+  }
+
 }
