@@ -100,16 +100,18 @@ class SchoolsController extends Controller
      */
     public function edit(Request $request, $code_uai)
     {
-        if ($request->has('$new_agency')) {
+        if ($request->has('new_agency')) {
 
-          $response = Etablissement::editAgency($code_uai, $request->input('$new_agency'));
+          $response = Etablissement::editAgency($code_uai, $request->input('new_agency'));
+          return $response;
+
+        } else if ($request->has('memo')) {
+
+          $response = Etablissement::editMemo($code_uai, $request->input('memo'));
           return $response;
 
         } else if (false) {
-          // Etablissement::editInfos();
-
-        } else if (false) {
-          // Etablissement::editMemo();
+          // Etablissement::editInfo();
 
         } else {
           return 'noooon';

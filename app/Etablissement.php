@@ -37,4 +37,12 @@ class Etablissement extends Model
     return;
   }
 
+  public static function editMemo($code_uai, $memo)
+  {
+    DB::table('etablissements')
+            ->where('code_uai', $code_uai)
+            ->update(['memo' => $memo]);
+    return;
+  }
+
 }

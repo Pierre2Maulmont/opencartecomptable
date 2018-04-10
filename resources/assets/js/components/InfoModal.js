@@ -81,7 +81,12 @@ export default class App extends Component {
               <p>{school.ca ? school.ca : '-'}</p>
 
               <div className='school-modal-button'>
-                <NavLink className='my-button my-small-button' to={'/etablissements/0750680G/modifier-informations'}>Modifier</NavLink>
+                <NavLink
+                  className='my-button my-small-button'
+                  to={'/etablissements/0750680G/modifier-informations'}
+                >
+                  Modifier
+                </NavLink>
               </div>
             </div>
 
@@ -90,7 +95,12 @@ export default class App extends Component {
               <p>{school.memo ? school.memo : '-'}</p>
 
               <div className='school-modal-button'>
-                <NavLink className='my-button my-small-button' to={'/etablissements/0750680G/modifier-informations-complementaires'}>Modifier</NavLink>
+                <NavLink
+                  className='my-button my-small-button'
+                  to={'/etablissements/' + school.code_uai + '/modifier-informations-complementaires'}
+                >
+                  Modifier
+                </NavLink>
               </div>
             </div>
           </div>

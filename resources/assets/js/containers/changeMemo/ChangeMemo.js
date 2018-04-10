@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import PageComponent from '../../components/PageComponent'
 import TopSection from '../../components/TopSection'
@@ -18,33 +19,52 @@ export default class ChangeMemo extends Component {
   }
 
   componentDidMount () {
-    const school = {
-      code_uai: '0750680G',
-      nom: 'Arago',
-      memo: 'Rénovation en cours',
-      type_etablissement: 'Lycée'
-    }
-    this.setState({
-      school: school
-    })
+    // fetch corresponding school
+    let url = this.props.location.pathname.substring(0, 24)
+    const requestUrl = 'http://localhost:8888/public/api' + url
+    axios.get(requestUrl)
+      .then(school => {
+        this.setState({ school: school.data })
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   _handleWaypoint (scrolledPast) {
     this.setState({ scrolledPast: scrolledPast })
   }
 
-  handleSubmission () {
-    this.setState({
-      isFormSent: true
-    })
+  handleSubmission (memo) {
+    let codeUai = this.state.school[0]['code_uai']
+    axios.put('http://localhost:8888/public/api/etablissements/' + codeUai, memo)
+      .then(response => {
+        if (response.status === 200) {
+          console.log(response);
+          this.setState({
+            isFormSent: true
+          })
+        } else {
+          console.log(response);
+          this.setState({
+            isFormSent: true,
+            failure: true
+          })
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render () {
     let { isFormSent, school } = this.state
+    let nom = school && school[0]['nom']
+    let codeUai = school && school[0]['code_uai']
     return (
       <PageComponent>
         <TopSection
-          title={school.type_etablissement + ' ' + school.nom + ' - ' + school.code_uai}
+          title={nom + ' - ' + codeUai}
           text='Ajoutez des informations complémentaires'
           scrolledPast={this.state.scrolledPast}
         />

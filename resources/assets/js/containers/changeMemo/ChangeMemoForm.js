@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+
 import Form from '../../components/Form'
 
 export default class ChangeMemoForm extends Component {
-  handleSubmission (school) {
-    console.log(school)
-    this.props.handleSubmission()
+  handleSubmission (memo) {
+    this.props.handleSubmission(memo)
   }
   render () {
     const { _handleWaypoint, school } = this.props

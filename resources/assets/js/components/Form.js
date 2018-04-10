@@ -209,7 +209,7 @@ export default class Form extends Component {
         <input
           type='text'
           id='code_uai'
-          name='$new_agency'
+          name='new_agency'
           placeholder='UAI nouvelle agence'
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
@@ -423,13 +423,14 @@ export default class Form extends Component {
   }
 
   renderChangeMemoForm () {
-    const { _handleWaypoint, handleSubmission, school } = this.props
+    const { _handleWaypoint, handleSubmission } = this.props
+    let memo = this.props.school && this.props.school[0]['memo']
     return (
       <form>
         <textarea
           name='memo'
           id='memo'
-          placeholder={school.memo}
+          placeholder={memo}
           onChange={this.handleInputChange}
         />
 
