@@ -4553,6 +4553,15 @@ var Form = function (_Component) {
   }
 
   _createClass(Form, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (this.props.form === 'changeInfoForm') {
+        this.setState({
+          info: ''
+        });
+      }
+    }
+  }, {
     key: 'handleInputChange',
     value: function handleInputChange(e) {
       var value = e.target.value;
@@ -5110,24 +5119,26 @@ var Form = function (_Component) {
           handleSubmission = _props3.handleSubmission,
           school = _props3.school;
 
+      var typeEtablissement = school && this.props.school[0]['type_etablissement'];
+      var nom = school && this.props.school[0]['nom'];
+      var adresse = school && this.props.school[0]['adresse'];
+      var codePostal = school && this.props.school[0]['code_postal'];
+      var commune = school && this.props.school[0]['commune'];
+      var departement = school && this.props.school[0]['departement'];
+      var region = school && this.props.school[0]['region'];
+      var academie = school && this.props.school[0]['academie'];
+      var telephone = school && this.props.school[0]['telephone'];
+      var ca = school && this.props.school[0]['ca'];
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-          type: 'text',
-          id: 'code_uai',
-          name: 'code_uai',
-          placeholder: school.code_uai,
-          onChange: this.handleInputChange,
-          onKeyPress: this.handleKeyPress
-        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
           { name: 'type_etablissement', id: 'type_etablissement', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { selected: true, value: school.type_etablissement },
-            school.type_etablissement
+            { value: typeEtablissement },
+            typeEtablissement
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
@@ -5174,7 +5185,7 @@ var Form = function (_Component) {
           type: 'text',
           name: 'nom',
           id: 'nom',
-          placeholder: school.nom,
+          placeholder: nom,
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
@@ -5182,7 +5193,7 @@ var Form = function (_Component) {
           type: 'text',
           name: 'adresse',
           id: 'adresse',
-          placeholder: school.adresse,
+          placeholder: adresse,
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
@@ -5190,7 +5201,7 @@ var Form = function (_Component) {
           type: 'text',
           name: 'code_postal',
           id: 'code_postal',
-          placeholder: school.code_postal,
+          placeholder: codePostal,
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
@@ -5198,7 +5209,7 @@ var Form = function (_Component) {
           type: 'text',
           name: 'commune',
           id: 'commune',
-          placeholder: school.commune,
+          placeholder: commune,
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
@@ -5214,7 +5225,7 @@ var Form = function (_Component) {
           type: 'text',
           name: 'departement',
           id: 'departement',
-          placeholder: school.departement,
+          placeholder: departement,
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
@@ -5223,8 +5234,8 @@ var Form = function (_Component) {
           { name: 'region', id: 'region', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { selected: true, value: school.region },
-            school.region
+            { value: region },
+            region
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
@@ -5327,8 +5338,8 @@ var Form = function (_Component) {
           { name: 'academie', id: 'academie', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { selected: true, value: school.academie },
-            school.academie
+            { value: academie },
+            academie
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
@@ -5495,7 +5506,7 @@ var Form = function (_Component) {
           type: 'text',
           name: 'telephone',
           id: 'telephone',
-          placeholder: school.telephone,
+          placeholder: telephone,
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
@@ -5504,8 +5515,8 @@ var Form = function (_Component) {
           { name: 'ca', id: 'ca', onChange: this.handleInputChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { selected: true, value: school.ca },
-            school.ca
+            { selected: true, value: ca },
+            ca
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
@@ -5528,6 +5539,10 @@ var Form = function (_Component) {
             'Plus de deux millions \u20AC'
           )
         ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          type: 'hidden',
+          name: 'info'
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
@@ -62563,10 +62578,12 @@ var Statistiques = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PageComponent__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TopSection__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_FormSection__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__AddSchoolForm__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_TopSection__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_FormSection__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__AddSchoolForm__ = __webpack_require__(197);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62574,6 +62591,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -62606,9 +62624,22 @@ var AddSchool = function (_Component) {
     }
   }, {
     key: 'handleSubmission',
-    value: function handleSubmission() {
-      this.setState({
-        isFormSent: true
+    value: function handleSubmission(school) {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('http://localhost:8888/public/api/etablissements/', school).then(function (response) {
+        if (response.status === 200) {
+          _this2.setState({
+            isFormSent: true
+          });
+        } else {
+          _this2.setState({
+            isFormSent: true,
+            failure: true
+          });
+        }
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }, {
@@ -62617,22 +62648,22 @@ var AddSchool = function (_Component) {
       var isFormSent = this.state.isFormSent;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_1__components_PageComponent__["a" /* default */],
+        __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__["a" /* default */],
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_TopSection__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_TopSection__["a" /* default */], {
           title: 'Ajouter un \xE9tablissement',
           text: 'Renseignez les champs ci-dessous :',
           scrolledPast: this.state.scrolledPast
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3__components_FormSection__["a" /* default */],
+          __WEBPACK_IMPORTED_MODULE_4__components_FormSection__["a" /* default */],
           {
             form: 'add-school' + (isFormSent ? ' form-section-box_add-school_reduced' : '')
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'add-school-form' + (isFormSent ? ' add-school-form-hide' : '') },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__AddSchoolForm__["a" /* default */], {
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__AddSchoolForm__["a" /* default */], {
               _handleWaypoint: this._handleWaypoint,
               handleSubmission: this.handleSubmission
             }),
@@ -62689,8 +62720,7 @@ var SearchForm = function (_Component) {
   _createClass(SearchForm, [{
     key: 'handleSubmission',
     value: function handleSubmission(school) {
-      // console.log(school)
-      this.props.handleSubmission();
+      this.props.handleSubmission(school);
     }
   }, {
     key: 'render',
@@ -63125,7 +63155,7 @@ var App = function (_Component) {
                   __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
                   {
                     className: 'my-button my-small-button',
-                    to: '/etablissements/0750680G/modifier-informations'
+                    to: '/etablissements/' + school.code_uai + '/modifier-informations'
                   },
                   'Modifier'
                 )
@@ -64509,10 +64539,12 @@ var ChangeAgencyForm = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PageComponent__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TopSection__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_FormSection__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ChangeInfoForm__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_TopSection__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_FormSection__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ChangeInfoForm__ = __webpack_require__(213);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64520,6 +64552,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -64549,21 +64582,14 @@ var ChangeInfo = function (_Component) {
   _createClass(ChangeInfo, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var school = {
-        code_uai: '0750680G',
-        type_etablissement: 'Lycée',
-        nom: 'Arago',
-        adresse: '4 Place de la Nation',
-        code_postal: '75012',
-        commune: 'Paris',
-        departement: '75 - Paris',
-        region: 'Île-de-France',
-        academie: 'Paris',
-        telephone: '01 43 07 37 40',
-        ca: 'Jusqu’à un million €'
-      };
-      this.setState({
-        school: school
+      var _this2 = this;
+
+      var url = this.props.location.pathname.substring(0, 24);
+      var requestUrl = 'http://localhost:8888/public/api' + url;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (school) {
+        _this2.setState({ school: school.data });
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }, {
@@ -64573,9 +64599,23 @@ var ChangeInfo = function (_Component) {
     }
   }, {
     key: 'handleSubmission',
-    value: function handleSubmission() {
-      this.setState({
-        isFormSent: true
+    value: function handleSubmission(school) {
+      var _this3 = this;
+
+      var codeUai = this.state.school[0]['code_uai'];
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('http://localhost:8888/public/api/etablissements/' + codeUai, school).then(function (response) {
+        if (response.status === 200) {
+          _this3.setState({
+            isFormSent: true
+          });
+        } else {
+          _this3.setState({
+            isFormSent: true,
+            failure: true
+          });
+        }
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }, {
@@ -64585,23 +64625,25 @@ var ChangeInfo = function (_Component) {
           isFormSent = _state.isFormSent,
           school = _state.school;
 
+      var nom = school && school[0]['nom'];
+      var codeUai = school && school[0]['code_uai'];
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_1__components_PageComponent__["a" /* default */],
+        __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__["a" /* default */],
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_TopSection__["a" /* default */], {
-          title: school.type_etablissement + ' ' + school.nom + ' - ' + school.code_uai,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_TopSection__["a" /* default */], {
+          title: nom + ' - ' + codeUai,
           text: 'Modifiez les informations n\xE9cessaires :',
           scrolledPast: this.state.scrolledPast
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3__components_FormSection__["a" /* default */],
+          __WEBPACK_IMPORTED_MODULE_4__components_FormSection__["a" /* default */],
           {
             form: 'change-info' + (isFormSent ? ' form-section-box_change-info_reduced' : '')
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'change-info-form' + (isFormSent ? ' change-info-form-hide' : '') },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ChangeInfoForm__["a" /* default */], {
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__ChangeInfoForm__["a" /* default */], {
               school: school,
               _handleWaypoint: this._handleWaypoint,
               handleSubmission: this.handleSubmission
@@ -64654,8 +64696,7 @@ var ChangeInfoForm = function (_Component) {
   _createClass(ChangeInfoForm, [{
     key: 'handleSubmission',
     value: function handleSubmission(school) {
-      console.log(school);
-      this.props.handleSubmission();
+      this.props.handleSubmission(school);
     }
   }, {
     key: 'render',
@@ -64756,7 +64797,6 @@ var ChangeMemo = function (_Component) {
       var codeUai = this.state.school[0]['code_uai'];
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('http://localhost:8888/public/api/etablissements/' + codeUai, memo).then(function (response) {
         if (response.status === 200) {
-          console.log(response);
           _this3.setState({
             isFormSent: true
           });

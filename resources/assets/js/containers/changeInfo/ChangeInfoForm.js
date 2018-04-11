@@ -4,8 +4,7 @@ import Form from '../../components/Form'
 
 export default class ChangeInfoForm extends Component {
   handleSubmission (school) {
-    console.log(school)
-    this.props.handleSubmission()
+    this.props.handleSubmission(school)
   }
   render () {
     const { _handleWaypoint, school } = this.props

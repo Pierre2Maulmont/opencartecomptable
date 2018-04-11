@@ -8,6 +8,14 @@ export default class Form extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
+  componentDidMount () {
+    if (this.props.form === 'changeInfoForm') {
+      this.setState({
+        info: ''
+      })
+    }
+  }
+
   handleInputChange (e) {
     let value = e.target.value
     let field = e.target.name
@@ -262,19 +270,20 @@ export default class Form extends Component {
 
   renderChangeInfoForm () {
     const { _handleWaypoint, handleSubmission, school } = this.props
+    let typeEtablissement = school && this.props.school[0]['type_etablissement']
+    let nom = school && this.props.school[0]['nom']
+    let adresse = school && this.props.school[0]['adresse']
+    let codePostal = school && this.props.school[0]['code_postal']
+    let commune = school && this.props.school[0]['commune']
+    let departement = school && this.props.school[0]['departement']
+    let region = school && this.props.school[0]['region']
+    let academie = school && this.props.school[0]['academie']
+    let telephone = school && this.props.school[0]['telephone']
+    let ca = school && this.props.school[0]['ca']
     return (
       <form>
-        <input
-          type='text'
-          id='code_uai'
-          name='code_uai'
-          placeholder={school.code_uai}
-          onChange={this.handleInputChange}
-          onKeyPress={this.handleKeyPress}
-        />
-
         <select name='type_etablissement' id='type_etablissement' onChange={this.handleInputChange}>
-          <option selected value={school.type_etablissement}>{school.type_etablissement}</option>
+          <option value={typeEtablissement}>{typeEtablissement}</option>
           <option value='Collège'>Collège</option>
           <option value='Lycée'>Lycée</option>
           <option value='Lycée professionnel'>Lycée professionnel</option>
@@ -289,7 +298,7 @@ export default class Form extends Component {
           type='text'
           name='nom'
           id='nom'
-          placeholder={school.nom}
+          placeholder={nom}
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
@@ -298,7 +307,7 @@ export default class Form extends Component {
           type='text'
           name='adresse'
           id='adresse'
-          placeholder={school.adresse}
+          placeholder={adresse}
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
@@ -307,7 +316,7 @@ export default class Form extends Component {
           type='text'
           name='code_postal'
           id='code_postal'
-          placeholder={school.code_postal}
+          placeholder={codePostal}
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
@@ -316,7 +325,7 @@ export default class Form extends Component {
           type='text'
           name='commune'
           id='commune'
-          placeholder={school.commune}
+          placeholder={commune}
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
@@ -330,13 +339,13 @@ export default class Form extends Component {
           type='text'
           name='departement'
           id='departement'
-          placeholder={school.departement}
+          placeholder={departement}
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
 
         <select name='region' id='region' onChange={this.handleInputChange}>
-          <option selected value={school.region}>{school.region}</option>
+          <option value={region}>{region}</option>
           <option value='Occitanie'>Occitanie</option>
           <option value='Ile-de-France'>Ile-de-France</option>
           <option value='Nouvelle Aquitaine'>Nouvelle Aquitaine</option>
@@ -359,7 +368,7 @@ export default class Form extends Component {
         </select>
 
         <select name='academie' id='academie' onChange={this.handleInputChange}>
-          <option selected value={school.academie}>{school.academie}</option>
+          <option value={academie}>{academie}</option>
           <option value='Lille'>Lille</option>
           <option value='Amiens'>Amiens</option>
           <option value='Rouen'>Rouen</option>
@@ -398,18 +407,23 @@ export default class Form extends Component {
           type='text'
           name='telephone'
           id='telephone'
-          placeholder={school.telephone}
+          placeholder={telephone}
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
 
         <select name='ca' id='ca' onChange={this.handleInputChange}>
-          <option selected value={school.ca}>{school.ca}</option>
+          <option selected value={ca}>{ca}</option>
           <option value='Jusqu’à 500 000 €'>Jusqu’à 500 000 €</option>
           <option value='Jusqu’à un million €'>Jusqu’à un million €</option>
           <option value='Jusqu’à deux millions €'>Jusqu’à deux millions €</option>
           <option value='Plus de deux millions €'>Plus de deux millions €</option>
         </select>
+
+        <input
+          type='hidden'
+          name='info'
+        />
 
         <div
           className='my-button my-button_blue-bg'

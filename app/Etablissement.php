@@ -15,7 +15,7 @@ class Etablissement extends Model
     return $schools;
   }
 
-  public static function singleSchool($code_uai)
+  public static function show($code_uai)
   {
     $school = Etablissement::where('code_uai', $code_uai)
                 ->get();
@@ -30,7 +30,7 @@ class Etablissement extends Model
     return $schools;
   }
 
-  public static function editAgency($code_uai, $new_agency)
+  public static function updateAgency($code_uai, $new_agency)
   {
     DB::table('etablissements')
             ->where('code_uai', $code_uai)
@@ -44,11 +44,28 @@ class Etablissement extends Model
     // return;
   }
 
-  public static function editMemo($code_uai, $memo)
+  public static function updateMemo($code_uai, $memo)
   {
     DB::table('etablissements')
             ->where('code_uai', $code_uai)
             ->update(['memo' => $memo]);
+    return;
+  }
+
+  public static function updateInfo($code_uai, $values)
+  {
+
+    foreach ($values as $value) {
+      DB::table('etablissements')
+              ->where('code_uai', $code_uai)
+              ->update($value);
+    }
+    return;
+  }
+
+  public static function store($values)
+  {
+    DB::table('etablissements')->insert($values);
     return;
   }
 

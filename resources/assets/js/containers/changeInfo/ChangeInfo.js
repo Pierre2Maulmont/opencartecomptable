@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import PageComponent from '../../components/PageComponent'
 import TopSection from '../../components/TopSection'
@@ -18,40 +19,49 @@ export default class ChangeInfo extends Component {
   }
 
   componentDidMount () {
-    const school = {
-      code_uai: '0750680G',
-      type_etablissement: 'Lycée',
-      nom: 'Arago',
-      adresse: '4 Place de la Nation',
-      code_postal: '75012',
-      commune: 'Paris',
-      departement: '75 - Paris',
-      region: 'Île-de-France',
-      academie: 'Paris',
-      telephone: '01 43 07 37 40',
-      ca: 'Jusqu’à un million €'
-    }
-    this.setState({
-      school: school
-    })
+    let url = this.props.location.pathname.substring(0, 24)
+    const requestUrl = 'http://localhost:8888/public/api' + url
+    axios.get(requestUrl)
+      .then(school => {
+        this.setState({ school: school.data })
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   _handleWaypoint (scrolledPast) {
     this.setState({ scrolledPast: scrolledPast })
   }
 
-  handleSubmission () {
-    this.setState({
-      isFormSent: true
-    })
+  handleSubmission (school) {
+    let codeUai = this.state.school[0]['code_uai']
+    axios.put('http://localhost:8888/public/api/etablissements/' + codeUai, school)
+      .then(response => {
+        if (response.status === 200) {
+          this.setState({
+            isFormSent: true
+          })
+        } else {
+          this.setState({
+            isFormSent: true,
+            failure: true
+          })
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render () {
     let { isFormSent, school } = this.state
+    let nom = school && school[0]['nom']
+    let codeUai = school && school[0]['code_uai']
     return (
       <PageComponent>
         <TopSection
-          title={school.type_etablissement + ' ' + school.nom + ' - ' + school.code_uai}
+          title={nom + ' - ' + codeUai}
           text='Modifiez les informations nécessaires :'
           scrolledPast={this.state.scrolledPast}
         />

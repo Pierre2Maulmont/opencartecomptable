@@ -40,7 +40,6 @@ export default class ChangeMemo extends Component {
     axios.put('http://localhost:8888/public/api/etablissements/' + codeUai, memo)
       .then(response => {
         if (response.status === 200) {
-          console.log(response);
           this.setState({
             isFormSent: true
           })

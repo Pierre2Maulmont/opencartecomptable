@@ -4,8 +4,7 @@ import Form from '../../components/Form'
 
 export default class SearchForm extends Component {
   handleSubmission (school) {
-    // console.log(school)
-    this.props.handleSubmission()
+    this.props.handleSubmission(school)
   }
   render () {
     let { _handleWaypoint } = this.props

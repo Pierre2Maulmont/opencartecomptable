@@ -71,7 +71,16 @@ class SchoolsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $fields = ['code_uai', 'code_uai_agence_comptable', 'type_etablissement', 'nom', 'adresse', 'code_postal', 'commune', 'departement', 'region', 'academie', 'telephone', 'ca', 'memo'];
+      $values = [];
+      foreach ($fields as $field) {
+        if ($request->has($field)) {
+          $values[$field] = $request->input($field);
+        }
+      }
+      $response = Etablissement::store($values);
+      return $response;
     }
 
     /**
@@ -82,7 +91,7 @@ class SchoolsController extends Controller
      */
     public function show($code_uai)
     {
-      $school = Etablissement::singleSchool($code_uai);
+      $school = Etablissement::show($code_uai);
       return $school;
     }
 
@@ -108,19 +117,29 @@ class SchoolsController extends Controller
     {
       if ($request->has('new_agency')) {
 
-        $response = Etablissement::editAgency($code_uai, $request->input('new_agency'));
+        $response = Etablissement::updateAgency($code_uai, $request->input('new_agency'));
         return $response;
 
       } else if ($request->has('memo')) {
 
-        $response = Etablissement::editMemo($code_uai, $request->input('memo'));
+        $response = Etablissement::updateMemo($code_uai, $request->input('memo'));
         return $response;
 
-      } else if (false) {
-        // Etablissement::editInfo();
+      } else if ($request->has('info')) {
+
+        $fields = ['type_etablissement', 'nom', 'adresse', 'code_postal', 'commune', 'departement', 'region', 'academie', 'telephone', 'ca'];
+        $values = [];
+        foreach ($fields as $field) {
+          if ($request->has($field)) {
+            array_push($values, [$field => $request->input($field)]);
+          }
+        }
+
+        $response = Etablissement::updateInfo($code_uai, $values);
+        return $response;
 
       } else {
-        return 'noooon';
+        return;
       }
     }
 

@@ -83,7 +83,7 @@ export default class App extends Component {
               <div className='school-modal-button'>
                 <NavLink
                   className='my-button my-small-button'
-                  to={'/etablissements/0750680G/modifier-informations'}
+                  to={'/etablissements/' + school.code_uai + '/modifier-informations'}
                 >
                   Modifier
                 </NavLink>

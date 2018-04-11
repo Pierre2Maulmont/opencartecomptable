@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import PageComponent from '../../components/PageComponent'
 import TopSection from '../../components/TopSection'
@@ -20,10 +21,23 @@ export default class AddSchool extends Component {
     this.setState({ scrolledPast: scrolledPast })
   }
 
-  handleSubmission () {
-    this.setState({
-      isFormSent: true
-    })
+  handleSubmission (school) {
+    axios.put('http://localhost:8888/public/api/etablissements/', school)
+      .then(response => {
+        if (response.status === 200) {
+          this.setState({
+            isFormSent: true
+          })
+        } else {
+          this.setState({
+            isFormSent: true,
+            failure: true
+          })
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render () {
