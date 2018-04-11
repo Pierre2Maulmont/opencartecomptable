@@ -22,13 +22,13 @@ TopContent
   margin-top: 250px;
   margin-left: 20px;
   font-size: 35px;
-  font-family: Playfair Display;
+  font-family: $titleFont;
 }
 
 .top-content-text {
   padding-left: 90px;
   font-size: 20px;
-  font-family: Open Sans;
+  font-family: $textFont;
   color: $greyText;
 }
 
@@ -78,7 +78,7 @@ SearchFormSection
   margin-top: 70px;
   margin-bottom: 70px;
   font-size: 26px;
-  font-family: Playfair Display;
+  font-family: $titleFont;
   text-align: center;
 }
 
@@ -88,7 +88,7 @@ SearchFormSection
 
 .search-form-agencies {
   font-size: 20px;
-  font-family: Open Sans;
+  font-family: $textFont;
   width: 50%;
   height: 50px;
   -webkit-transition: 2s; /* Safari */
@@ -113,7 +113,7 @@ SearchFormSection
 
 .search-form-schools {
   font-size: 20px;
-  font-family: Open Sans;
+  font-family: $textFont;
   width: 50%;
   height: 50px;
   -webkit-transition: 2s; /* Safari */
@@ -231,7 +231,7 @@ About
 .about-paragraph-text {
   margin-left: 30px;
   font-size: 20px;
-  font-family: Open Sans;
+  font-family: $textFont;
   color: $greyText;
 }
 
