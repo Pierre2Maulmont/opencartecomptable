@@ -4572,7 +4572,7 @@ var Form = function (_Component) {
       code_uai: {
         message: '',
         rule: function rule(val) {
-          return this._testRegex(val.substring(7), /[A-Za-z]/) && this._testRegex(val.substring(0, 7), /[0-9]+/);
+          return this._testRegex(val.substring(7), /[A-Za-z]/) && this._testRegex(val.substring(0, 7), /^[0-9]*$/);
         }
       },
       memo: {
