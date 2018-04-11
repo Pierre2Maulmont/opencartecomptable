@@ -4526,6 +4526,8 @@ var FormSection = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_waypoint__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_simple_react_validator__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_simple_react_validator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_simple_react_validator__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -4539,6 +4541,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+var ERROR_MESSAGES = {
+  min: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  max: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  required: 'Ce champ est requis',
+  alpha_num: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  code_uai: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  memo: 'Les informations complémentaires ne doivent pas dépasser 5 caractères',
+  nom: 'Le nom ne doit pas dépasser 70 caractères',
+  commune: 'La commune ne doit pas dépasser 50 caractères',
+  code_postal: 'Le code postal ne doit pas dépasser 6 caractères',
+  departement: 'Le département ne doit pas dépasser 50 caractères',
+  adresse: 'L’adresse ne doit pas dépasser 70 caractères',
+  telephone: 'Le téléphone doit être un numéro valide'
+};
+
 var Form = function (_Component) {
   _inherits(Form, _Component);
 
@@ -4549,6 +4567,57 @@ var Form = function (_Component) {
 
     _this.handleInputChange = _this.handleInputChange.bind(_this);
     _this.handleKeyPress = _this.handleKeyPress.bind(_this);
+    _this.handleSubmission = _this.handleSubmission.bind(_this);
+    _this.validator = new __WEBPACK_IMPORTED_MODULE_2_simple_react_validator___default.a({
+      code_uai: {
+        message: '',
+        rule: function rule(val) {
+          return this._testRegex(val.substring(7), /[A-Za-z]/) && this._testRegex(val.substring(0, 7), /[0-9]+/);
+        }
+      },
+      memo: {
+        message: '',
+        rule: function rule(val) {
+          return val.length <= 100;
+        }
+      },
+      nom: {
+        message: '',
+        rule: function rule(val) {
+          return val.length <= 70;
+        }
+      },
+      commune: {
+        message: '',
+        rule: function rule(val) {
+          return val.length <= 50;
+        }
+      },
+      code_postal: {
+        message: '',
+        rule: function rule(val) {
+          return val.length <= 6;
+        }
+      },
+      departement: {
+        message: '',
+        rule: function rule(val) {
+          return val.length <= 50;
+        }
+      },
+      adresse: {
+        message: '',
+        rule: function rule(val) {
+          return val.length <= 70;
+        }
+      },
+      telephone: {
+        message: '',
+        rule: function rule(val) {
+          return this._testRegex(val, /(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)/);
+        }
+      }
+    });
     return _this;
   }
 
@@ -4572,9 +4641,21 @@ var Form = function (_Component) {
     key: 'handleKeyPress',
     value: function handleKeyPress(event) {
       if (event.key === 'Enter') {
-        // praise the lord for event.preventDefault
         event.preventDefault();
-        this.props.handleSubmission(this.state);
+        this.handleSubmission(this.state);
+      }
+    }
+  }, {
+    key: 'handleSubmission',
+    value: function handleSubmission(userInput) {
+      var handleSubmission = this.props.handleSubmission;
+
+      if (this.validator.allValid()) {
+        handleSubmission(userInput);
+      } else {
+        this.validator.showMessages();
+        // rerender to show messages for the first time
+        this.forceUpdate();
       }
     }
   }, {
@@ -4582,9 +4663,7 @@ var Form = function (_Component) {
     value: function renderAddSchoolForm() {
       var _this2 = this;
 
-      var _props = this.props,
-          _handleWaypoint = _props._handleWaypoint,
-          handleSubmission = _props.handleSubmission;
+      var _handleWaypoint = this.props._handleWaypoint;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
@@ -4597,6 +4676,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.code_uai : '', 'required|code_uai', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'code_uai_agence_comptable',
@@ -4605,6 +4685,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.code_uai : '', 'required|code_uai', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
           { name: 'type_etablissement', id: 'type_etablissement', onChange: this.handleInputChange },
@@ -4662,6 +4743,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.nom : '', 'required|nom', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'adresse',
@@ -4670,6 +4752,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.adresse : '', 'required|adresse', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'code_postal',
@@ -4678,6 +4761,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.code_postal : '', 'required|code_postal', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'commune',
@@ -4686,6 +4770,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.commune : '', 'required|commune', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -4702,6 +4787,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.departement : '', 'required|departement', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
           { name: 'region', id: 'region', onChange: this.handleInputChange },
@@ -4983,6 +5069,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.telephone : '', 'required|phone', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
           { name: 'ca', id: 'ca', onChange: this.handleInputChange },
@@ -5018,13 +5105,14 @@ var Form = function (_Component) {
           placeholder: 'Informations compl\xE9mentaires',
           onChange: this.handleInputChange
         }),
+        this.validator.message('', this.state ? this.state.memo : '', 'memo', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
             className: 'my-button my-button_blue-bg',
             name: 'ajouter',
             onClick: function onClick() {
-              handleSubmission(_this2.state);
+              _this2.handleSubmission(_this2.state);
             }
           },
           'Ajouter'
@@ -5036,9 +5124,7 @@ var Form = function (_Component) {
     value: function renderChangeAgencyForm() {
       var _this3 = this;
 
-      var _props2 = this.props,
-          _handleWaypoint = _props2._handleWaypoint,
-          handleSubmission = _props2.handleSubmission;
+      var _handleWaypoint = this.props._handleWaypoint;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
@@ -5051,6 +5137,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.new_agency : '', 'required|alpha_num|max:8|min:8|code_uai', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -5065,7 +5152,7 @@ var Form = function (_Component) {
             className: 'my-button my-button_blue-bg my-nav-button',
             name: 'modifier',
             onClick: function onClick() {
-              handleSubmission(_this3.state);
+              _this3.handleSubmission(_this3.state);
             }
           },
           'Modifier'
@@ -5114,10 +5201,9 @@ var Form = function (_Component) {
     value: function renderChangeInfoForm() {
       var _this5 = this;
 
-      var _props3 = this.props,
-          _handleWaypoint = _props3._handleWaypoint,
-          handleSubmission = _props3.handleSubmission,
-          school = _props3.school;
+      var _props = this.props,
+          _handleWaypoint = _props._handleWaypoint,
+          school = _props.school;
 
       var typeEtablissement = school && this.props.school[0]['type_etablissement'];
       var nom = school && this.props.school[0]['nom'];
@@ -5189,6 +5275,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.nom : '', 'nom', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'adresse',
@@ -5197,6 +5284,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.adresse : '', 'adresse', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'code_postal',
@@ -5205,6 +5293,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.code_postal : '', 'code_postal', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'commune',
@@ -5213,6 +5302,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.commune : '', 'commune', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -5229,6 +5319,7 @@ var Form = function (_Component) {
           onChange: this.handleInputChange,
           onKeyPress: this.handleKeyPress
         }),
+        this.validator.message('', this.state ? this.state.departement : '', 'departement', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
           { name: 'region', id: 'region', onChange: this.handleInputChange },
@@ -5549,7 +5640,7 @@ var Form = function (_Component) {
             className: 'my-button my-button_blue-bg',
             name: 'modifier',
             onClick: function onClick() {
-              handleSubmission(_this5.state);
+              _this5.handleSubmission(_this5.state);
             }
           },
           'Modifier'
@@ -5561,9 +5652,7 @@ var Form = function (_Component) {
     value: function renderChangeMemoForm() {
       var _this6 = this;
 
-      var _props4 = this.props,
-          _handleWaypoint = _props4._handleWaypoint,
-          handleSubmission = _props4.handleSubmission;
+      var _handleWaypoint = this.props._handleWaypoint;
 
       var memo = this.props.school && this.props.school[0]['memo'];
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -5575,6 +5664,7 @@ var Form = function (_Component) {
           placeholder: memo,
           onChange: this.handleInputChange
         }),
+        this.validator.message('', this.state ? this.state.memo : '', 'memo', false, ERROR_MESSAGES),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_waypoint__["a" /* default */], {
           onEnter: function onEnter() {
             _handleWaypoint(true);
@@ -5589,7 +5679,7 @@ var Form = function (_Component) {
             className: 'my-button my-button_blue-bg my-nav-button',
             name: 'modifier',
             onClick: function onClick() {
-              handleSubmission(_this6.state);
+              _this6.handleSubmission(_this6.state);
             }
           },
           'Modifier'
@@ -65207,6 +65297,20 @@ var Scroller = Object(__WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* withRout
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Simple React Validator v0.0.5 | Created By Dockwa | MIT License | 2017
+!function(e,t){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (t),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?module.exports=t(require("react")):e.SimpleReactValidator=t(e.React)}(this,function(e){"use strict";function t(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var s in r)Object.prototype.hasOwnProperty.call(r,s)&&(e[s]=r[s])}return e},s=function(){function e(e,t){for(var r=0;r<t.length;r++){var s=t[r];s.enumerable=s.enumerable||!1,s.configurable=!0,"value"in s&&(s.writable=!0),Object.defineProperty(e,s.key,s)}}return function(t,r,s){return r&&e(t.prototype,r),s&&e(t,s),t}}();return function(){function n(){var e=this,s=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};t(this,n),this.fields={},this.errorMessages={},this.messagesShown=!1,this.rules=r({accepted:{message:"The :attribute must be accepted.",rule:function(e){return!0===e}},alpha:{message:"The :attribute may only contain letters.",rule:function(t){return e._testRegex(t,/^[A-Z]*$/i)}},alpha_num:{message:"The :attribute may only contain letters and numbers.",rule:function(t){return e._testRegex(t,/^[A-Z0-9]*$/i)}},alpha_num_dash:{message:"The :attribute may only contain letters, numbers, and dashes.",rule:function(t){return e._testRegex(t,/^[A-Z0-9_-]*$/i)}},card_exp:{message:"The :attribute must be a valid expiration date.",rule:function(t){return e._testRegex(t,/^(([0]?[1-9]{1})|([1]{1}[0-2]{1}))\s?\/\s?(\d{2}|\d{4})$/)}},card_num:{message:"The :attribute must be a valid credit card number.",rule:function(t){return e._testRegex(t,/^\d{4}\s?\d{4,6}\s?\d{4,5}\s?\d{0,8}$/)}},email:{message:"The :attribute must be a valid email address.",rule:function(t){return e._testRegex(t,/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i)}},gt:{message:"The :attribute must be greater than :gt.",rule:function(t,r){return!!e._testRegex(t,/^\d+.?\d*$/)&&parseFloat(t)>parseFloat(r[0])},messageReplace:function(e,t){return e.replace(":gt",t[0])}},gte:{message:"The :attribute must be greater than or equal to :gte.",rule:function(t,r){return!!e._testRegex(t,/^\d+.?\d*$/)&&parseFloat(t)>=parseFloat(r[0])},messageReplace:function(e,t){return e.replace(":gte",t[0])}},in:{message:"The selected :attribute must be :values.",rule:function(e,t){return t.indexOf(e)>-1},messageReplace:function(t,r){return t.replace(":values",e._toSentence(r))}},integer:{message:"The :attribute must be an integer.",rule:function(t){return e._testRegex(t,/^\d+$/)}},lt:{message:"The :attribute must be less than :lt.",rule:function(t,r){return!!e._testRegex(t,/^\d+.?\d*$/)&&parseFloat(t)<parseFloat(r[0])},messageReplace:function(e,t){return e.replace(":lt",t[0])}},lte:{message:"The :attribute must be less than or equal to :lte.",rule:function(t,r){return!!e._testRegex(t,/^\d+.?\d*$/)&&parseFloat(t)<=parseFloat(r[0])},messageReplace:function(e,t){return e.replace(":lte",t[0])}},max:{message:"The :attribute may not be greater than :max characters.",rule:function(e,t){return e.length<=t[0]},messageReplace:function(e,t){return e.replace(":max",t[0])}},min:{message:"The :attribute must be at least :min characters.",rule:function(e,t){return e.length>=t[0]},messageReplace:function(e,t){return e.replace(":min",t[0])}},not_in:{message:"The selected :attribute must not be :values.",rule:function(e,t){return-1===t.indexOf(e)},messageReplace:function(t,r){return t.replace(":values",e._toSentence(r))}},numeric:{message:"The :attribute must be a number.",rule:function(t){return e._testRegex(t,/^\d+.?\d*$/)}},phone:{message:"The :attribute must be a valid phone number.",rule:function(t){return e._testRegex(t,/(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)/)}},required:{message:"The :attribute field is required.",rule:function(t){return e._testRegex(t,/.+/)}},url:{message:"The :attribute must be a url.",rule:function(t){return e._testRegex(t,/^(https?|ftp):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i)}}},s)}return s(n,[{key:"getErrorMessages",value:function(){return this.errorMessages}},{key:"showMessages",value:function(){this.messagesShown=!0}},{key:"hideMessages",value:function(){this.messagesShown=!1}},{key:"allValid",value:function(){for(var e in this.fields)if(!1===this.fieldValid(e))return!1;return!0}},{key:"fieldValid",value:function(e){return this.fields.hasOwnProperty(e)&&!0===this.fields[e]}},{key:"customMessage",value:function(e,t){if(e&&this.messagesShown)return this._reactErrorElement(e,t)}},{key:"message",value:function(e,t,r,s){var n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{};this.errorMessages[e]=null,this.fields[e]=!0;for(var a,u,i,l=r.split("|"),o=0;o<l.length;o++)if(t=this._valueOrEmptyString(t),a=this._getRule(l[o]),u=this._getOptions(l[o]),!1===this.rules[a].rule.call(this,t,u)&&(this.fields[e]=!1,this.messagesShown))return i=n[a]||n.default||this.rules[a].message.replace(":attribute",e.replace(/_/g," ")),this.errorMessages[e]=i,u.length>0&&this.rules[a].hasOwnProperty("messageReplace")?this._reactErrorElement(this.rules[a].messageReplace(i,u)):this._reactErrorElement(i,s)}},{key:"_getRule",value:function(e){return e.split(":")[0]}},{key:"_getOptions",value:function(e){var t=e.split(":");return t.length>1?t[1].split(","):[]}},{key:"_valueOrEmptyString",value:function(e){return void 0===e||null===e?"":e}},{key:"_toSentence",value:function(e){return e.slice(0,-2).join(", ")+(e.slice(0,-2).length?", ":"")+e.slice(-2).join(e.length>2?", or ":" or ")}},{key:"_reactErrorElement",value:function(t,r){return e.createElement("div",{className:r||"validation-message"},t)}},{key:"_testRegex",value:function(e,t){return null!==e.toString().match(t)}}]),n}()});
 
 /***/ })
 /******/ ]);

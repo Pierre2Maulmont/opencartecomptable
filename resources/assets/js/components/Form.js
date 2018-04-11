@@ -1,11 +1,78 @@
 import React, { Component } from 'react'
 import Waypoint from 'react-waypoint'
+import SimpleReactValidator from 'simple-react-validator'
+
+const ERROR_MESSAGES = {
+  min: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  max: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  required: 'Ce champ est requis',
+  alpha_num: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  code_uai: 'Le code UAI doit contenir 7 chiffres et une lettre',
+  memo: 'Les informations complémentaires ne doivent pas dépasser 5 caractères',
+  nom: 'Le nom ne doit pas dépasser 70 caractères',
+  commune: 'La commune ne doit pas dépasser 50 caractères',
+  code_postal: 'Le code postal ne doit pas dépasser 6 caractères',
+  departement: 'Le département ne doit pas dépasser 50 caractères',
+  adresse: 'L’adresse ne doit pas dépasser 70 caractères',
+  telephone: 'Le téléphone doit être un numéro valide'
+}
 
 export default class Form extends Component {
   constructor (props) {
     super(props)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleSubmission = this.handleSubmission.bind(this)
+    this.validator = new SimpleReactValidator({
+      code_uai: {
+        message: '',
+        rule: function (val) {
+          return this._testRegex(val.substring(7), /[A-Za-z]/) && this._testRegex(val.substring(0, 7), /[0-9]+/)
+        }
+      },
+      memo: {
+        message: '',
+        rule: function (val) {
+          return val.length <= 100
+        }
+      },
+      nom: {
+        message: '',
+        rule: function (val) {
+          return val.length <= 70
+        }
+      },
+      commune: {
+        message: '',
+        rule: function (val) {
+          return val.length <= 50
+        }
+      },
+      code_postal: {
+        message: '',
+        rule: function (val) {
+          return val.length <= 6
+        }
+      },
+      departement: {
+        message: '',
+        rule: function (val) {
+          return val.length <= 50
+        }
+      },
+      adresse: {
+        message: '',
+        rule: function (val) {
+          return val.length <= 70
+        }
+      },
+      telephone: {
+        message: '',
+        rule: function (val) {
+          return this._testRegex(val, /(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)/)
+        }
+      }
+    })
   }
 
   componentDidMount () {
@@ -26,14 +93,24 @@ export default class Form extends Component {
 
   handleKeyPress (event) {
     if (event.key === 'Enter') {
-      // praise the lord for event.preventDefault
       event.preventDefault()
-      this.props.handleSubmission(this.state)
+      this.handleSubmission(this.state)
+    }
+  }
+
+  handleSubmission (userInput) {
+    let { handleSubmission } = this.props
+    if (this.validator.allValid()) {
+      handleSubmission(userInput)
+    } else {
+      this.validator.showMessages()
+      // rerender to show messages for the first time
+      this.forceUpdate()
     }
   }
 
   renderAddSchoolForm () {
-    let { _handleWaypoint, handleSubmission } = this.props
+    let { _handleWaypoint } = this.props
     return (
       <form>
         <input
@@ -44,6 +121,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.code_uai : '', 'required|code_uai', false, ERROR_MESSAGES)}
 
         <input
           type='text'
@@ -53,6 +131,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.code_uai : '', 'required|code_uai', false, ERROR_MESSAGES)}
 
         <select name='type_etablissement' id='type_etablissement' onChange={this.handleInputChange}>
           <option value=''>Type d’établissement*</option>
@@ -74,6 +153,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.nom : '', 'required|nom', false, ERROR_MESSAGES)}
 
         <input
           type='text'
@@ -83,6 +163,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.adresse : '', 'required|adresse', false, ERROR_MESSAGES)}
 
         <input
           type='text'
@@ -92,6 +173,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.code_postal : '', 'required|code_postal', false, ERROR_MESSAGES)}
 
         <input
           type='text'
@@ -101,6 +183,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.commune : '', 'required|commune', false, ERROR_MESSAGES)}
 
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
@@ -115,6 +198,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.departement : '', 'required|departement', false, ERROR_MESSAGES)}
 
         <select name='region' id='region' onChange={this.handleInputChange}>
           <option value=''>Région*</option>
@@ -183,6 +267,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.telephone : '', 'required|phone', false, ERROR_MESSAGES)}
 
         <select name='ca' id='ca' onChange={this.handleInputChange}>
           <option value=''>Total recettes annuelles</option>
@@ -198,11 +283,12 @@ export default class Form extends Component {
           placeholder='Informations complémentaires'
           onChange={this.handleInputChange}
         />
+        {this.validator.message('', this.state ? this.state.memo : '', 'memo', false, ERROR_MESSAGES)}
 
         <div
           className='my-button my-button_blue-bg'
           name='ajouter'
-          onClick={() => { handleSubmission(this.state) }}
+          onClick={() => { this.handleSubmission(this.state) }}
         >
           Ajouter
         </div>
@@ -211,7 +297,7 @@ export default class Form extends Component {
   }
 
   renderChangeAgencyForm () {
-    let { _handleWaypoint, handleSubmission } = this.props
+    let { _handleWaypoint } = this.props
     return (
       <form>
         <input
@@ -222,6 +308,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.new_agency : '', 'required|alpha_num|max:8|min:8|code_uai', false, ERROR_MESSAGES)}
 
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
@@ -231,7 +318,7 @@ export default class Form extends Component {
         <div
           className='my-button my-button_blue-bg my-nav-button'
           name='modifier'
-          onClick={() => { handleSubmission(this.state) }}
+          onClick={() => { this.handleSubmission(this.state) }}
         >
           Modifier
         </div>
@@ -269,7 +356,7 @@ export default class Form extends Component {
   }
 
   renderChangeInfoForm () {
-    const { _handleWaypoint, handleSubmission, school } = this.props
+    const { _handleWaypoint, school } = this.props
     let typeEtablissement = school && this.props.school[0]['type_etablissement']
     let nom = school && this.props.school[0]['nom']
     let adresse = school && this.props.school[0]['adresse']
@@ -302,6 +389,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.nom : '', 'nom', false, ERROR_MESSAGES)}
 
         <input
           type='text'
@@ -311,6 +399,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.adresse : '', 'adresse', false, ERROR_MESSAGES)}
 
         <input
           type='text'
@@ -320,6 +409,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.code_postal : '', 'code_postal', false, ERROR_MESSAGES)}
 
         <input
           type='text'
@@ -329,6 +419,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.commune : '', 'commune', false, ERROR_MESSAGES)}
 
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
@@ -343,6 +434,7 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
         />
+        {this.validator.message('', this.state ? this.state.departement : '', 'departement', false, ERROR_MESSAGES)}
 
         <select name='region' id='region' onChange={this.handleInputChange}>
           <option value={region}>{region}</option>
@@ -428,7 +520,7 @@ export default class Form extends Component {
         <div
           className='my-button my-button_blue-bg'
           name='modifier'
-          onClick={() => { handleSubmission(this.state) }}
+          onClick={() => { this.handleSubmission(this.state) }}
         >
           Modifier
         </div>
@@ -437,7 +529,7 @@ export default class Form extends Component {
   }
 
   renderChangeMemoForm () {
-    const { _handleWaypoint, handleSubmission } = this.props
+    const { _handleWaypoint } = this.props
     let memo = this.props.school && this.props.school[0]['memo']
     return (
       <form>
@@ -448,6 +540,8 @@ export default class Form extends Component {
           onChange={this.handleInputChange}
         />
 
+        {this.validator.message('', this.state ? this.state.memo : '', 'memo', false, ERROR_MESSAGES)}
+
         <Waypoint
           onEnter={() => { _handleWaypoint(true) }}
           onLeave={() => { _handleWaypoint(false) }}
@@ -456,7 +550,7 @@ export default class Form extends Component {
         <div
           className='my-button my-button_blue-bg my-nav-button'
           name='modifier'
-          onClick={() => { handleSubmission(this.state) }}
+          onClick={() => { this.handleSubmission(this.state) }}
         >
           Modifier
         </div>

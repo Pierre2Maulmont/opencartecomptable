@@ -13,7 +13,7 @@
 
 .header__left {
   padding-top: 28px;
-  font-family: Playfair Display;
+  font-family: $titleFont;
   font-size: 20px;
 }
 
@@ -25,7 +25,7 @@
 .header__right {
   padding-top: 33px;
   display: flex;
-  font-family: Open Sans;
+  font-family: $textFont;
 }
 
 .header__right a {

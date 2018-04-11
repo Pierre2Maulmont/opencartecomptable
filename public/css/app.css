@@ -187,6 +187,13 @@ body {
   color: #505050;
 }
 
+.validation-message {
+  position: relative;
+  margin-bottom: 30px;
+  font-family: Open Sans;
+  color: #e00f0f;
+}
+
 .results-section-box {
   background-color: #dcefed;
   padding: 90px 0px 100px 0px;
