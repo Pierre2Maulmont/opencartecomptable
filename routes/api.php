@@ -17,12 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('schools', 'SchoolsController@index');
+// Route::get('etablissements', 'SchoolsController@index');
+// Route::get('etablissements/{etablissement}', 'SchoolsController@show');
+// Route::put('etablissements/{etablissement}', 'SchoolsController@update');
 
-Route::get('etablissements/{etablissement}', 'SchoolsController@singleSchool');
-
-Route::put('etablissements/{etablissement}', 'SchoolsController@edit');
+Route::resource('etablissements', 'SchoolsController');
 
 Route::get('agences/{agence}', 'SchoolsController@agency');
-
-// Route::get('test')

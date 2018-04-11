@@ -19,7 +19,7 @@ export default class Schools extends Component {
       // fetch schools corresponding to search criteria
       let isAgencies = pathname === '/agences' ? '&agencies' : ''
       let url = this.props.location
-      const requestUrl = 'http://localhost:8888/public/api/schools' + url.search + isAgencies
+      const requestUrl = 'http://localhost:8888/public/api/etablissements' + url.search + isAgencies
       axios.get(requestUrl)
         .then(schools => {
           this.setState({ schools: schools.data })

@@ -47,12 +47,6 @@ class SchoolsController extends Controller
       return $schools;
     }
 
-    public function singleSchool($code_uai)
-    {
-      $school = Etablissement::singleSchool($code_uai);
-      return $school;
-    }
-
     public function agency($code_uai_agence_comptable)
     {
       $schools = Etablissement::agency($code_uai_agence_comptable);
@@ -86,9 +80,10 @@ class SchoolsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($code_uai)
     {
-        //
+      $school = Etablissement::singleSchool($code_uai);
+      return $school;
     }
 
     /**
@@ -97,24 +92,9 @@ class SchoolsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $code_uai)
+    public function edit(Request $request, $id)
     {
-        if ($request->has('new_agency')) {
-
-          $response = Etablissement::editAgency($code_uai, $request->input('new_agency'));
-          return $response;
-
-        } else if ($request->has('memo')) {
-
-          $response = Etablissement::editMemo($code_uai, $request->input('memo'));
-          return $response;
-
-        } else if (false) {
-          // Etablissement::editInfo();
-
-        } else {
-          return 'noooon';
-        }
+        //
     }
 
     /**
@@ -124,9 +104,24 @@ class SchoolsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $code_uai)
     {
-        //
+      if ($request->has('new_agency')) {
+
+        $response = Etablissement::editAgency($code_uai, $request->input('new_agency'));
+        return $response;
+
+      } else if ($request->has('memo')) {
+
+        $response = Etablissement::editMemo($code_uai, $request->input('memo'));
+        return $response;
+
+      } else if (false) {
+        // Etablissement::editInfo();
+
+      } else {
+        return 'noooon';
+      }
     }
 
     /**
