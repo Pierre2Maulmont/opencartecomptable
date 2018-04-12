@@ -211,7 +211,7 @@ body {
 }
 
 .my-table th {
-  padding: 0px 0px 20px 0px;
+  padding: 0px 0px 20px 8px;
   font-family: Playfair Display;
   font-weight: 400;
   color: #ad662b;
@@ -303,6 +303,8 @@ body {
   margin-right: 20px;
   color: #e00f0f;
   font-weight: bold;
+  position: relative;
+  bottom: 8px;
 }
 
 .school-modal-close:hover {
@@ -323,15 +325,18 @@ body {
   color: #bac6c6;
 }
 
-.update-icon {
-  margin-right: 15px;
-  font-size: 22px;
+.udpate-section {
   color: #0d7067;
 }
 
-.update-icon:hover {
+.udpate-section:hover {
   cursor: pointer;
   color: #558782;
+}
+
+.update-icon {
+  margin-right: 15px;
+  font-size: 22px;
 }
 
 .update-message {
@@ -352,7 +357,7 @@ body {
 }
 
 .school-modal-info {
-  width: 35%;
+  width: 40%;
   margin-top: 25px;
 }
 
@@ -360,6 +365,7 @@ body {
   margin-bottom: 20px;
   margin-left: 20px;
   margin-top: -5px;
+  line-height: 22px;
 }
 
 .school-modal-button {
@@ -529,6 +535,7 @@ select {
 textarea {
   margin-bottom: 30px !important;
   width: 230px;
+  height: 100px;
   background-color: #f9f7f3;
   color: #0d7067;
   border: none;

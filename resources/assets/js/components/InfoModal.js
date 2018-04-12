@@ -58,7 +58,7 @@ export default class App extends Component {
                   {school.up_to_date}
                 </span>
               </p>
-              <p>
+              <p className='udpate-section'>
                 <i className='fa fa-thumbs-up update-icon' />
                 <span className='update-message'>
                   Je confirme que ces informations sont aujourd’hui à jour
