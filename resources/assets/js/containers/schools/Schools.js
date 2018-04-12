@@ -43,6 +43,7 @@ export default class Schools extends Component {
 
   render () {
     const { schools } = this.state
+    console.log(schools.length)
     let title = ''
     let text = ''
     let isAgencySearch = false
@@ -61,6 +62,8 @@ export default class Schools extends Component {
       title = schoolName
       text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence de cet établissement<br>Vous pouvez visualiser les informations de l’établissement en cliquant sur son nom'
     }
+
+    schools.length === 0 && (text = 'Il n’y a pas d’établissements correspondant à votre recherche')
 
     return (
       <PageComponent>

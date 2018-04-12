@@ -63,6 +63,7 @@ export default class Agency extends Component {
         <ResultsTable
           schools={schools}
           isAgencyView
+          agencyId={agencyId}
         />
       </PageComponent>
     )

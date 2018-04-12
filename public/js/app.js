@@ -17697,7 +17697,8 @@ var ResultsTable = function (_Component) {
       var _props = this.props,
           schools = _props.schools,
           isAgencySearch = _props.isAgencySearch,
-          isAgencyView = _props.isAgencyView;
+          isAgencyView = _props.isAgencyView,
+          agencyId = _props.agencyId;
 
       var COLUMNNAMES = ['Code UAI', 'UAI agence', 'Nom', 'Commune', 'Département', 'Région', 'Académie', ''];
       if (isAgencySearch) {
@@ -17727,7 +17728,11 @@ var ResultsTable = function (_Component) {
                 !isAgencySearch && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'td',
                   null,
-                  item.code_uai
+                  item.code_uai === agencyId ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    { className: 'agency' },
+                    item.code_uai
+                  ) : item.code_uai
                 ),
                 !isAgencyView && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'td',
@@ -62917,6 +62922,7 @@ var Schools = function (_Component) {
     value: function render() {
       var schools = this.state.schools;
 
+      console.log(schools.length);
       var title = '';
       var text = '';
       var isAgencySearch = false;
@@ -62935,6 +62941,8 @@ var Schools = function (_Component) {
         title = schoolName;
         text = 'Cliquez sur le bouton "UAI agence" pour obtenir le détail de l’agence de cet établissement<br>Vous pouvez visualiser les informations de l’établissement en cliquant sur son nom';
       }
+
+      schools.length === 0 && (text = 'Il n’y a pas d’établissements correspondant à votre recherche');
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__["a" /* default */],
@@ -64429,7 +64437,8 @@ var Agency = function (_Component) {
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ResultsTable__["a" /* default */], {
           schools: schools,
-          isAgencyView: true
+          isAgencyView: true,
+          agencyId: agencyId
         })
       );
     }

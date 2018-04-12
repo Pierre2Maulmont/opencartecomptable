@@ -7,7 +7,7 @@ import InfoModal from './InfoModal'
 
 export default class ResultsTable extends Component {
   render () {
-    const { schools, isAgencySearch, isAgencyView } = this.props
+    const { schools, isAgencySearch, isAgencyView, agencyId } = this.props
     let COLUMNNAMES = ['Code UAI', 'UAI agence', 'Nom', 'Commune', 'Département', 'Région', 'Académie', '']
     if (isAgencySearch) {
       COLUMNNAMES.splice(0, 1)
@@ -30,7 +30,11 @@ export default class ResultsTable extends Component {
                   <tr key={item.code_uai}>
 
                     {
-                      !isAgencySearch && <td>{item.code_uai}</td>
+                      !isAgencySearch && <td>
+                        {
+                          item.code_uai === agencyId ? <span className='agency'>{item.code_uai}</span> : item.code_uai
+                        }
+                      </td>
                     }
 
                     {

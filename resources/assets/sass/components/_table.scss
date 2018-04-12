@@ -2,7 +2,7 @@
   padding: 0px 0px 20px 8px;
   font-family: $titleFont;
   font-weight: 400;
-  color: #ad662b;
+  color: $highlight;
 }
 
 .my-table td {
@@ -26,4 +26,8 @@
 .school-name:hover {
   cursor: pointer;
   color: $greenButtonHovered;
+}
+
+.my-table .agency {
+  color: $highlight;
 }
