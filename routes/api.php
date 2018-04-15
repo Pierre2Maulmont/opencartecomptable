@@ -24,3 +24,5 @@ Route::resource('etablissements', 'SchoolsController');
 Route::put('etablissements', 'SchoolsController@store');
 
 Route::get('agences/{agence}', 'SchoolsController@agency');
+
+Route::get('statistics', 'StatsController@index');
