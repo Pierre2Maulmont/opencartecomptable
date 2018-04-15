@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 
 import PageComponent from '../../components/PageComponent'
+import StatsModal from '../../components/StatsModal'
 
 export default class Statistiques extends Component {
   componentDidMount () {
@@ -42,7 +43,7 @@ export default class Statistiques extends Component {
             </div>
 
             <div className='map-legend-show-ranking'>
-              <div className='my-button my-small-button my-button_white-bg'>Voir classement</div>
+              <StatsModal modalText={'Voir classement'} />
             </div>
           </div>
         </div>
