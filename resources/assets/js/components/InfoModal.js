@@ -67,16 +67,16 @@ export default class App extends Component {
           </div>
           <div className='school-modal-bottom'>
             <div className='school-modal-info school-modal-info-left'>
-              <h5>Type d’établissement :</h5>
+              <h4>Type d’établissement :</h4>
               <p>{school.type_etablissement}</p>
 
-              <h5>Adresse :</h5>
+              <h4>Adresse :</h4>
               <p>{school.adresse}</p>
 
-              <h5>Téléphone :</h5>
+              <h4>Téléphone :</h4>
               <p>{school.telephone}</p>
 
-              <h5>Total recettes annuelles&nbsp;:</h5>
+              <h4>Total recettes annuelles&nbsp;:</h4>
               <p>{school.ca ? school.ca : '-'}</p>
 
               <div className='school-modal-button'>
@@ -90,7 +90,7 @@ export default class App extends Component {
             </div>
 
             <div className='school-modal-info school-modal-info-right'>
-              <h5>Informations complémentaires :</h5>
+              <h4>Informations complémentaires :</h4>
               <p>{school.memo ? school.memo : '-'}</p>
 
               <div className='school-modal-button'>

@@ -26,7 +26,7 @@
   outline: none;
   display: flex;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 17px;
   font-family: $textFont;
   color: $greyText;
 }
@@ -41,17 +41,15 @@
   margin-left: 20px;
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: 19px;
+  font-weight: bold;
   font-family: $titleFont;
-}
-
-.school-modal-title {
-
 }
 
 .school-modal-close {
   margin-right: 20px;
   color: $red;
+  font-family: $textFont;
   font-weight: bold;
   position: relative;
   bottom: 8px;
@@ -68,7 +66,7 @@
   padding-left: 20px;
   border-left: 1px solid $lightGrayBorder;
   height: 80px;
-  font-size: 15px;
+  // font-size: 15px;
 }
 
 .update-date-grey {
@@ -89,13 +87,9 @@
   font-size: 22px;
 }
 
-.update-message {
-  font-size: 17px;
-}
-
 .school-modal-bottom {
   width: 100%;
-  flex-grow: 2;
+  flex-grow: 4;
   background: $blueBackground;
   display: flex;
   justify-content: space-around;
@@ -111,6 +105,7 @@
   margin-left: 20px;
   margin-top: -5px;
   line-height: 22px;
+  font-weight: 600;
 }
 
 .school-modal-button {

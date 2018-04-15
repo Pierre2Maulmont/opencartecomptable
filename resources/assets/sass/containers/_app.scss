@@ -2,6 +2,10 @@ h3, h4, h5, h6 {
   font-family: $titleFont !important;
 }
 
+h4 {
+  font-size: 17px !important;
+}
+
 .highlight {
   color: $highlight;
   font-weight: 600;
