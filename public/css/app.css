@@ -909,6 +909,13 @@ About
   height: 260px;
 }
 
+.stats-toggle {
+  position: fixed;
+  top: 150px;
+  left: 50px;
+  z-index: 100;
+}
+
 .map-container {
   padding-top: 70px;
   position: relative;
