@@ -11,7 +11,11 @@
 }
 
 .my-table tr {
-  border-bottom: 1px solid $lightGreenishGray;
+  // border-bottom: 1px solid $lightGreenishGray;
+}
+
+.my-table tr:nth-child(even) {
+  background-color: #d3e8e6;
 }
 
 .my-table {

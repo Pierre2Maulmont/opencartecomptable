@@ -222,8 +222,8 @@ body {
   min-width: 130px;
 }
 
-.my-table tr {
-  border-bottom: 1px solid #bac6c6;
+.my-table tr:nth-child(even) {
+  background-color: #d3e8e6;
 }
 
 .my-table {
