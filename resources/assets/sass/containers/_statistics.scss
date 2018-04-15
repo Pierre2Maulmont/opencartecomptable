@@ -48,3 +48,20 @@
   align-items: center;
   border-top: 1px solid $lightGrayBorder;
 }
+
+/**/
+
+.map-legend-up-to-date-rate {
+  width: 85%;
+  flex-grow: 2;
+  text-align: justify;
+}
+
+.map-legend-show-details {
+  width: 80%;
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid $lightGrayBorder;
+}

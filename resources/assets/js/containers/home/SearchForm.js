@@ -41,7 +41,7 @@ export default class SearchForm extends Component {
       <div className={'search-form-' + type + (currentSearchType === type ? ' search-form-' + type + '-expand' : '') + ((currentSearchType !== '' && type === 'agencies') ? ' search-form-agencies-expanded' : '') + ((currentSearchType === 'schools' && type === 'agencies') ? ' search-form-agencies-reduced' : '')}>
 
         <div className={'search-form-' + type + '-text'}>
-          <div className='my-button my-button_blue-bg' onClick={() => this.handleClick(type)}>{text}</div>
+          <div className='my-button' onClick={() => this.handleClick(type)}>{text}</div>
         </div>
 
         <div className={'search-form-content' + (currentSearchType === type ? ' search-form-content-show' : '')}>
@@ -158,7 +158,7 @@ export default class SearchForm extends Component {
               />
 
               <div
-                className='my-button my-button_blue-bg my-nav-button'
+                className='my-button my-nav-button'
                 onClick={() => { this.handleSubmission(this.state) }}
               >
                 Rechercher

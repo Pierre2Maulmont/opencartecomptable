@@ -31,7 +31,7 @@ export default class TopSection extends Component {
             {
               text && <div className={'col-sm-3' + (!title ? ' top-section-button-box-lower' : '')}>
                 <div
-                  className='my-button my-button_white-bg'
+                  className='my-button'
                   onClick={() => { this.handleClick() }}
                 >
                   Retour

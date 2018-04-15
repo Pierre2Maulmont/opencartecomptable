@@ -587,14 +587,6 @@ button {
   border: 1px solid #7eaaa6 !important;
 }
 
-.my-button_blue-bg {
-  background-color: #dcefed !important;
-}
-
-.my-button_white-bg {
-  background-color: #f9f7f3 !important;
-}
-
 /*
 forms
 */
@@ -976,6 +968,33 @@ About
 }
 
 .map-legend-show-ranking {
+  width: 80%;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #7b8484;
+}
+
+/**/
+
+.map-legend-up-to-date-rate {
+  width: 85%;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  text-align: justify;
+}
+
+.map-legend-show-details {
   width: 80%;
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;

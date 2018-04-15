@@ -40,7 +40,7 @@ export default class ResultsTable extends Component {
                     {
                       !isAgencyView && <td>
                         <NavLink
-                          className='my-button my-small-button my-button_blue-bg'
+                          className='my-button my-small-button'
                           to={'/agences/' + item.code_uai_agence_comptable}
                         >
                           {item.code_uai_agence_comptable}
@@ -81,7 +81,7 @@ export default class ResultsTable extends Component {
 
                     <td>
                       <NavLink
-                        className='my-button my-small-button my-button_blue-bg'
+                        className='my-button my-small-button'
                         to={'/etablissements/' + item.code_uai + '/changer-agence'}
                       >
                       Changer&nbsp;d’agence

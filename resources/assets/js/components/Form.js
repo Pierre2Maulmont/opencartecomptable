@@ -286,7 +286,7 @@ export default class Form extends Component {
         {this.validator.message('', this.state ? this.state.memo : '', 'memo', false, ERROR_MESSAGES)}
 
         <div
-          className='my-button my-button_blue-bg'
+          className='my-button'
           name='ajouter'
           onClick={() => { this.handleSubmission(this.state) }}
         >
@@ -316,7 +316,7 @@ export default class Form extends Component {
         />
 
         <div
-          className='my-button my-button_blue-bg my-nav-button'
+          className='my-button my-nav-button'
           name='modifier'
           onClick={() => { this.handleSubmission(this.state) }}
         >
@@ -345,7 +345,7 @@ export default class Form extends Component {
           onKeyPress={this.handleKeyPress}
         />
         <div
-          className='my-button my-button_blue-bg'
+          className='my-button'
           name='ajouter'
           onClick={() => { handleSubmission(this.state) }}
         >
@@ -518,7 +518,7 @@ export default class Form extends Component {
         />
 
         <div
-          className='my-button my-button_blue-bg'
+          className='my-button'
           name='modifier'
           onClick={() => { this.handleSubmission(this.state) }}
         >
@@ -548,7 +548,7 @@ export default class Form extends Component {
         />
 
         <div
-          className='my-button my-button_blue-bg my-nav-button'
+          className='my-button my-nav-button'
           name='modifier'
           onClick={() => { this.handleSubmission(this.state) }}
         >
