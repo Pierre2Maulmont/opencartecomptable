@@ -423,6 +423,7 @@ body {
 
 .stats-modal-content th {
   padding-bottom: 15px;
+  font-family: Playfair Display;
 }
 
 .stats-modal-content .average {
