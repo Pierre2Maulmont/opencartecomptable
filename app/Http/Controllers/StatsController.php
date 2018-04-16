@@ -7,9 +7,18 @@ use App\Statistique;
 
 class StatsController extends Controller
 {
-    public function index()
+    public function averageStats()
     {
-      $statistics = Statistique::index();
+      $statistics = Statistique::averageStats();
       return $statistics;
+    }
+
+    public function upToDateStats($academy)
+    {
+      if (true) {
+        $statistics = Statistique::upToDateStats($academy);
+        return $statistics;
+      }
+      return 'lalala';
     }
 }

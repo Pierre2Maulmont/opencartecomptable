@@ -14,7 +14,6 @@ export default class Statistiques extends Component {
   }
   toggleStats () {
     let showAverageStats = this.state.showAverageStats
-    console.log(showAverageStats)
     this.setState({
       showAverageStats: !showAverageStats
     })

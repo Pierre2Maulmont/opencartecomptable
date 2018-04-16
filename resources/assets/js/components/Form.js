@@ -225,38 +225,38 @@ export default class Form extends Component {
 
         <select name='academie' id='academie' onChange={this.handleInputChange}>
           <option value=''>Académie*</option>
-          <option value='Lille'>Lille</option>
+          <option value='Aix-Marseille'>Aix-Marseille</option>
           <option value='Amiens'>Amiens</option>
-          <option value='Rouen'>Rouen</option>
-          <option value='Reims'>Reims</option>
-          <option value='Nancy-Metz'>Nancy-Metz</option>
-          <option value='Strasbourg'>Strasbourg</option>
           <option value='Besançon'>Besançon</option>
-          <option value='Dijon'>Dijon</option>
-          <option value='Paris'>Paris</option>
-          <option value='Créteil'>Créteil</option>
-          <option value='Versailles'>Versailles</option>
-          <option value='Orléans-Tour'>Orléans-Tour</option>
+          <option value='Bordeaux'>Bordeaux</option>
           <option value='Caen'>Caen</option>
-          <option value='Rennes'>Rennes</option>
-          <option value='Nantes'>Nantes</option>
-          <option value='Poitiers'>Poitiers</option>
+          <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
+          <option value='Corse'>Corse</option>
+          <option value='Créteil'>Créteil</option>
+          <option value='Dijon'>Dijon</option>
+          <option value='Grenoble'>Grenoble</option>
+          <option value='Guadeloupe'>Guadeloupe</option>
+          <option value='Guyane'>Guyane</option>
+          <option value='La Réunion'>La Réunion</option>
+          <option value='Lille'>Lille</option>
           <option value='Limoges'>Limoges</option>
           <option value='Lyon'>Lyon</option>
-          <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
-          <option value='Grenoble'>Grenoble</option>
-          <option value='Aix-Marseille'>Aix-Marseille</option>
-          <option value='Nice'>Nice</option>
-          <option value='Montpellier'>Montpellier</option>
-          <option value='Toulouse'>Toulouse</option>
-          <option value='Bordeaux'>Bordeaux</option>
-          <option value='Corse'>Corse</option>
-          <option value='Guyane'>Guyane</option>
           <option value='Martinique'>Martinique</option>
-          <option value='Guadeloupe'>Guadeloupe</option>
-          <option value='La Réunion'>La Réunion</option>
           <option value='Mayotte'>Mayotte</option>
+          <option value='Montpellier'>Montpellier</option>
+          <option value='Nancy-Metz'>Nancy-Metz</option>
+          <option value='Nantes'>Nantes</option>
+          <option value='Nice'>Nice</option>
+          <option value='Orléans-Tour'>Orléans-Tour</option>
+          <option value='Paris'>Paris</option>
+          <option value='Poitiers'>Poitiers</option>
+          <option value='Reims'>Reims</option>
+          <option value='Rennes'>Rennes</option>
+          <option value='Rouen'>Rouen</option>
+          <option value='Strasbourg'>Strasbourg</option>
           <option value='Saint-Pierre-et-Miquelon'>Saint-Pierre-et-Miquelon</option>
+          <option value='Toulouse'>Toulouse</option>
+          <option value='Versailles'>Versailles</option>
         </select>
 
         <input
@@ -461,38 +461,38 @@ export default class Form extends Component {
 
         <select name='academie' id='academie' onChange={this.handleInputChange}>
           <option value={academie}>{academie}</option>
-          <option value='Lille'>Lille</option>
+          <option value='Aix-Marseille'>Aix-Marseille</option>
           <option value='Amiens'>Amiens</option>
-          <option value='Rouen'>Rouen</option>
-          <option value='Reims'>Reims</option>
-          <option value='Nancy-Metz'>Nancy-Metz</option>
-          <option value='Strasbourg'>Strasbourg</option>
           <option value='Besançon'>Besançon</option>
-          <option value='Dijon'>Dijon</option>
-          <option value='Paris'>Paris</option>
-          <option value='Créteil'>Créteil</option>
-          <option value='Versailles'>Versailles</option>
-          <option value='Orléans-Tour'>Orléans-Tour</option>
+          <option value='Bordeaux'>Bordeaux</option>
           <option value='Caen'>Caen</option>
-          <option value='Rennes'>Rennes</option>
-          <option value='Nantes'>Nantes</option>
-          <option value='Poitiers'>Poitiers</option>
+          <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
+          <option value='Corse'>Corse</option>
+          <option value='Créteil'>Créteil</option>
+          <option value='Dijon'>Dijon</option>
+          <option value='Grenoble'>Grenoble</option>
+          <option value='Guadeloupe'>Guadeloupe</option>
+          <option value='Guyane'>Guyane</option>
+          <option value='La Réunion'>La Réunion</option>
+          <option value='Lille'>Lille</option>
           <option value='Limoges'>Limoges</option>
           <option value='Lyon'>Lyon</option>
-          <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
-          <option value='Grenoble'>Grenoble</option>
-          <option value='Aix-Marseille'>Aix-Marseille</option>
-          <option value='Nice'>Nice</option>
-          <option value='Montpellier'>Montpellier</option>
-          <option value='Toulouse'>Toulouse</option>
-          <option value='Bordeaux'>Bordeaux</option>
-          <option value='Corse'>Corse</option>
-          <option value='Guyane'>Guyane</option>
           <option value='Martinique'>Martinique</option>
-          <option value='Guadeloupe'>Guadeloupe</option>
-          <option value='La Réunion'>La Réunion</option>
           <option value='Mayotte'>Mayotte</option>
+          <option value='Montpellier'>Montpellier</option>
+          <option value='Nancy-Metz'>Nancy-Metz</option>
+          <option value='Nantes'>Nantes</option>
+          <option value='Nice'>Nice</option>
+          <option value='Orléans-Tour'>Orléans-Tour</option>
+          <option value='Paris'>Paris</option>
+          <option value='Poitiers'>Poitiers</option>
+          <option value='Reims'>Reims</option>
+          <option value='Rennes'>Rennes</option>
+          <option value='Rouen'>Rouen</option>
+          <option value='Strasbourg'>Strasbourg</option>
           <option value='Saint-Pierre-et-Miquelon'>Saint-Pierre-et-Miquelon</option>
+          <option value='Toulouse'>Toulouse</option>
+          <option value='Versailles'>Versailles</option>
         </select>
 
         <input
