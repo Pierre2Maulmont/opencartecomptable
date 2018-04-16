@@ -11,9 +11,14 @@ export default class Schools extends Component {
     this.state = ({
       schools: []
     })
+    this.fetchSchools = this.fetchSchools.bind(this)
   }
 
   componentDidMount () {
+    this.fetchSchools()
+  }
+
+  fetchSchools () {
     let pathname = this.props.location.pathname
     if (pathname === '/etablissements' || pathname === '/agences') {
       // fetch schools corresponding to search criteria
@@ -43,7 +48,6 @@ export default class Schools extends Component {
 
   render () {
     const { schools } = this.state
-    console.log(schools.length)
     let title = ''
     let text = ''
     let isAgencySearch = false
@@ -75,6 +79,7 @@ export default class Schools extends Component {
         <ResultsTable
           schools={schools}
           isAgencySearch={isAgencySearch}
+          fetchSchools={this.fetchSchools}
         />
       </PageComponent>
     )

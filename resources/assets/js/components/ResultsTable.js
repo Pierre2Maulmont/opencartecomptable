@@ -7,7 +7,7 @@ import InfoModal from './InfoModal'
 
 export default class ResultsTable extends Component {
   render () {
-    const { schools, isAgencySearch, isAgencyView, agencyId } = this.props
+    const { schools, isAgencySearch, isAgencyView, agencyId, fetchSchools } = this.props
     let COLUMNNAMES = ['Code UAI', 'UAI agence', 'Nom', 'Commune', 'Département', 'Région', 'Académie', '']
     if (isAgencySearch) {
       COLUMNNAMES.splice(0, 1)
@@ -53,6 +53,7 @@ export default class ResultsTable extends Component {
                         <InfoModal
                           modalText={item.nom}
                           school={item}
+                          fetchSchools={fetchSchools}
                         />
                       </span>
                     </td>

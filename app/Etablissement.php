@@ -63,6 +63,16 @@ class Etablissement extends Model
     return;
   }
 
+  public static function updateDate($code_uai)
+  {
+    
+    $currentDate = date('Y-m-d');
+    DB::table('etablissements')
+            ->where('code_uai', $code_uai)
+            ->update(['up_to_date' => $currentDate]);
+    return;
+  }
+
   public static function store($values)
   {
     DB::table('etablissements')->insert($values);

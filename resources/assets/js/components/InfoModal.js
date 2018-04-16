@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 
 const customStyles = {
   content: {
@@ -19,9 +20,9 @@ export default class App extends Component {
     this.state = {
       modalIsOpen: false
     }
-
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   openModal () {
@@ -30,6 +31,20 @@ export default class App extends Component {
 
   closeModal () {
     this.setState({modalIsOpen: false})
+  }
+
+  handleUpdate () {
+    let codeUai = this.props.school.code_uai
+    let { fetchSchools } = this.props
+    axios.put('http://localhost:8888/public/api/etablissements/' + codeUai, {
+      update: ''
+    })
+    .then(response => {
+      fetchSchools()
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   render () {
@@ -57,7 +72,7 @@ export default class App extends Component {
                   {school.up_to_date}
                 </span>
               </p>
-              <p className='udpate-section'>
+              <p className='udpate-section' onClick={this.handleUpdate}>
                 <i className='fa fa-thumbs-up update-icon' />
                 <span className='update-message'>
                   Je confirme que ces informations sont aujourd’hui à jour

@@ -69,10 +69,6 @@
   // font-size: 15px;
 }
 
-.update-date-grey {
-  color: $lightGreenishGray;
-}
-
 .udpate-section {
   color: $greenButton;
 }
@@ -80,6 +76,10 @@
 .udpate-section:hover {
   cursor: pointer;
   color: $greenButtonHovered;
+}
+
+.update-date-grey {
+  color: $lightGreenishGray;
 }
 
 .update-icon {

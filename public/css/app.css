@@ -326,10 +326,6 @@ body {
   height: 80px;
 }
 
-.update-date-grey {
-  color: #bac6c6;
-}
-
 .udpate-section {
   color: #0d7067;
 }
@@ -337,6 +333,10 @@ body {
 .udpate-section:hover {
   cursor: pointer;
   color: #558782;
+}
+
+.update-date-grey {
+  color: #bac6c6;
 }
 
 .update-icon {
@@ -915,7 +915,7 @@ About
   position: fixed;
   top: 150px;
   left: 50px;
-  z-index: 100;
+  z-index: 50;
 }
 
 .map-container {

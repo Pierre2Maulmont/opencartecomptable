@@ -138,6 +138,11 @@ class SchoolsController extends Controller
         $response = Etablissement::updateInfo($code_uai, $values);
         return $response;
 
+      } else if ($request->has('update')) {
+
+        $response = Etablissement::updateDate($code_uai);
+        return $response;
+
       } else {
         return;
       }
