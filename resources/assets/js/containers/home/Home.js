@@ -22,14 +22,18 @@ export default class Home extends Component {
   render () {
     return (
       <PageComponent>
-        <TopContent scrolledPast={this.state.scrolledPast} />
-        <SearchFormSection />
-        <Waypoint
-          onEnter={() => { this._handleWaypoint(true) }}
-          onLeave={() => { this._handleWaypoint(false) }}
-        />
-        <About />
+        <p>hey</p>
       </PageComponent>
     )
   }
 }
+
+// <PageComponent>
+//   <TopContent scrolledPast={this.state.scrolledPast} />
+//   <SearchFormSection />
+//   <Waypoint
+//     onEnter={() => { this._handleWaypoint(true) }}
+//     onLeave={() => { this._handleWaypoint(false) }}
+//   />
+//   <About />
+// </PageComponent>

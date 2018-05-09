@@ -36,6 +36,10 @@ borders
     transition: 1.5s cubic-bezier(.785,.135,.15,.86);
 }
 
+.borders div {
+  border: none !important;
+}
+
 .border.top {
     top: 0;
     transform: translate3d(0,-40px,0);

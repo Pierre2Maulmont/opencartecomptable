@@ -7,6 +7,7 @@
 }
 
 .header__links {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -32,6 +33,7 @@
   margin-left: 20px;
   color: $greyText !important;
   text-decoration: none !important;
+  font-size: 14px;
 }
 
 .header__right a:hover {
@@ -40,4 +42,42 @@
 
 .header__left a:hover {
   color: 	black !important;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 16px;
+  right: 30px;
+  font-size: 30px;
+  z-index: 1000 !important;
+}
+
+.mobile-menu a {
+  color: $greyText !important;
+}
+
+.mobile-menu a:hover {
+  color: $lightGrayBorder !important;
+}
+
+.dropdown-menu {
+  background: none !important;
+  border: none !important;
+}
+
+@media (min-width: 426px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 425px) {
+  .header__right {
+    display: none;
+  }
+  .header__left {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
 }

@@ -15,6 +15,17 @@ export default class Header extends Component {
                 <NavLink to='/ajouter-etablissement'>Ajouter un établissement</NavLink>
                 <NavLink to='/statistiques'>Statistiques</NavLink>
               </div>
+              <div className='mobile-menu'>
+                <div className='dropdown'>
+                  <a className='' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                    <i className='fa fa-bars' />
+                  </a>
+                  <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                    <NavLink className='dropdown-item' to='/ajouter-etablissement'>Ajouter un établissement</NavLink>
+                    <NavLink className='dropdown-item' to='/statistiques'>Statistiques</NavLink>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
