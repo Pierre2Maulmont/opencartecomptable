@@ -419,8 +419,12 @@ body {
   color: #505050;
 }
 
+.stats-modal-content tr:nth-child(even) {
+  background-color: #efeeea;
+}
+
 .stats-modal-content th {
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   font-family: Playfair Display;
 }
 
@@ -441,9 +445,9 @@ body {
 .stats-modal-close {
   color: #e00f0f;
   font-weight: bold;
-  margin-right: 20px;
+  margin-right: 15px;
   position: relative;
-  bottom: 10px;
+  bottom: 13px;
 }
 
 .stats-modal-close:hover {
@@ -452,7 +456,6 @@ body {
 }
 
 h3,
-h4,
 h5,
 h6 {
   font-family: Playfair Display !important;

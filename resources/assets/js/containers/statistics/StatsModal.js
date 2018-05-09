@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Modal from 'react-modal'
-import axios from 'axios'
 
 const customStyles = {
   content: {
@@ -19,34 +18,30 @@ export default class StatsModal extends Component {
     this.state = {
       modalIsOpen: false
     }
-
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
+    this.toggleModal = this.toggleModal.bind(this)
   }
 
-  openModal () {
-    this.setState({modalIsOpen: true})
-  }
-
-  closeModal () {
-    this.setState({modalIsOpen: false})
+  toggleModal (isOpen) {
+    this.setState({
+      modalIsOpen: isOpen
+    })
   }
 
   render () {
     let { modalText, statistics } = this.props
     return (
       <div>
-        <div className='my-button my-small-button' onClick={this.openModal}>{modalText}</div>
+        <div className='my-button my-small-button' onClick={() => { this.toggleModal(true) }}>{modalText}</div>
         <Modal
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
+          onRequestClose={() => { this.toggleModal(false) }}
           style={customStyles}
           contentLabel='Statistics Modal'
           overlayClassName='stats-modal-overlay'
           className='stats-modal-content'
         >
           <div className='stats-modal-close-section'>
-            <div className='stats-modal-close' onClick={this.closeModal}>&times;</div>
+            <div className='stats-modal-close' onClick={() => { this.toggleModal(false) }}>&times;</div>
           </div>
           <table>
             <thead>

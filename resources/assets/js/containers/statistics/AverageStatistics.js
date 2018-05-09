@@ -12,6 +12,7 @@ export default class AverageStatistics extends Component {
       statistics: null
     })
   }
+
   componentDidMount () {
     axios.get('http://localhost:8888/public/api/statisticsAverage')
       .then(statistics => {
