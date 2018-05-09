@@ -118,7 +118,7 @@ body {
 
   .header__left {
     width: 100%;
-    text-align: center;
+    padding-left: 30px;
     font-size: 18px;
   }
 }
@@ -676,6 +676,13 @@ TopContent
   height: 650px;
 }
 
+.top-content-title {
+  margin-top: 250px;
+  margin-left: 20px;
+  font-size: 35px;
+  font-family: Playfair Display;
+}
+
 .top-content-text-box {
   margin-top: 50px;
   height: 90px;
@@ -686,13 +693,6 @@ TopContent
 
 .top-content-text-box-expand {
   height: 180px;
-}
-
-.top-content-title {
-  margin-top: 250px;
-  margin-left: 20px;
-  font-size: 35px;
-  font-family: Playfair Display;
 }
 
 .top-content-text {
@@ -759,6 +759,7 @@ SearchFormSection
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow-y: hidden;
 }
 
 .search-form-agencies {
@@ -957,6 +958,93 @@ About
 
 #img1 {
   height: 260px;
+}
+
+@media (max-width: 425px) {
+  /*
+  TopContent
+  */
+
+  .top-content-box {
+    height: 90vh;
+  }
+
+  .top-content-title {
+    margin-left: 50px;
+    font-size: 30px;
+    width: 60vw;
+  }
+
+  .top-content-text-box {
+    margin-top: 150px;
+  }
+
+  .top-content-text {
+    padding-left: 50px;
+  }
+
+  .sextant-box {
+    width: 200px;
+    top: 300px;
+    right: 0px;
+  }
+
+  /*
+  SearchFormSection
+  */
+
+  .search-form-box-expand {
+    height: 960px;
+  }
+
+  .search-form-title {
+    padding: 0px 30px;
+    font-size: 20px;
+  }
+
+  .search-form-agencies {
+    width: 50vw;
+  }
+
+  .search-form-schools {
+    width: 50vw;
+  }
+
+  .search-form-agencies-expand {
+    width: 80vw;
+    height: 650px;
+  }
+
+  .search-form-agencies-expanded {
+    height: 650px;
+  }
+
+  .search-form-agencies-reduced {
+    width: 45vw;
+  }
+
+  .search-form-schools-expand {
+    width: 80vw;
+    height: 650px;
+  }
+
+  .search-form-content-title-left {
+    margin-left: 30px;
+    margin-right: 10px;
+  }
+
+  .search-form-content-title-right {
+    margin-left: 30px;
+    margin-right: 10px;
+  }
+
+  .search-form-content-inputs-left {
+    margin: 30px 30px 0px 30px;
+  }
+
+  .search-form-content-inputs-right {
+    margin: 30px 30px 0px 30px;
+  }
 }
 
 .stats-toggle {
