@@ -895,9 +895,6 @@ About
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 1400px;
 }
 
@@ -971,6 +968,10 @@ About
   height: 260px;
 }
 
+/*
+Responsiveness
+*/
+
 @media (min-width: 769px) {
   /*
   SearchFormSection
@@ -1005,7 +1006,7 @@ About
   }
 
   .sextant-box {
-    width: 200px;
+    width: 240px;
     top: 300px;
     right: 0px;
   }
@@ -1025,7 +1026,7 @@ About
   }
 
   .search-form-content-title {
-    margin: 30px 0px;
+    margin: 50px 0px 30px 0px;
   }
 
   .search-form-agencies {
@@ -1034,6 +1035,51 @@ About
 
   .search-form-schools {
     display: none;
+  }
+
+  /*
+  About
+  */
+
+  .about-box {
+    height: auto;
+  }
+
+  #img2 {
+    display: none;
+  }
+
+  #img1 {
+    display: none;
+  }
+
+  .about-container {
+    padding-top: 100px;
+  }
+
+  .about-column {
+    height: auto;
+  }
+
+  .about-left-column {
+    padding-bottom: 0px;
+  }
+
+  .about-left-column {
+    border-right: none;
+  }
+
+  .about-paragraph {
+    margin: 0px 20px 100px 20px;
+    width: auto;
+  }
+
+  .about-paragraph-text {
+    margin-left: 0px;
+  }
+
+  .first-paragraph {
+    margin-left: 0px;
   }
 }
 

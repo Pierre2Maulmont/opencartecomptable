@@ -28,6 +28,7 @@ export default class Home extends Component {
           onEnter={() => { this._handleWaypoint(true) }}
           onLeave={() => { this._handleWaypoint(false) }}
         />
+        <About />
       </PageComponent>
     )
   }

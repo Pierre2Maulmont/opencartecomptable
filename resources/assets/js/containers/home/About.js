@@ -28,7 +28,7 @@ export default class About extends Component {
         <div className='container about-container'>
           <div id='about-columns' className='row'>
 
-            <div className='col-sm-6 about-column about-left-column'>
+            <div className='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 about-column about-left-column'>
               <AboutParagraph
                 title='Une information claire et rapidement accessible…'
                 para1='Le site <span className="highlight">Open Carte Comptable</span> offre la possibilité de rechercher des agences comptables et établissements (consulter la composition des agences et les informations des établissements). Vous pouvez voir les statistiques par académie en cliquant <a href="#/statistiques">ici</a>.'
@@ -41,7 +41,7 @@ export default class About extends Component {
               />
             </div>
 
-            <div className='col-sm-6 about-column about-right-column'>
+            <div className='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 about-column about-right-column'>
               <AboutParagraph
                 title='…mise à jour par la communauté '
                 para1='Votre établissement a changé d&rsquo;agence ? Une information n&rsquo;est plus à jour ? Vous pouvez <span className="highlight">modifier simplement les données d&rsquo;Open Carte Comptable</span>, tout comme vous pouvez <a href="#/ajouter-etablissement">ajouter un établissement</a>.'
