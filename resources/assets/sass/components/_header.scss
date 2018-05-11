@@ -65,13 +65,13 @@
   border: none !important;
 }
 
-@media (min-width: 426px) {
+@media (min-width: 769px) {
   .mobile-menu {
     display: none;
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .header__right {
     display: none;
   }

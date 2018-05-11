@@ -25,8 +25,8 @@ export default class About extends Component {
           <img id='img2' alt='map' src='/public/images/map_with_man.jpeg' />
         </div>
 
-        <div className='container'>
-          <div id='about-columns' className='row about-colums'>
+        <div className='container about-container'>
+          <div id='about-columns' className='row'>
 
             <div className='col-sm-6 about-column about-left-column'>
               <AboutParagraph

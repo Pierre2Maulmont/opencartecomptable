@@ -52,6 +52,10 @@ export default class SearchFormSection extends Component {
                 side='right'
               />
 
+              <SearchForm
+                type='small-device'
+              />
+
             </div>
 
           </div>
