@@ -1,3 +1,8 @@
+.my-table {
+  width: 100vw;
+  overflow: scroll;
+}
+
 .my-table th {
   padding: 0px 0px 20px 8px;
   font-family: $titleFont;
@@ -8,10 +13,6 @@
 .my-table td {
   padding: 18px 10px;
   min-width: 130px;
-}
-
-.my-table tr {
-  // border-bottom: 1px solid $lightGreenishGray;
 }
 
 .my-table tr:nth-child(even) {
@@ -34,4 +35,10 @@
 
 .my-table .agency {
   color: $highlight;
+}
+
+@media (max-width: 768px) {
+  .my-table {
+    margin-left: 30px;
+  }
 }

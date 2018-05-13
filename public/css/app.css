@@ -164,28 +164,21 @@ body {
 .top-section-box {
   height: 370px;
   padding-top: 180px;
-  /* background-color: pink; */
 }
 
 .top-section-title {
   margin-left: 80px;
   font-size: 24px;
   font-family: Playfair Display;
-  /* background-color: yellow; */
 }
 
 .top-section-text-box {
   margin-top: 30px;
   margin-left: 80px;
-  height: 60px;
+  height: 80px;
   border-left: 1px solid #7b8484;
   -webkit-transition: 1s;
   transition: 1s;
-  /* background-color: blue; */
-}
-
-.top-section-text-box-expand {
-  height: 90px;
 }
 
 .top-section-text {
@@ -202,6 +195,47 @@ body {
 
 .top-section-button-box-lower {
   margin-top: 50px;
+}
+
+/*
+Responsive
+*/
+
+@media (max-width: 1024px) {
+  .top-section-box {
+    height: auto;
+  }
+
+  .top-section-button-box {
+    margin: 30px 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-section-title {
+    margin: 0px 30px;
+  }
+
+  .top-section-text-box {
+    margin: 30px 10px 0px 10px;
+    border-left: none;
+  }
+
+  .top-section-text {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 320px) {
+  .top-section-text-box {
+    height: 140px;
+  }
 }
 
 .form-section-box {
@@ -251,6 +285,11 @@ body {
   position: relative;
 }
 
+.my-table {
+  width: 100vw;
+  overflow: scroll;
+}
+
 .my-table th {
   padding: 0px 0px 20px 8px;
   font-family: Playfair Display;
@@ -283,6 +322,12 @@ body {
 
 .my-table .agency {
   color: #ad662b;
+}
+
+@media (max-width: 768px) {
+  .my-table {
+    margin-left: 30px;
+  }
 }
 
 .school-modal-overlay {

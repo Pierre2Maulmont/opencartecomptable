@@ -85,3 +85,18 @@ export default class Schools extends Component {
     )
   }
 }
+
+/*
+<PageComponent>
+  <TopSection
+    title={title}
+    text={text}
+    smallText
+  />
+  <ResultsTable
+    schools={schools}
+    isAgencySearch={isAgencySearch}
+    fetchSchools={this.fetchSchools}
+  />
+</PageComponent>
+*/

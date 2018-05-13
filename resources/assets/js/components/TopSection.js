@@ -8,7 +8,7 @@ export default class TopSection extends Component {
   }
 
   render () {
-    let { title, text, smallText, scrolledPast } = this.props
+    let { title, text, smallText } = this.props
     return (
       <div className='top-section-box'>
         <div className='container'>
@@ -21,7 +21,7 @@ export default class TopSection extends Component {
             }
 
             {
-              text && <div className={'col-sm-8 top-section-text-box' + (scrolledPast ? ' top-section-text-box-expand' : '')}>
+              text && <div className={'col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 top-section-text-box'}>
                 <div className={'top-section-text' + (smallText ? ' top-section-text_small' : '')}>
                   {renderHTML(text)}
                 </div>
@@ -29,7 +29,7 @@ export default class TopSection extends Component {
             }
 
             {
-              text && <div className={'col-sm-3' + (!title ? ' top-section-button-box-lower' : '')}>
+              text && <div className={'col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 top-section-button-box' + (!title ? ' top-section-button-box-lower' : '')}>
                 <div
                   className='my-button'
                   onClick={() => { this.handleClick() }}
