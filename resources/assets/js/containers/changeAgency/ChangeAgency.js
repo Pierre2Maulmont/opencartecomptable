@@ -12,7 +12,8 @@ export default class ChangeAgency extends Component {
     this.state = ({
       scrolledPast: false,
       isFormSent: false,
-      school: ''
+      school: '',
+      isActiveAgency: false
     })
     this._handleWaypoint = this._handleWaypoint.bind(this)
     this.handleSubmission = this.handleSubmission.bind(this)
@@ -24,7 +25,20 @@ export default class ChangeAgency extends Component {
     const requestUrl = 'http://localhost:8888/public/api' + url
     axios.get(requestUrl)
       .then(school => {
-        this.setState({ school: school.data })
+        if (school.data[0]['code_uai'] === school.data[0]['code_uai_agence_comptable']) {
+          axios.get('http://localhost:8888/public/api/agences/' + school.data[0]['code_uai'])
+          .then(schools => {
+            if (schools.data.length > 1) {
+              this.setState({
+                school: school.data,
+                isActiveAgency: true
+              })
+            }
+          })
+        }
+        this.setState({
+          school: school.data
+        })
       })
       .catch(function (error) {
         console.log(error)
@@ -56,10 +70,11 @@ export default class ChangeAgency extends Component {
   }
 
   render () {
-    let { isFormSent, failure, school } = this.state
+    let { isFormSent, failure, school, isActiveAgency } = this.state
     let nom = school && school[0]['nom']
     let codeUai = school && school[0]['code_uai']
     let codeUaiAgence = school && school[0]['code_uai_agence_comptable']
+    console.log(isActiveAgency)
     return (
       <PageComponent>
         <TopSection
@@ -72,13 +87,22 @@ export default class ChangeAgency extends Component {
           form={'change-agency' + (isFormSent ? ' form-section-box_change-agency_reduced' : '')}
           >
 
-          <div className={'change-agency-form' + (isFormSent ? ' change-agency-form-hide' : '')}>
-            <ChangeAgencyForm
-              school={school}
-              _handleWaypoint={this._handleWaypoint}
-              handleSubmission={this.handleSubmission}
-            />
-          </div>
+          {
+            !isActiveAgency
+            ? <div className={'change-agency-form' + (isFormSent ? ' change-agency-form-hide' : '')}>
+              <ChangeAgencyForm
+                school={school}
+                _handleWaypoint={this._handleWaypoint}
+                handleSubmission={this.handleSubmission}
+              />
+            </div>
+            : <div className='unable-to-change-agency'>
+              Cet établissement est une agence comptable comprenant
+              d’autre(s) établissement(s), vous ne pouvez donc pas l’affecter
+              à une autre agence avant d’avoir réaffecté le(s) établissement(s)
+              qu’elle contient à leur nouvelle agence respective
+            </div>
+          }
 
           <div className={'change-agency-form-sent' + (isFormSent ? ' change-agency-form-sent-show' : '')}>
             { !failure && 'Changement d’agence effectué! Merci pour votre contribution'}

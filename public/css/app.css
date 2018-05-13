@@ -1359,6 +1359,12 @@ Responsiveness
   visibility: visible;
 }
 
+.unable-to-change-agency {
+  font-size: 20px;
+  font-family: Playfair Display;
+  color: #505050;
+}
+
 .form-section-box_change-info {
   -webkit-transition: 1s;
   transition: 1s;
