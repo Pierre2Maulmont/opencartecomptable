@@ -45,17 +45,17 @@ TopContent
   width: 100%;
 }
 
-.sextant {
-  width: 100%;
-  transform: rotate(30deg);
-}
-
 .sextant-box {
   width: 390px;
   position: fixed;
   top: 275px;
   right: 150px;
   z-index: -1;
+}
+
+.sextant {
+  width: 100%;
+  transform: rotate(30deg);
 }
 
 /*
@@ -296,13 +296,10 @@ Responsiveness
   }
 
   .top-content-title {
+    margin-top: 200px;
     margin-left: 50px;
     font-size: 30px;
     width: 60vw;
-  }
-
-  .top-content-text-box {
-    margin-top: 150px;
   }
 
   .top-content-text {
@@ -310,8 +307,8 @@ Responsiveness
   }
 
   .sextant-box {
-    width: 240px;
-    top: 300px;
+    width: 160px;
+    top: 100px;
     right: 0px;
   }
 

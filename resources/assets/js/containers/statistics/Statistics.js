@@ -23,9 +23,11 @@ export default class Statistiques extends Component {
     let { showAverageStats } = this.state
     return (
       <PageComponent>
-        <div className='my-button my-small-button stats-toggle' onClick={this.toggleStats}>
-          { showAverageStats ? 'Actualité des données' : 'Moyenne' }
-        </div>
+        {
+          // <div className='my-button my-small-button stats-toggle' onClick={this.toggleStats}>
+          //   { showAverageStats ? 'Actualité des données' : 'Moyenne' }
+          // </div>
+        }
         {
           showAverageStats ? <AverageStatistics /> : <UpToDateStatistics />
         }

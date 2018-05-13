@@ -28,7 +28,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   font-family: $textFont;
   color: $greyText;
 }
@@ -57,10 +57,21 @@
   font-weight: bold;
   margin-right: 15px;
   position: relative;
-  bottom: 13px;
 }
 
 .stats-modal-close:hover {
   cursor: pointer;
   color: #e55e5e;
+}
+
+@media (max-width: 768px) {
+  .stats-modal-content {
+    width: 100vw;
+    padding: 20px 20px;
+    font-size: 15px;
+    // overflow: scroll;
+  }
+  .stats-modal-content table {
+    // overflow: scroll;
+  }
 }

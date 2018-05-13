@@ -37,6 +37,13 @@
   color: $highlight;
 }
 
+@media (min-width: 769px) {
+  .my-table {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .my-table {
     margin-left: 30px;
