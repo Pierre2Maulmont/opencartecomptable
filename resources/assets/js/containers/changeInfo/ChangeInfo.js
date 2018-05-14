@@ -20,7 +20,7 @@ export default class ChangeInfo extends Component {
 
   componentDidMount () {
     let url = this.props.location.pathname.substring(0, 24)
-    const requestUrl = 'https://opencartecomptable.herokuapp.com/public/api' + url
+    const requestUrl = 'http://opencartecomptable.herokuapp.com/public/api' + url
     axios.get(requestUrl)
       .then(school => {
         this.setState({ school: school.data })
@@ -36,7 +36,7 @@ export default class ChangeInfo extends Component {
 
   handleSubmission (school) {
     let codeUai = this.state.school[0]['code_uai']
-    axios.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, school)
+    axios.put('http://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, school)
       .then(response => {
         if (response.status === 200) {
           this.setState({
