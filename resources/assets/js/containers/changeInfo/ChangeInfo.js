@@ -36,7 +36,7 @@ export default class ChangeInfo extends Component {
 
   handleSubmission (school) {
     let codeUai = this.state.school[0]['code_uai']
-    axios.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, school)
+    axios.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, school)
       .then(response => {
         if (response.status === 200) {
           this.setState({

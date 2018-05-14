@@ -24,7 +24,7 @@ export default class Schools extends Component {
       // fetch schools corresponding to search criteria
       let isAgencies = pathname === '/agences' ? '&agencies' : ''
       let url = this.props.location
-      const requestUrl = 'https://opencartecomptable.herokuapp.com/api/etablissements' + url.search + isAgencies
+      const requestUrl = 'https://opencartecomptable.herokuapp.com/public/api/etablissements' + url.search + isAgencies
       axios.get(requestUrl)
         .then(schools => {
           this.setState({ schools: schools.data })

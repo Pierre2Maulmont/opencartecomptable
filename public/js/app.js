@@ -63282,7 +63282,7 @@ var AverageStatistics = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/statisticsAverage').then(function (statistics) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/public/api/statisticsAverage').then(function (statistics) {
         _this2.setState({ statistics: statistics.data });
       }).catch(function (error) {
         console.log(error);
@@ -64421,7 +64421,7 @@ var UpToDateStatistics = function (_Component) {
     value: function handleHover(e) {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/statisticsUpToDate/' + 'Rouen').then(function (statistics) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/public/api/statisticsUpToDate/' + 'Rouen').then(function (statistics) {
         _this2.setState({ statistics: statistics.data });
       }).catch(function (error) {
         console.log(error);
@@ -64763,7 +64763,7 @@ var AddSchool = function (_Component) {
     value: function handleSubmission(school) {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/', school).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/', school).then(function (response) {
         if (response.status === 200) {
           _this2.setState({
             isFormSent: true
@@ -64947,7 +64947,7 @@ var Schools = function (_Component) {
         // fetch schools corresponding to search criteria
         var isAgencies = pathname === '/agences' ? '&agencies' : '';
         var url = this.props.location;
-        var requestUrl = 'https://opencartecomptable.herokuapp.com/api/etablissements' + url.search + isAgencies;
+        var requestUrl = 'https://opencartecomptable.herokuapp.com/public/api/etablissements' + url.search + isAgencies;
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (schools) {
           _this2.setState({ schools: schools.data });
         }).catch(function (error) {
@@ -65218,7 +65218,7 @@ var App = function (_Component) {
       var codeUai = this.props.school.code_uai;
       var fetchSchools = this.props.fetchSchools;
 
-      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, {
+      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, {
         update: ''
       }).then(function (response) {
         fetchSchools();
@@ -65549,7 +65549,7 @@ var ChangeAgency = function (_Component) {
       var requestUrl = 'https://opencartecomptable.herokuapp.com/public/api' + url;
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (school) {
         if (school.data[0]['code_uai'] === school.data[0]['code_uai_agence_comptable']) {
-          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/agences/' + school.data[0]['code_uai']).then(function (schools) {
+          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/public/api/agences/' + school.data[0]['code_uai']).then(function (schools) {
             if (schools.data.length > 1) {
               _this2.setState({
                 school: school.data,
@@ -65576,7 +65576,7 @@ var ChangeAgency = function (_Component) {
       var _this3 = this;
 
       var codeUai = this.state.school[0]['code_uai'];
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, agency).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, agency).then(function (response) {
         if (response.status === 200) {
           _this3.setState({
             isFormSent: true
@@ -65773,7 +65773,7 @@ var ChangeInfo = function (_Component) {
       var _this3 = this;
 
       var codeUai = this.state.school[0]['code_uai'];
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, school).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, school).then(function (response) {
         if (response.status === 200) {
           _this3.setState({
             isFormSent: true
@@ -65965,7 +65965,7 @@ var ChangeMemo = function (_Component) {
       var _this3 = this;
 
       var codeUai = this.state.school[0]['code_uai'];
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, memo).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, memo).then(function (response) {
         if (response.status === 200) {
           _this3.setState({
             isFormSent: true

@@ -37,7 +37,7 @@ export default class ChangeMemo extends Component {
 
   handleSubmission (memo) {
     let codeUai = this.state.school[0]['code_uai']
-    axios.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, memo)
+    axios.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, memo)
       .then(response => {
         if (response.status === 200) {
           this.setState({
