@@ -58619,7 +58619,7 @@ var TopContent = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'sextant-box' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'sextant', className: 'sextant', alt: 'sextant', src: 'https://opencartecomptable.herokuapp.com/public/images/sextant.png' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'sextant', className: 'sextant', alt: 'sextant', src: 'https://image.ibb.co/e450iy/sextant.png' })
         )
       );
     }
