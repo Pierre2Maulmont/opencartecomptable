@@ -27,7 +27,7 @@ export default class TopContent extends Component {
           </div>
         </div>
         <div className='sextant-box'>
-          <img id='sextant' className='sextant' alt='sextant' src='/public/images/sextant.png' />
+          <img id='sextant' className='sextant' alt='sextant' src='https://opencartecomptable.herokuapp.com/public/images/sextant.png' />
         </div>
       </div>
     )
