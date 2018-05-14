@@ -59665,12 +59665,12 @@ var About = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'img1' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img1', alt: 'map', src: '/public/images/map.jpg' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img1', alt: 'map', src: 'https://image.ibb.co/h4OZbJ/map.jpg' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'img2' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img2', alt: 'map', src: '/public/images/map_with_man.jpeg' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img2', alt: 'map', src: 'https://image.ibb.co/et7hVd/map_with_man.jpg' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
@@ -66266,7 +66266,7 @@ var Footer = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'a',
               { href: 'https://openacademie.beta.gouv.fr/', target: '_blank', rel: 'noopener noreferrer' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'footer-logo', src: 'http://opencartecomptable.fr/public/img/logo.png', alt: 'Open Acad\xE9mie' })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'footer-logo', src: 'https://image.ibb.co/jtgqiy/logo.png', alt: 'Open Acad\xE9mie' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'a',

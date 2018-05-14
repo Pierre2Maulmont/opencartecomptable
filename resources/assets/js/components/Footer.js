@@ -7,7 +7,7 @@ export default class Footer extends Component {
         <div className='container'>
           <div className='row footer-content'>
             <a href='https://openacademie.beta.gouv.fr/' target='_blank' rel='noopener noreferrer'>
-              <img className='footer-logo' src='http://opencartecomptable.fr/public/img/logo.png' alt='Open Académie' />
+              <img className='footer-logo' src='https://image.ibb.co/jtgqiy/logo.png' alt='Open Académie' />
             </a>
             <a href='mailto:openacademie@beta.gouv.fr'>openacademie@beta.gouv.fr</a>
           </div>

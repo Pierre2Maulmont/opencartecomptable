@@ -19,10 +19,10 @@ export default class About extends Component {
     return (
       <div className='about-box'>
         <div className='img1'>
-          <img id='img1' alt='map' src='/public/images/map.jpg' />
+          <img id='img1' alt='map' src='https://image.ibb.co/h4OZbJ/map.jpg' />
         </div>
         <div className='img2'>
-          <img id='img2' alt='map' src='/public/images/map_with_man.jpeg' />
+          <img id='img2' alt='map' src='https://image.ibb.co/et7hVd/map_with_man.jpg' />
         </div>
 
         <div className='container about-container'>
