@@ -12,7 +12,7 @@ export default class UpToDateStatistics extends Component {
   }
 
   handleHover (e) {
-    axios.get('/public/api/statisticsUpToDate/' + 'Rouen')
+    axios.get('https://opencartecomptable.herokuapp.com/public/api/statisticsUpToDate/' + 'Rouen')
       .then(statistics => {
         this.setState({ statistics: statistics.data })
       })

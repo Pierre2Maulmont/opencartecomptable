@@ -22,11 +22,11 @@ export default class ChangeAgency extends Component {
   componentDidMount () {
     // fetch corresponding school
     let url = this.props.location.pathname.substring(0, 24)
-    const requestUrl = '/public/api' + url
+    const requestUrl = 'https://opencartecomptable.herokuapp.com/public/api' + url
     axios.get(requestUrl)
       .then(school => {
         if (school.data[0]['code_uai'] === school.data[0]['code_uai_agence_comptable']) {
-          axios.get('/public/api/agences/' + school.data[0]['code_uai'])
+          axios.get('https://opencartecomptable.herokuapp.com/public/api/agences/' + school.data[0]['code_uai'])
           .then(schools => {
             if (schools.data.length > 1) {
               this.setState({
@@ -51,7 +51,7 @@ export default class ChangeAgency extends Component {
 
   handleSubmission (agency) {
     let codeUai = this.state.school[0]['code_uai']
-    axios.put('/public/api/etablissements/' + codeUai, agency)
+    axios.put('https://opencartecomptable.herokuapp.com/public/api/etablissements/' + codeUai, agency)
       .then(response => {
         if (response.status === 200) {
           this.setState({
