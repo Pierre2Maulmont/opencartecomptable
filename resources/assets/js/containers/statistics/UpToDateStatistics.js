@@ -12,7 +12,7 @@ export default class UpToDateStatistics extends Component {
   }
 
   handleHover (e) {
-    axios.get('http://localhost:8888/public/api/statisticsUpToDate/' + 'Rouen')
+    axios.get('/public/api/statisticsUpToDate/' + 'Rouen')
       .then(statistics => {
         this.setState({ statistics: statistics.data })
       })

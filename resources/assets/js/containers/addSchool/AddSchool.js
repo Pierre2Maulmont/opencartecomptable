@@ -22,7 +22,7 @@ export default class AddSchool extends Component {
   }
 
   handleSubmission (school) {
-    axios.put('http://localhost:8888/public/api/etablissements/', school)
+    axios.put('/public/api/etablissements/', school)
       .then(response => {
         if (response.status === 200) {
           this.setState({

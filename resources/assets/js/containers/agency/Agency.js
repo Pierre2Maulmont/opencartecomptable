@@ -16,7 +16,7 @@ export default class Agency extends Component {
   componentDidMount () {
     // fetch corresponding agency schools
     let url = this.props.location
-    const requestUrl = 'http://localhost:8888/public/api' + url.pathname
+    const requestUrl = '/public/api' + url.pathname
     axios.get(requestUrl)
       .then(schools => {
         this.setState({ schools: schools.data })

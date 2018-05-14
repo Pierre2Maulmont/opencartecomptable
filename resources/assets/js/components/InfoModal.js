@@ -36,7 +36,7 @@ export default class App extends Component {
   handleUpdate () {
     let codeUai = this.props.school.code_uai
     let { fetchSchools } = this.props
-    axios.put('http://localhost:8888/public/api/etablissements/' + codeUai, {
+    axios.put('/public/api/etablissements/' + codeUai, {
       update: ''
     })
     .then(response => {

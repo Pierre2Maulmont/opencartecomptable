@@ -14,7 +14,7 @@ export default class AverageStatistics extends Component {
   }
 
   componentDidMount () {
-    axios.get('http://localhost:8888/public/api/statisticsAverage')
+    axios.get('/public/api/statisticsAverage')
       .then(statistics => {
         this.setState({ statistics: statistics.data })
       })
