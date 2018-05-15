@@ -91,8 +91,9 @@ class SchoolsController extends Controller
      */
     public function show($code_uai)
     {
-      $school = Etablissement::show($code_uai);
-      return $school;
+      // $school = Etablissement::show($code_uai);
+      // return $school;
+      return "test";
     }
 
     /**
