@@ -21,7 +21,7 @@ export default class ChangeMemo extends Component {
   componentDidMount () {
     // fetch corresponding school
     let url = this.props.location.pathname.substring(0, 24)
-    const requestUrl = 'https://opencartecomptable.herokuapp.com/api' + url
+    const requestUrl = 'https://opencartecomptable.herokuapp.com/apizregdr' + url
     axios.get(requestUrl)
       .then(school => {
         this.setState({ school: school.data })
@@ -37,7 +37,7 @@ export default class ChangeMemo extends Component {
 
   handleSubmission (memo) {
     let codeUai = this.state.school[0]['code_uai']
-    axios.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, memo)
+    axios.put('https://opencartecomptable.herokuapp.com/apizregdr/etablissements/' + codeUai, memo)
       .then(response => {
         if (response.status === 200) {
           this.setState({
