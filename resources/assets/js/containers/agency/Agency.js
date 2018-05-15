@@ -16,7 +16,7 @@ export default class Agency extends Component {
   componentDidMount () {
     // fetch corresponding agency schools
     let url = this.props.location
-    const requestUrl = 'https://opencartecomptable.herokuapp.com/apizregdr' + url.pathname
+    const requestUrl = 'https://opencartecomptable.herokuapp.com/api' + url.pathname
     axios.get(requestUrl)
       .then(schools => {
         this.setState({ schools: schools.data })
