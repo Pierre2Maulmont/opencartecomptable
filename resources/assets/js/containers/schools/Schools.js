@@ -27,6 +27,7 @@ export default class Schools extends Component {
       const requestUrl = 'https://opencartecomptable.herokuapp.com/api/etablissements' + url.search + isAgencies
       axios.get(requestUrl)
         .then(schools => {
+          console.log(schools)
           this.setState({ schools: schools.data })
         })
         .catch(function (error) {

@@ -64949,6 +64949,7 @@ var Schools = function (_Component) {
         var url = this.props.location;
         var requestUrl = 'https://opencartecomptable.herokuapp.com/api/etablissements' + url.search + isAgencies;
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (schools) {
+          console.log(schools);
           _this2.setState({ schools: schools.data });
         }).catch(function (error) {
           console.log(error);
