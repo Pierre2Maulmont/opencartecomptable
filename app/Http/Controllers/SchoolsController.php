@@ -91,9 +91,8 @@ class SchoolsController extends Controller
      */
     public function show($code_uai)
     {
-      // $school = Etablissement::show($code_uai);
-      // return $school;
-      return "test";
+      $school = Etablissement::show($code_uai);
+      return $school;
     }
 
     /**
@@ -158,5 +157,10 @@ class SchoolsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function test(Request $request)
+    {
+        return "Hey there";
     }
 }

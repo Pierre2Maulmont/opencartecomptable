@@ -64964,6 +64964,11 @@ var Schools = function (_Component) {
           console.log(error);
         });
       }
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/test').then(function (response) {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      });
     }
   }, {
     key: 'render',

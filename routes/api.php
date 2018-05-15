@@ -19,10 +19,6 @@ use Illuminate\Http\Request;
 
 Route::resource('etablissements', 'SchoolsController');
 
-Route::get('etablissements', function () {
-    return response(['Product 1', 'Product 2', 'Product 3'],200);
-});
-
 // for some obscure reason, the post request isn’t accepted by laravel (405).
 // So I’m using put. BAD!
 Route::put('etablissements', 'SchoolsController@store');
@@ -32,3 +28,5 @@ Route::get('agences/{agence}', 'SchoolsController@agency');
 Route::get('statisticsAverage', 'StatsController@averageStats');
 
 Route::get('statisticsUpToDate/{academy}', 'StatsController@upToDateStats');
+
+Route::get('test', 'SchoolsController@test');

@@ -45,6 +45,13 @@ export default class Schools extends Component {
           console.log(error)
         })
     }
+    axios.get('https://opencartecomptable.herokuapp.com/api/test')
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render () {
