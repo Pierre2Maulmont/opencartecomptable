@@ -5606,7 +5606,7 @@ var Form = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { selected: true, value: ca },
-            ca
+            ca.length > 0 ? ca : 'Total recettes annuelles'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',

@@ -78,10 +78,4 @@ class Etablissement extends Model
     DB::table('etablissements')->insert($values);
     return;
   }
-
-  public static function test()
-  {
-    return "hola";
-  }
-
 }

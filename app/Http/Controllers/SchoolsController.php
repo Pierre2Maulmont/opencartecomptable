@@ -158,10 +158,4 @@ class SchoolsController extends Controller
     {
         //
     }
-
-    public function test(Request $request)
-    {
-        $test = Etablissement::test();
-        return $test;
-    }
 }
