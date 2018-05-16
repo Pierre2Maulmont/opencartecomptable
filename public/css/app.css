@@ -1198,6 +1198,7 @@ Responsiveness
           align-items: center;
   color: #505050;
   font-family: Open Sans;
+  border-radius: 2px;
 }
 
 .map-legend-icons-icon {

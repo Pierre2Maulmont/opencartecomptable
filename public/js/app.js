@@ -5606,7 +5606,7 @@ var Form = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
             { selected: true, value: ca },
-            ca.length > 0 ? ca : 'Total recettes annuelles'
+            ca !== undefined ? ca : 'Total recettes annuelles'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
@@ -58597,7 +58597,11 @@ var TopContent = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'top-content-title' },
-              'Bienvenue sur Open Carte Comptable'
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'span',
+                { className: 'highlight' },
+                'Bienvenue sur Open Carte Comptable'
+              )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
@@ -58605,17 +58609,13 @@ var TopContent = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'top-content-text' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'span',
-                  { className: 'highlight' },
-                  'Vous \xEAtes agent comptable ou gestionnaire d\u2019EPLE :',
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                  '\u2022 consultez la fiche de votre \xE9tablissement',
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                  '\u2022 mettez \xE0 jour les informations',
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                  '\u2022 et construisez la carte de France des agences comptables'
-                )
+                'Vous \xEAtes agent comptable ou gestionnaire d\u2019EPLE :',
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                '\u2022 consultez la fiche de votre \xE9tablissement',
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                '\u2022 mettez \xE0 jour les informations',
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                '\u2022 et construisez la carte de France des agences comptables'
               )
             )
           )
@@ -59693,12 +59693,12 @@ var About = function (_Component) {
               { className: 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 about-column about-left-column' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AboutParagraph__["a" /* default */], {
                 title: 'Une information claire et rapidement accessible\u2026',
-                para1: 'Le site <span className="highlight">Open Carte Comptable</span> offre la possibilit\xE9 de rechercher des agences comptables et \xE9tablissements (consulter la composition des agences et les informations des \xE9tablissements). Vous pouvez voir les statistiques par acad\xE9mie en cliquant <a href="#/statistiques">ici</a>.',
-                para2: 'En pr\xE9sentant une cartographie nationale des regroupements comptables, cet outil est particuli\xE8rement utile \xE0 l\u2019agent qui va muter et souhaite <span className="highlight">conna\xEEtre le d\xE9tail des agences des \xE9tablissements qui l\u2019int\xE9ressent</span>.'
+                para1: 'Le site Open Carte Comptable offre la possibilit\xE9 de <span className="highlight">v\xE9rifier la composition des agences comptables</span> et les informations des \xE9tablissements qui les composent. Vous pouvez \xE9galement <span className="highlight">consulter les statistiques par acad\xE9mie</span> en cliquant <a href="#/statistiques">ici</a>.',
+                para2: 'Cet outil est particuli\xE8rement utile \xE0 l\u2019agent qui veut muter et souhaite <span className="highlight">conna\xEEtre le d\xE9tail d\u2019une agence qui l\u2019int\xE9resse</span>. Open Carte Comptable permet aussi de fournir une <span className="highlight">photographie acad\xE9mique et nationale</span> de la mise en oeuvre de la politique de restructuration des agences comptables.'
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AboutParagraph__["a" /* default */], {
-                title: 'R\xE9enchanter l\u2019administration des \xE9tablissements scolaires',
-                para1: 'Ce site a \xE9t\xE9 r\xE9alis\xE9 par la startup d\u2019\xC9tat <a href="https://openacademie.beta.gouv.fr/">Open Acad\xE9mie</a>. Notre mission est de <span className="highlight">faciliter le quotidien des agents administrateurs des \xE9tablissements scolaires</span>, dont nous faisons nous-m\xEAmes partie. Nous croyons pour cela en la philosophie de la donn\xE9e et du logiciel libres.',
+                title: 'Open Carte comptable a \xE9t\xE9 r\xE9alis\xE9 gr\xE2ce au soutien de :',
+                para1: '\u2022 l\u2019incubateur des services publiques num\xE9riques <a href="">Beta.gouv</a><br>\u2022 l\u2019association <a href="">Espac\u2019EPLE</a>',
                 para2: 'Source des donn\xE9es concernant les \xE9tablissements : <a href="http://www.data.gouv.fr/fr/">data.gouv.fr</a>'
               })
             ),

@@ -505,7 +505,7 @@ export default class Form extends Component {
         />
 
         <select name='ca' id='ca' onChange={this.handleInputChange}>
-          <option selected value={ca}>{ca.length > 0 ? ca : 'Total recettes annuelles'}</option>
+          <option selected value={ca}>{ca !== undefined ? ca : 'Total recettes annuelles'}</option>
           <option value='Jusqu’à 500 000 €'>Jusqu’à 500 000 €</option>
           <option value='Jusqu’à un million €'>Jusqu’à un million €</option>
           <option value='Jusqu’à deux millions €'>Jusqu’à deux millions €</option>

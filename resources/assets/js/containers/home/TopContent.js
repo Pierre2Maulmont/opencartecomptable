@@ -18,10 +18,10 @@ export default class TopContent extends Component {
       <div className='top-content-box'>
         <div className='container'>
           <div className='row'>
-            <div className='top-content-title'>Bienvenue sur Open Carte Comptable</div>
+            <div className='top-content-title'><span className='highlight'>Bienvenue sur Open Carte Comptable</span></div>
             <div className={'col-sm-6 top-content-text-box' + (scrolledPast ? ' top-content-text-box-expand' : '')}>
               <div className='top-content-text'>
-                <span className='highlight'>
+
                   Vous êtes agent comptable ou gestionnaire d’EPLE :
                   <br />
                   &bull; consultez la fiche de votre établissement
@@ -29,7 +29,7 @@ export default class TopContent extends Component {
                   &bull; mettez à jour les informations
                   <br />
                   &bull; et construisez la carte de France des agences comptables
-                </span>
+
               </div>
             </div>
           </div>

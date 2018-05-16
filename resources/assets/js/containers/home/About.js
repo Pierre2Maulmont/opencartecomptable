@@ -37,12 +37,12 @@ export default class About extends Component {
             <div className='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 about-column about-left-column'>
               <AboutParagraph
                 title='Une information claire et rapidement accessible…'
-                para1='Le site <span className="highlight">Open Carte Comptable</span> offre la possibilité de rechercher des agences comptables et établissements (consulter la composition des agences et les informations des établissements). Vous pouvez voir les statistiques par académie en cliquant <a href="#/statistiques">ici</a>.'
-                para2='En présentant une cartographie nationale des regroupements comptables, cet outil est particulièrement utile à l&rsquo;agent qui va muter et souhaite <span className="highlight">connaître le détail des agences des établissements qui l&rsquo;intéressent</span>.'
+                para1='Le site Open Carte Comptable offre la possibilité de <span className="highlight">vérifier la composition des agences comptables</span> et les informations des établissements qui les composent. Vous pouvez également <span className="highlight">consulter les statistiques par académie</span> en cliquant <a href="#/statistiques">ici</a>.'
+                para2='Cet outil est particulièrement utile à l&rsquo;agent qui veut muter et souhaite <span className="highlight">connaître le détail d’une agence qui l&rsquo;intéresse</span>. Open Carte Comptable permet aussi de fournir une <span className="highlight">photographie académique et nationale</span> de la mise en oeuvre de la politique de restructuration des agences comptables.'
               />
               <AboutParagraph
-                title='Réenchanter l&rsquo;administration des établissements scolaires'
-                para1='Ce site a été réalisé par la startup d&rsquo;État <a href="https://openacademie.beta.gouv.fr/">Open Académie</a>. Notre mission est de <span className="highlight">faciliter le quotidien des agents administrateurs des établissements scolaires</span>, dont nous faisons nous-mêmes partie. Nous croyons pour cela en la philosophie de la donnée et du logiciel libres.'
+                title='Open Carte comptable a été réalisé grâce au soutien de :'
+                para1='&bull; l’incubateur des services publiques numériques <a href="">Beta.gouv</a><br>&bull; l’association <a href="">Espac’EPLE</a>'
                 para2='Source des données concernant les établissements : <a href="http://www.data.gouv.fr/fr/">data.gouv.fr</a>'
               />
             </div>
