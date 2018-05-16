@@ -65,7 +65,7 @@ class Etablissement extends Model
 
   public static function updateDate($code_uai)
   {
-    
+
     $currentDate = date('Y-m-d');
     DB::table('etablissements')
             ->where('code_uai', $code_uai)
@@ -77,6 +77,11 @@ class Etablissement extends Model
   {
     DB::table('etablissements')->insert($values);
     return;
+  }
+
+  public static function test()
+  {
+    return "hola";
   }
 
 }

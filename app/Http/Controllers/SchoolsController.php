@@ -161,6 +161,7 @@ class SchoolsController extends Controller
 
     public function test(Request $request)
     {
-        return "Hey there";
+        $test = Etablissement::test();
+        return $test;
     }
 }
