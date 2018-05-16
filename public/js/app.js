@@ -58597,7 +58597,7 @@ var TopContent = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'top-content-title' },
-              'Trouvez l\u2019information que vous cherchez'
+              'Bienvenue sur Open Carte Comptable'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
@@ -58605,13 +58605,17 @@ var TopContent = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'top-content-text' },
-                'Consultez - et modifiez - le ',
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'span',
                   { className: 'highlight' },
-                  'registre national des agences comptables'
-                ),
-                ' des EPLE de France'
+                  'Vous \xEAtes agent comptable ou gestionnaire d\u2019EPLE :',
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                  '\u2022 consultez la fiche de votre \xE9tablissement',
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                  '\u2022 mettez \xE0 jour les informations',
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                  '\u2022 et construisez la carte de France des agences comptables'
+                )
               )
             )
           )
@@ -59649,6 +59653,7 @@ var About = function (_Component) {
         var degrees = window.pageYOffset / 4;
         document.getElementById('img1').style.transform = 'translate(0, ' + degrees + 'px)';
         document.getElementById('img2').style.transform = 'translate(0, ' + degrees + 'px)';
+        document.getElementById('img3').style.transform = 'translate(0, ' + degrees + 'px)';
       }, 10);
     }
   }, {
@@ -59671,6 +59676,11 @@ var About = function (_Component) {
           'div',
           { className: 'img2' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img2', alt: 'map', src: 'https://image.ibb.co/et7hVd/map_with_man.jpg' })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'img3' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'img3', alt: 'map', src: 'https://image.ibb.co/kzux0d/map_with_compass.jpg' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',

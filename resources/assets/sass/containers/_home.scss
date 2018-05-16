@@ -9,24 +9,23 @@ TopContent
 
 .top-content-title {
   margin-top: 250px;
-  margin-left: 20px;
   font-size: 35px;
   font-family: $titleFont;
 }
 
 .top-content-text-box {
   margin-top: 50px;
-  height: 90px;
+  height: 160px;
   border-right: 1px solid $lightGrayBorder;
   transition: 1s;
 }
 
 .top-content-text-box-expand {
-  height: 180px;
+  height: 240px;
 }
 
 .top-content-text {
-  padding-left: 90px;
+  padding-left: 40px;
   font-size: 20px;
   font-family: $textFont;
   color: $greyText;
@@ -264,12 +263,26 @@ About
   transform: rotate(-3deg);
 }
 
-#img2 {
-  height: 200px;
+.img3 {
+  position: absolute;
+  top: 750px;
+  right: 140px;
+  transform: rotate(2deg);
 }
 
 #img1 {
   height: 260px;
+  border-radius: 2px;
+}
+
+#img2 {
+  height: 200px;
+  border-radius: 2px;
+}
+
+#img3 {
+  height: 240px;
+  border-radius: 2px;
 }
 
 /*

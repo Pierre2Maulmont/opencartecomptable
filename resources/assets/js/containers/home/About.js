@@ -8,6 +8,7 @@ export default class About extends Component {
       let degrees = (window.pageYOffset / 4)
       document.getElementById('img1').style.transform = 'translate(0, ' + degrees + 'px)'
       document.getElementById('img2').style.transform = 'translate(0, ' + degrees + 'px)'
+      document.getElementById('img3').style.transform = 'translate(0, ' + degrees + 'px)'
     }, 10)
   }
 
@@ -21,8 +22,13 @@ export default class About extends Component {
         <div className='img1'>
           <img id='img1' alt='map' src='https://image.ibb.co/h4OZbJ/map.jpg' />
         </div>
+
         <div className='img2'>
           <img id='img2' alt='map' src='https://image.ibb.co/et7hVd/map_with_man.jpg' />
+        </div>
+
+        <div className='img3'>
+          <img id='img3' alt='map' src='https://image.ibb.co/kzux0d/map_with_compass.jpg' />
         </div>
 
         <div className='container about-container'>
