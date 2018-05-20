@@ -24,3 +24,5 @@ Route::get('agences/{agence}', 'SchoolsController@agency');
 Route::get('statisticsAverage', 'StatsController@averageStats');
 
 Route::get('statisticsUpToDate/{academy}', 'StatsController@upToDateStats');
+
+Route::post('admin/login', 'AdminsController@logIn');

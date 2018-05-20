@@ -586,6 +586,7 @@ a {
 a:hover {
   color: #3ec1b6 !important;
   text-decoration: none !important;
+  cursor: pointer;
 }
 
 /*

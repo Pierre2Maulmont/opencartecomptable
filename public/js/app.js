@@ -64776,7 +64776,7 @@ var AddSchool = function (_Component) {
     value: function handleSubmission(school) {
       var _this2 = this;
 
-      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements';
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements' : '/public/api/etablissements';
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post(requestUrl, school).then(function (response) {
         if (response.status === 200) {
           _this2.setState({
@@ -66125,10 +66125,12 @@ var ChangeMemoForm = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_cookie__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_cookie__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_TopSection__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_FormSection__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__AdminForm__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_PageComponent__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_TopSection__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_FormSection__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__AdminForm__ = __webpack_require__(221);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66136,6 +66138,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -66156,40 +66159,70 @@ var Admin = function (_Component) {
 
   _createClass(Admin, [{
     key: 'handleSubmission',
-    value: function handleSubmission() {
+    value: function handleSubmission(adminInput) {
       var cookies = this.props.cookies;
 
-      if (true) {
-        cookies.set('admin', 'true', { maxAge: 30 });
-      }
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login';
+      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post(requestUrl, adminInput).then(function (response) {
+        console.log(response);
+        if (response.data.length > 0) {
+          cookies.set('admin', 'true', { maxAge: 2700 });
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: 'logOut',
+    value: function logOut() {
+      var cookies = this.props.cookies;
+
+      cookies.set('admin', 'false');
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var cookies = this.props.cookies;
 
       var isAdminLogged = cookies.get('admin') === 'true';
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__["a" /* default */],
+        __WEBPACK_IMPORTED_MODULE_3__components_PageComponent__["a" /* default */],
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_TopSection__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_TopSection__["a" /* default */], {
           title: 'Espace admin',
           text: '',
           scrolledPast: null
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_4__components_FormSection__["a" /* default */],
+          __WEBPACK_IMPORTED_MODULE_5__components_FormSection__["a" /* default */],
           {
             form: 'admin'
           },
           !isAdminLogged ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'admin-form' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__AdminForm__["a" /* default */], { handleSubmission: this.handleSubmission.bind(this) })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__AdminForm__["a" /* default */], { handleSubmission: this.handleSubmission.bind(this) })
           ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'p',
+            'div',
             null,
-            'hola'
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'a',
+              { onClick: function onClick() {
+                  return _this2.logOut();
+                } },
+              'D\xE9connexion'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                null,
+                'Voir les modifications d\u2019agences'
+              )
+            )
           )
         )
       );
@@ -66233,8 +66266,7 @@ var SearchForm = function (_Component) {
   _createClass(SearchForm, [{
     key: 'handleSubmission',
     value: function handleSubmission(adminInput) {
-      // console.log(adminInput)
-      this.props.handleSubmission();
+      this.props.handleSubmission(adminInput);
     }
   }, {
     key: 'render',

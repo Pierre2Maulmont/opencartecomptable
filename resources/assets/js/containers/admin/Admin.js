@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withCookies } from 'react-cookie'
+import axios from 'axios'
 
 import PageComponent from '../../components/PageComponent'
 import TopSection from '../../components/TopSection'
@@ -7,12 +8,26 @@ import FormSection from '../../components/FormSection'
 import AdminForm from './AdminForm'
 
 class Admin extends Component {
-  handleSubmission () {
+  handleSubmission (adminInput) {
     const { cookies } = this.props
-    if (true) {
-      cookies.set('admin', 'true', { maxAge: 30 })
-    }
+    let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login')
+    axios.post(requestUrl, adminInput)
+    .then(response => {
+      console.log(response)
+      if (response.data.length > 0) {
+        cookies.set('admin', 'true', { maxAge: 2700 })
+      }
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
+
+  logOut () {
+    const { cookies } = this.props
+    cookies.set('admin', 'false')
+  }
+
   render () {
     const { cookies } = this.props
     let isAdminLogged = cookies.get('admin') === 'true'
@@ -29,10 +44,15 @@ class Admin extends Component {
           >
           {
             !isAdminLogged
-            ? <div className={'admin-form'}>
+            ? <div className='admin-form'>
               <AdminForm handleSubmission={this.handleSubmission.bind(this)} />
             </div>
-            : <p>hola</p>
+            : <div>
+              <a onClick={() => this.logOut()}>Déconnexion</a>
+              <div>
+                <a>Voir les modifications d’agences</a>
+              </div>
+            </div>
           }
         </FormSection>
       </PageComponent>

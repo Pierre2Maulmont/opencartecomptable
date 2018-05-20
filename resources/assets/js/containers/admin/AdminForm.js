@@ -4,8 +4,7 @@ import Form from '../../components/Form'
 
 export default class SearchForm extends Component {
   handleSubmission (adminInput) {
-    // console.log(adminInput)
-    this.props.handleSubmission()
+    this.props.handleSubmission(adminInput)
   }
 
   render () {
