@@ -102,7 +102,7 @@ export default class ChangeAgency extends Component {
               Cet établissement est une agence comptable comprenant
               d’autre(s) établissement(s), vous ne pouvez donc pas l’affecter
               à une autre agence avant d’avoir réaffecté le(s) établissement(s)
-              qu’elle contient à leur nouvelle agence respective
+              qu’elle contient à leurs nouvelles agences respectives
             </div>
           }
 

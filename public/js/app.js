@@ -59698,7 +59698,7 @@ var About = function (_Component) {
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AboutParagraph__["a" /* default */], {
                 title: 'Open Carte comptable a \xE9t\xE9 r\xE9alis\xE9 gr\xE2ce au soutien de :',
-                para1: '\u2022 l\u2019incubateur des services publics num\xE9riques <a href="">Beta.gouv</a><br>\u2022 l\u2019association <a href="">Espac\u2019EPLE</a>',
+                para1: '\u2022 l\u2019incubateur des services publics num\xE9riques <a href="https://beta.gouv.fr/">Beta.gouv</a><br>\u2022 l\u2019association <a href="http://espaceple.org/">Espac\u2019EPLE</a>',
                 para2: 'Source des donn\xE9es concernant les \xE9tablissements : <a href="http://www.data.gouv.fr/fr/">data.gouv.fr</a>'
               })
             ),
@@ -65644,7 +65644,7 @@ var ChangeAgency = function (_Component) {
           ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'unable-to-change-agency' },
-            'Cet \xE9tablissement est une agence comptable comprenant d\u2019autre(s) \xE9tablissement(s), vous ne pouvez donc pas l\u2019affecter \xE0 une autre agence avant d\u2019avoir r\xE9affect\xE9 le(s) \xE9tablissement(s) qu\u2019elle contient \xE0 leur nouvelle agence respective'
+            'Cet \xE9tablissement est une agence comptable comprenant d\u2019autre(s) \xE9tablissement(s), vous ne pouvez donc pas l\u2019affecter \xE0 une autre agence avant d\u2019avoir r\xE9affect\xE9 le(s) \xE9tablissement(s) qu\u2019elle contient \xE0 leurs nouvelles agences respectives'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
