@@ -40,7 +40,7 @@ export default class Body extends Component {
       <Route
         exact={isExact}
         path={path}
-        render={() => <Redirect to={redirect} />}
+        render={(props) => <Redirect to={redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '')} />}
       />
     )
   }
@@ -70,6 +70,7 @@ export default class Body extends Component {
               )
             })
           }
+          {this.renderRedirect('/:uai(\\d{7}[A-Z])', true, '/etablissements/')}
           {this.renderRedirect('/', false, '/')}
         </Switch>
       </div>

@@ -58433,8 +58433,8 @@ var Body = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], {
         exact: isExact,
         path: path,
-        render: function render() {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: redirect });
+        render: function render(props) {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '') });
         }
       });
     }
@@ -58454,6 +58454,7 @@ var Body = function (_Component) {
           ROUTES.map(function (item, index) {
             return _this2.renderRoute(item, index);
           }),
+          this.renderRedirect('/:uai(\\d{7}[A-Z])', true, '/etablissements/'),
           this.renderRedirect('/', false, '/')
         )
       );
