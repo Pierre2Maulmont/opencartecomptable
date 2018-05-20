@@ -64757,7 +64757,8 @@ var AddSchool = function (_Component) {
 
     _this.state = {
       scrolledPast: false,
-      isFormSent: false
+      isFormSent: false,
+      failure: false
     };
     _this._handleWaypoint = _this._handleWaypoint.bind(_this);
     _this.handleSubmission = _this.handleSubmission.bind(_this);
@@ -64774,17 +64775,19 @@ var AddSchool = function (_Component) {
     value: function handleSubmission(school) {
       var _this2 = this;
 
-      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/';
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put(requestUrl, school).then(function (response) {
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements';
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post(requestUrl, school).then(function (response) {
         if (response.status === 200) {
           _this2.setState({
             isFormSent: true
           });
+          console.log(response);
         } else {
           _this2.setState({
             isFormSent: true,
             failure: true
           });
+          console.log(response);
         }
       }).catch(function (error) {
         console.log(error);
@@ -64793,7 +64796,9 @@ var AddSchool = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var isFormSent = this.state.isFormSent;
+      var _state = this.state,
+          isFormSent = _state.isFormSent,
+          failure = _state.failure;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__["a" /* default */],
@@ -64824,7 +64829,8 @@ var AddSchool = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'add-school-form-sent' + (isFormSent ? ' add-school-form-sent-show' : '') },
-            'Etablissement ajout\xE9 \xE0 la base! Merci pour votre contribution'
+            'Etablissement ajout\xE9 \xE0 la base! Merci pour votre contribution',
+            failure && 'bug'
           )
         )
       );
