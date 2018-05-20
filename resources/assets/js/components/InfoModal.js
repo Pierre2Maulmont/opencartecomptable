@@ -36,7 +36,8 @@ export default class App extends Component {
   handleUpdate () {
     let codeUai = this.props.school.code_uai
     let { fetchSchools } = this.props
-    axios.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, {
+    let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai
+    axios.put(requestUrl, {
       update: ''
     })
     .then(response => {

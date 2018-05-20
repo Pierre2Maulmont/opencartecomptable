@@ -14,7 +14,8 @@ export default class AverageStatistics extends Component {
   }
 
   componentDidMount () {
-    axios.get('https://opencartecomptable.herokuapp.com/api/statisticsAverage')
+    let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/statisticsAverage' : '/public/api/statisticsAverage')
+    axios.get(requestUrl)
       .then(statistics => {
         this.setState({ statistics: statistics.data })
       })

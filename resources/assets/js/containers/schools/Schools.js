@@ -24,7 +24,7 @@ export default class Schools extends Component {
       // fetch schools corresponding to search criteria
       let isAgencies = pathname === '/agences' ? '&agencies' : ''
       let url = this.props.location
-      const requestUrl = 'https://opencartecomptable.herokuapp.com/api/etablissements' + url.search + isAgencies
+      const requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements' : '/public/api/etablissements') + url.search + isAgencies
       axios.get(requestUrl)
         .then(schools => {
           console.log(schools)
@@ -36,7 +36,7 @@ export default class Schools extends Component {
     } else {
       // fetch corresponding school
       let url = this.props.location
-      const requestUrl = 'https://opencartecomptable.herokuapp.com/api' + url.pathname
+      const requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api' : '/public/api') + url.pathname
       axios.get(requestUrl)
         .then(school => {
           this.setState({ schools: school.data })
@@ -45,13 +45,6 @@ export default class Schools extends Component {
           console.log(error)
         })
     }
-    axios.get('https://opencartecomptable.herokuapp.com/api/test')
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
   }
 
   render () {

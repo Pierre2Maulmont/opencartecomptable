@@ -59698,7 +59698,7 @@ var About = function (_Component) {
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AboutParagraph__["a" /* default */], {
                 title: 'Open Carte comptable a \xE9t\xE9 r\xE9alis\xE9 gr\xE2ce au soutien de :',
-                para1: '\u2022 l\u2019incubateur des services publiques num\xE9riques <a href="">Beta.gouv</a><br>\u2022 l\u2019association <a href="">Espac\u2019EPLE</a>',
+                para1: '\u2022 l\u2019incubateur des services publics num\xE9riques <a href="">Beta.gouv</a><br>\u2022 l\u2019association <a href="">Espac\u2019EPLE</a>',
                 para2: 'Source des donn\xE9es concernant les \xE9tablissements : <a href="http://www.data.gouv.fr/fr/">data.gouv.fr</a>'
               })
             ),
@@ -63292,7 +63292,8 @@ var AverageStatistics = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/statisticsAverage').then(function (statistics) {
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/statisticsAverage' : '/public/api/statisticsAverage';
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (statistics) {
         _this2.setState({ statistics: statistics.data });
       }).catch(function (error) {
         console.log(error);
@@ -64431,7 +64432,7 @@ var UpToDateStatistics = function (_Component) {
     value: function handleHover(e) {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/statisticsUpToDate/' + 'Rouen').then(function (statistics) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/public/api/statisticsUpToDate/' + 'Rouen').then(function (statistics) {
         _this2.setState({ statistics: statistics.data });
       }).catch(function (error) {
         console.log(error);
@@ -64773,7 +64774,8 @@ var AddSchool = function (_Component) {
     value: function handleSubmission(school) {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/', school).then(function (response) {
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/';
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put(requestUrl, school).then(function (response) {
         if (response.status === 200) {
           _this2.setState({
             isFormSent: true
@@ -64957,7 +64959,7 @@ var Schools = function (_Component) {
         // fetch schools corresponding to search criteria
         var isAgencies = pathname === '/agences' ? '&agencies' : '';
         var url = this.props.location;
-        var requestUrl = 'https://opencartecomptable.herokuapp.com/api/etablissements' + url.search + isAgencies;
+        var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements' : '/public/api/etablissements') + url.search + isAgencies;
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (schools) {
           console.log(schools);
           _this2.setState({ schools: schools.data });
@@ -64967,18 +64969,13 @@ var Schools = function (_Component) {
       } else {
         // fetch corresponding school
         var _url = this.props.location;
-        var _requestUrl = 'https://opencartecomptable.herokuapp.com/api' + _url.pathname;
+        var _requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api' : '/public/api') + _url.pathname;
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(_requestUrl).then(function (school) {
           _this2.setState({ schools: school.data });
         }).catch(function (error) {
           console.log(error);
         });
       }
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/test').then(function (response) {
-        console.log(response);
-      }).catch(function (error) {
-        console.log(error);
-      });
     }
   }, {
     key: 'render',
@@ -65234,7 +65231,8 @@ var App = function (_Component) {
       var codeUai = this.props.school.code_uai;
       var fetchSchools = this.props.fetchSchools;
 
-      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, {
+      var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai;
+      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put(requestUrl, {
         update: ''
       }).then(function (response) {
         fetchSchools();
@@ -65453,7 +65451,7 @@ var Agency = function (_Component) {
 
       // fetch corresponding agency schools
       var url = this.props.location;
-      var requestUrl = 'https://opencartecomptable.herokuapp.com/api' + url.pathname;
+      var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api' : '/public/api') + url.pathname;
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (schools) {
         _this2.setState({ schools: schools.data });
       }).catch(function (error) {
@@ -65562,10 +65560,11 @@ var ChangeAgency = function (_Component) {
 
       // fetch corresponding school
       var url = this.props.location.pathname.substring(0, 24);
-      var requestUrl = 'https://opencartecomptable.herokuapp.com/api' + url;
+      var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api' : '/public/api') + url;
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (school) {
         if (school.data[0]['code_uai'] === school.data[0]['code_uai_agence_comptable']) {
-          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://opencartecomptable.herokuapp.com/api/agences/' + school.data[0]['code_uai']).then(function (schools) {
+          var requestUrl2 = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/agences/' : '/public/api/agences/') + school.data[0]['code_uai'];
+          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl2).then(function (schools) {
             if (schools.data.length > 1) {
               _this2.setState({
                 school: school.data,
@@ -65592,7 +65591,8 @@ var ChangeAgency = function (_Component) {
       var _this3 = this;
 
       var codeUai = this.state.school[0]['code_uai'];
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, agency).then(function (response) {
+      var requestUrl3 = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put(requestUrl3, agency).then(function (response) {
         if (response.status === 200) {
           _this3.setState({
             isFormSent: true
@@ -65771,7 +65771,7 @@ var ChangeInfo = function (_Component) {
       var _this2 = this;
 
       var url = this.props.location.pathname.substring(0, 24);
-      var requestUrl = 'https://opencartecomptable.herokuapp.com/api' + url;
+      var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api' : '/public/api') + url;
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (school) {
         _this2.setState({ school: school.data });
       }).catch(function (error) {
@@ -65789,7 +65789,8 @@ var ChangeInfo = function (_Component) {
       var _this3 = this;
 
       var codeUai = this.state.school[0]['code_uai'];
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, school).then(function (response) {
+      var requestUrl2 = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put(requestUrl2, school).then(function (response) {
         if (response.status === 200) {
           _this3.setState({
             isFormSent: true
@@ -65963,7 +65964,7 @@ var ChangeMemo = function (_Component) {
 
       // fetch corresponding school
       var url = this.props.location.pathname.substring(0, 24);
-      var requestUrl = 'https://opencartecomptable.herokuapp.com/api' + url;
+      var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api' : '/public/api') + url;
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (school) {
         _this2.setState({ school: school.data });
       }).catch(function (error) {
@@ -65981,7 +65982,8 @@ var ChangeMemo = function (_Component) {
       var _this3 = this;
 
       var codeUai = this.state.school[0]['code_uai'];
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put('https://opencartecomptable.herokuapp.com/api/etablissements/' + codeUai, memo).then(function (response) {
+      var requestUrl2 = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.put(requestUrl2, memo).then(function (response) {
         if (response.status === 200) {
           _this3.setState({
             isFormSent: true

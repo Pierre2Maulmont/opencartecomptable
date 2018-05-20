@@ -22,7 +22,8 @@ export default class AddSchool extends Component {
   }
 
   handleSubmission (school) {
-    axios.put('https://opencartecomptable.herokuapp.com/api/etablissements/', school)
+    let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/')
+    axios.put(requestUrl, school)
       .then(response => {
         if (response.status === 200) {
           this.setState({
