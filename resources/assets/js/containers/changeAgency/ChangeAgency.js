@@ -76,7 +76,6 @@ export default class ChangeAgency extends Component {
     let nom = school && school[0]['nom']
     let codeUai = school && school[0]['code_uai']
     let codeUaiAgence = school && school[0]['code_uai_agence_comptable']
-    console.log(isActiveAgency)
     return (
       <PageComponent>
         <TopSection

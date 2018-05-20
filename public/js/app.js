@@ -64961,7 +64961,6 @@ var Schools = function (_Component) {
         var url = this.props.location;
         var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements' : '/public/api/etablissements') + url.search + isAgencies;
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (schools) {
-          console.log(schools);
           _this2.setState({ schools: schools.data });
         }).catch(function (error) {
           console.log(error);
@@ -65441,12 +65440,18 @@ var Agency = function (_Component) {
     _this.state = {
       schools: []
     };
+    _this.fetchSchools = _this.fetchSchools.bind(_this);
     return _this;
   }
 
   _createClass(Agency, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      this.fetchSchools();
+    }
+  }, {
+    key: 'fetchSchools',
+    value: function fetchSchools() {
       var _this2 = this;
 
       // fetch corresponding agency schools
@@ -65494,7 +65499,8 @@ var Agency = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ResultsTable__["a" /* default */], {
           schools: schools,
           isAgencyView: true,
-          agencyId: agencyId
+          agencyId: agencyId,
+          fetchSchools: this.fetchSchools
         })
       );
     }
@@ -65619,7 +65625,6 @@ var ChangeAgency = function (_Component) {
       var nom = school && school[0]['nom'];
       var codeUai = school && school[0]['code_uai'];
       var codeUaiAgence = school && school[0]['code_uai_agence_comptable'];
-      console.log(isActiveAgency);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2__components_PageComponent__["a" /* default */],
         null,

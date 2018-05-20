@@ -11,9 +11,14 @@ export default class Agency extends Component {
     this.state = ({
       schools: []
     })
+    this.fetchSchools = this.fetchSchools.bind(this)
   }
 
   componentDidMount () {
+    this.fetchSchools()
+  }
+
+  fetchSchools () {
     // fetch corresponding agency schools
     let url = this.props.location
     const requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api' : '/public/api') + url.pathname
@@ -64,6 +69,7 @@ export default class Agency extends Component {
           schools={schools}
           isAgencyView
           agencyId={agencyId}
+          fetchSchools={this.fetchSchools}
         />
       </PageComponent>
     )
