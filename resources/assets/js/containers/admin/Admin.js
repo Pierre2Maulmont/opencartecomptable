@@ -6,8 +6,26 @@ import PageComponent from '../../components/PageComponent'
 import TopSection from '../../components/TopSection'
 import FormSection from '../../components/FormSection'
 import AdminForm from './AdminForm'
+import AdminActions from './AdminActions'
 
 class Admin extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isAdminLogged: false
+    }
+    this.handleSubmission = this.handleSubmission.bind(this)
+    this.logOut = this.logOut.bind(this)
+  }
+
+  componentDidMount () {
+    const { cookies } = this.props
+    let isAdminLogged = cookies.get('admin') === 'true'
+    this.setState({
+      isAdminLogged
+    })
+  }
+
   handleSubmission (adminInput) {
     const { cookies } = this.props
     let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login')
@@ -16,6 +34,9 @@ class Admin extends Component {
       console.log(response)
       if (response.data.length > 0) {
         cookies.set('admin', 'true', { maxAge: 2700 })
+        this.setState({
+          isAdminLogged: true
+        })
       }
     })
     .catch(error => {
@@ -26,11 +47,13 @@ class Admin extends Component {
   logOut () {
     const { cookies } = this.props
     cookies.set('admin', 'false')
+    this.setState({
+      isAdminLogged: false
+    })
   }
 
   render () {
-    const { cookies } = this.props
-    let isAdminLogged = cookies.get('admin') === 'true'
+    let { isAdminLogged } = this.state
     return (
       <PageComponent>
         <TopSection
@@ -43,15 +66,13 @@ class Admin extends Component {
           form={'admin'}
           >
           {
-            !isAdminLogged
-            ? <div className='admin-form'>
-              <AdminForm handleSubmission={this.handleSubmission.bind(this)} />
+            isAdminLogged
+            ? <div>
+              <a onClick={() => this.logOut()} className='admin-logout-btn'>Déconnexion</a>
+              <AdminActions />
             </div>
-            : <div>
-              <a onClick={() => this.logOut()}>Déconnexion</a>
-              <div>
-                <a>Voir les modifications d’agences</a>
-              </div>
+            : <div className='admin-form'>
+              <AdminForm handleSubmission={this.handleSubmission} />
             </div>
           }
         </FormSection>

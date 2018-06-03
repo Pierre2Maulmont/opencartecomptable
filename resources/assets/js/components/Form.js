@@ -349,7 +349,7 @@ export default class Form extends Component {
           name='ajouter'
           onClick={() => { handleSubmission(this.state) }}
         >
-          Ajouter
+          Connexion
         </div>
       </form>
     )

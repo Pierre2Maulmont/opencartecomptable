@@ -1467,3 +1467,9 @@ Responsiveness
   display: block;
 }
 
+.admin-logout-btn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
