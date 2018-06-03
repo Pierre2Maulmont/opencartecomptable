@@ -21,6 +21,9 @@
         <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather|Playfair+Display|Source+Serif+Pro" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5lRs-K-ynKO525aDEktx3uZI_8Oa2SQ8&" async defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+        <!-- React Table CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/react-table@latest/react-table.css">
     </head>
     <body>
         <div id="root"></div>
@@ -32,5 +35,12 @@
         @else
             <script src="{{ secure_asset('js/app.js') }}" ></script>
         @endif
+
+        <!-- React Table JS -->
+        <script src="https://unpkg.com/react-table@latest/react-table.js"></script>
+        <script src="https://unpkg.com/react-table@latest/react-table.min.js"></script>
+        <script>
+          var ReactTable = window.ReactTable.default
+        </script>
     </body>
 </html>

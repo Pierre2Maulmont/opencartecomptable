@@ -29,7 +29,7 @@ export default class AdminActions extends Component {
   renderAdminActionComponent (view) {
     let Component = ADMINVIEWS[view]
     return (
-      <div>
+      <div className='admin-actions'>
         <a onClick={() => this.changeView(null)}>Retour</a>
         <Component />
       </div>
@@ -38,7 +38,7 @@ export default class AdminActions extends Component {
 
   renderAdminActionsList () {
     return (
-      <div>
+      <div className='admin-actions'>
         <a onClick={() => this.changeView('agencies')}>Modifications d’agences</a>
         <br />
         <a onClick={() => this.changeView('informations')}>Modifications d’informations</a>

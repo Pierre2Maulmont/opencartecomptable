@@ -16,7 +16,7 @@ class AdminsController extends Controller
 
     public function agencies(Request $request)
     {
-      $agencyChanges = DB::select('select * from modifications');
+      $agencyChanges = DB::select('SELECT * FROM modifications INNER JOIN etablissements ON modifications.code_uai = etablissements.code_uai ORDER BY date DESC');
       return $agencyChanges;
     }
 }

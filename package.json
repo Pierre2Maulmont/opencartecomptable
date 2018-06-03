@@ -23,6 +23,7 @@
         "react-modal": "^3.3.2",
         "react-render-html": "^0.6.0",
         "react-router-dom": "^4.2.2",
+        "react-table": "^6.8.6",
         "react-waypoint": "^8.0.1",
         "simple-react-validator": "0.0.7"
     }
