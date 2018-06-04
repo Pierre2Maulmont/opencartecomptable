@@ -117,7 +117,7 @@ class SchoolsController extends Controller
     {
       if ($request->has('new_agency')) {
 
-        $response = Etablissement::updateAgency($code_uai, $request->input('new_agency'));
+        $response = Etablissement::updateAgency($code_uai, $request->input('new_agency'), $request->input('former_agency'));
         return $response;
 
       } else if ($request->has('memo')) {

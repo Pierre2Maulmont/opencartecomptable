@@ -30,11 +30,21 @@ class Etablissement extends Model
     return $schools;
   }
 
-  public static function updateAgency($code_uai, $new_agency)
+  public static function updateAgency($code_uai, $new_agency, $former_agency)
   {
+    $ip = $_SERVER['REMOTE_ADDR'];
+
     DB::table('etablissements')
             ->where('code_uai', $code_uai)
             ->update(['code_uai_agence_comptable' => $new_agency]);
+
+    DB::table('modifications')
+            ->insert([
+              'code_uai' => $code_uai,
+              'ancien_code_agence' => $former_agency,
+              'nouveau_code_agence' => $new_agency,
+              'ip' => $ip
+            ]);
     return;
 
     // not working...?

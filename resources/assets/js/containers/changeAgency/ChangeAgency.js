@@ -51,10 +51,14 @@ export default class ChangeAgency extends Component {
   }
 
   handleSubmission (agency) {
-    let codeUai = this.state.school[0]['code_uai']
+    let { school } = this.state
+    let codeUaiAgence = school[0]['code_uai_agence_comptable']
+    agency.former_agency = codeUaiAgence
+    let codeUai = school[0]['code_uai']
     let requestUrl3 = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai
     axios.put(requestUrl3, agency)
       .then(response => {
+        console.log(response)
         if (response.status === 200) {
           this.setState({
             isFormSent: true
