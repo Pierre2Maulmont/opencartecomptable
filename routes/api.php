@@ -28,3 +28,9 @@ Route::get('statisticsUpToDate/{academy}', 'StatsController@upToDateStats');
 Route::post('admin/login', 'AdminsController@logIn');
 
 Route::get('admin/agencies', 'AdminsController@agencies');
+
+Route::get('admin/informations', 'AdminsController@informations');
+
+Route::get('admin/addedSchools', 'AdminsController@addedSchools');
+
+Route::get('admin/deletedSchools', 'AdminsController@deletedSchools');

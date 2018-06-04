@@ -34,7 +34,6 @@ export default class Agencies extends Component {
             data={
               agencyChanges.map(school => {
                 return ({
-                  id: school.code_uai,
                   uaiCode: school.code_uai,
                   name: school.nom,
                   academy: school.academie,

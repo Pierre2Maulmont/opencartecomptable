@@ -19,4 +19,16 @@ class AdminsController extends Controller
       $agencyChanges = DB::select('SELECT * FROM modifications INNER JOIN etablissements ON modifications.code_uai = etablissements.code_uai ORDER BY date DESC');
       return $agencyChanges;
     }
+
+    public function informations(Request $request)
+    {
+      $infoChanges = DB::select('SELECT * FROM etablissements WHERE date_modification IS NOT NULL ORDER BY date_modification DESC');
+      return $infoChanges;
+    }
+
+    public function addedSchools(Request $request)
+    {
+      $addedSchools = DB::select('SELECT * FROM etablissements WHERE date_ajout IS NOT NULL ORDER BY date_ajout DESC');
+      return $addedSchools;
+    }
 }

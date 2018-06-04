@@ -70,6 +70,10 @@ class Etablissement extends Model
               ->where('code_uai', $code_uai)
               ->update($value);
     }
+
+    $ip = $_SERVER['REMOTE_ADDR'];
+
+    DB::update('UPDATE etablissements SET date_modification = CURRENT_TIMESTAMP, ip_modification = ? WHERE code_uai = ?', [$ip, $code_uai]);
     return;
   }
 
@@ -85,7 +89,11 @@ class Etablissement extends Model
 
   public static function store($values)
   {
+    $ip = $_SERVER['REMOTE_ADDR'];
+
     DB::table('etablissements')->insert($values);
+
+    // DB::table('etablissements')->insert(['ip_ajout' => $ip]);
     return;
   }
 }

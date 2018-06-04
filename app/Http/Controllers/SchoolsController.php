@@ -158,9 +158,4 @@ class SchoolsController extends Controller
     {
         //
     }
-
-    public function test(Request $request)
-    {
-        return 'hey';
-    }
 }

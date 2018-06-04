@@ -66797,7 +66797,6 @@ var Agencies = function (_Component) {
             filterable: true,
             data: agencyChanges.map(function (school) {
               return {
-                id: school.code_uai,
                 uaiCode: school.code_uai,
                 name: school.nom,
                 academy: school.academie,
@@ -69301,6 +69300,9 @@ var ReactTablePagination = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_table__ = __webpack_require__(226);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69311,23 +69313,137 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
 var Informations = function (_Component) {
   _inherits(Informations, _Component);
 
-  function Informations() {
+  function Informations(props) {
     _classCallCheck(this, Informations);
 
-    return _possibleConstructorReturn(this, (Informations.__proto__ || Object.getPrototypeOf(Informations)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Informations.__proto__ || Object.getPrototypeOf(Informations)).call(this, props));
+
+    _this.state = {
+      infoChanges: null
+    };
+    return _this;
   }
 
   _createClass(Informations, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/informations' : '/public/api/admin/informations';
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (response) {
+        _this2.setState({
+          infoChanges: response.data
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        'hola, infos'
-      );
+      var infoChanges = this.state.infoChanges;
+
+      if (infoChanges) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_table__["a" /* default */], {
+            sortable: true,
+            filterable: true,
+            data: infoChanges.map(function (school) {
+              return {
+                uaiCode: school.code_uai,
+                schoolType: school.type_etablissement,
+                name: school.nom,
+                address: school.adresse,
+                postalCode: school.code_postal,
+                city: school.commune,
+                department: school.departement,
+                region: school.region,
+                academy: school.academie,
+                phone: school.telephone,
+                money: school.ca,
+                memo: school.memo,
+                upToDate: school.up_to_date,
+                modificationDate: school.date_modification,
+                ip: school.ip_modification
+              };
+            }),
+            columns: [{
+              Header: 'Code UAI',
+              accessor: 'uaiCode',
+              width: 125
+            }, {
+              Header: 'Type établissement',
+              accessor: 'schoolType',
+              width: 125
+            }, {
+              Header: 'Nom',
+              accessor: 'name',
+              width: 240,
+              filterMethod: function filterMethod(filter, row) {
+                return row[filter.id].indexOf(filter.value) > -1 || row[filter.id].toLowerCase().indexOf(filter.value) > -1;
+              }
+            }, {
+              Header: 'Adresse',
+              accessor: 'address',
+              width: 240
+            }, {
+              Header: 'Code postal',
+              accessor: 'postalCode'
+            }, {
+              Header: 'Commune',
+              accessor: 'city',
+              width: 179
+            }, {
+              Header: 'Département',
+              accessor: 'department',
+              width: 200
+            }, {
+              Header: 'Région',
+              accessor: 'region',
+              width: 200
+            }, {
+              Header: 'Académie',
+              accessor: 'academy',
+              width: 170,
+              filterMethod: function filterMethod(filter, row) {
+                return row[filter.id].indexOf(filter.value) > -1 || row[filter.id].toLowerCase().indexOf(filter.value) > -1;
+              }
+            }, {
+              Header: 'Téléphone',
+              accessor: 'phone',
+              width: 170
+            }, {
+              Header: 'Recettes annuelles',
+              accessor: 'money',
+              width: 200
+            }, {
+              Header: 'Mémo',
+              accessor: 'memo',
+              width: 400
+            }, {
+              Header: 'Infos à jour',
+              accessor: 'upToDate',
+              width: 165
+            }, {
+              Header: 'Date modification',
+              accessor: 'modificationDate',
+              width: 165
+            }, {
+              Header: 'Adresse IP',
+              accessor: 'ip',
+              width: 145
+            }]
+          })
+        );
+      }
+      return null;
     }
   }]);
 
@@ -69343,6 +69459,9 @@ var Informations = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_table__ = __webpack_require__(226);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69353,23 +69472,137 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
 var AddedSchools = function (_Component) {
   _inherits(AddedSchools, _Component);
 
-  function AddedSchools() {
+  function AddedSchools(props) {
     _classCallCheck(this, AddedSchools);
 
-    return _possibleConstructorReturn(this, (AddedSchools.__proto__ || Object.getPrototypeOf(AddedSchools)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (AddedSchools.__proto__ || Object.getPrototypeOf(AddedSchools)).call(this, props));
+
+    _this.state = {
+      addedSchools: null
+    };
+    return _this;
   }
 
   _createClass(AddedSchools, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/addedSchools' : '/public/api/admin/addedSchools';
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(requestUrl).then(function (response) {
+        _this2.setState({
+          addedSchools: response.data
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        'hola, added schools'
-      );
+      var addedSchools = this.state.addedSchools;
+
+      if (addedSchools) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_table__["a" /* default */], {
+            sortable: true,
+            filterable: true,
+            data: addedSchools.map(function (school) {
+              return {
+                uaiCode: school.code_uai,
+                agencyUai: school.code_uai_agence_comptable,
+                schoolType: school.type_etablissement,
+                name: school.nom,
+                address: school.adresse,
+                postalCode: school.code_postal,
+                city: school.commune,
+                department: school.departement,
+                region: school.region,
+                academy: school.academie,
+                phone: school.telephone,
+                money: school.ca,
+                memo: school.memo,
+                addedDate: school.date_ajout,
+                ip: school.ip_ajout
+              };
+            }),
+            columns: [{
+              Header: 'Code UAI',
+              accessor: 'uaiCode',
+              width: 125
+            }, {
+              Header: 'Code UAI agence',
+              accessor: 'agencyUai',
+              width: 125
+            }, {
+              Header: 'Type établissement',
+              accessor: 'schoolType',
+              width: 125
+            }, {
+              Header: 'Nom',
+              accessor: 'name',
+              width: 240,
+              filterMethod: function filterMethod(filter, row) {
+                return row[filter.id].indexOf(filter.value) > -1 || row[filter.id].toLowerCase().indexOf(filter.value) > -1;
+              }
+            }, {
+              Header: 'Adresse',
+              accessor: 'address',
+              width: 240
+            }, {
+              Header: 'Code postal',
+              accessor: 'postalCode'
+            }, {
+              Header: 'Commune',
+              accessor: 'city',
+              width: 179
+            }, {
+              Header: 'Département',
+              accessor: 'department',
+              width: 200
+            }, {
+              Header: 'Région',
+              accessor: 'region',
+              width: 200
+            }, {
+              Header: 'Académie',
+              accessor: 'academy',
+              width: 170,
+              filterMethod: function filterMethod(filter, row) {
+                return row[filter.id].indexOf(filter.value) > -1 || row[filter.id].toLowerCase().indexOf(filter.value) > -1;
+              }
+            }, {
+              Header: 'Téléphone',
+              accessor: 'phone',
+              width: 170
+            }, {
+              Header: 'Recettes annuelles',
+              accessor: 'money',
+              width: 200
+            }, {
+              Header: 'Mémo',
+              accessor: 'memo',
+              width: 400
+            }, {
+              Header: 'Date ajout',
+              accessor: 'addedDate',
+              width: 165
+            }, {
+              Header: 'IP ajout',
+              accessor: 'ip',
+              width: 165
+            }]
+          })
+        );
+      }
+      return null;
     }
   }]);
 
