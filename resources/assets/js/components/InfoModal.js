@@ -70,7 +70,7 @@ export default class App extends Component {
               <p>
                 Ces informations étaient à jour le :&nbsp;
                 <span className={school.up_to_date === '2014-01-01' ? 'update-date-grey' : ''}>
-                  {school.up_to_date}
+                  {school.up_to_date.split('-').reverse().join('-')}
                 </span>
               </p>
               <p className='udpate-section' onClick={this.handleUpdate}>
