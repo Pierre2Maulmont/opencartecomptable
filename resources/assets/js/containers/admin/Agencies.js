@@ -79,7 +79,7 @@ export default class Agencies extends Component {
               {
                 Header: 'Date',
                 accessor: 'date',
-                width: 165
+                width: 240
               },
               {
                 Header: 'Adresse IP',

@@ -121,12 +121,12 @@ export default class AddedSchools extends Component {
               {
                 Header: 'Mémo',
                 accessor: 'memo',
-                width: 400
+                width: 600
               },
               {
                 Header: 'Date ajout',
                 accessor: 'addedDate',
-                width: 165
+                width: 240
               },
               {
                 Header: 'IP ajout',

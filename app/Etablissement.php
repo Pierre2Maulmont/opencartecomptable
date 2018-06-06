@@ -56,14 +56,20 @@ class Etablissement extends Model
 
   public static function updateMemo($code_uai, $memo)
   {
+    $ip = $_SERVER['REMOTE_ADDR'];
+
     DB::table('etablissements')
             ->where('code_uai', $code_uai)
-            ->update(['memo' => $memo]);
+            ->update(['memo' => $memo, 'date_modification' => date('Y-m-d H:i:s'), 'ip_modification' => $ip]);
+
     return;
   }
 
   public static function updateInfo($code_uai, $values)
   {
+    $ip = $_SERVER['REMOTE_ADDR'];
+
+    array_push($values, ['date_modification' => date('Y-m-d H:i:s')], ['ip_modification' => $ip]);
 
     foreach ($values as $value) {
       DB::table('etablissements')
@@ -71,9 +77,6 @@ class Etablissement extends Model
               ->update($value);
     }
 
-    $ip = $_SERVER['REMOTE_ADDR'];
-
-    DB::update('UPDATE etablissements SET date_modification = CURRENT_TIMESTAMP, ip_modification = ? WHERE code_uai = ?', [$ip, $code_uai]);
     return;
   }
 
@@ -91,9 +94,11 @@ class Etablissement extends Model
   {
     $ip = $_SERVER['REMOTE_ADDR'];
 
+    $values['date_ajout'] = date('Y-m-d H:i:s');
+    $values['ip_ajout'] = $ip;
+
     DB::table('etablissements')->insert($values);
 
-    // DB::table('etablissements')->insert(['ip_ajout' => $ip]);
     return;
   }
 }

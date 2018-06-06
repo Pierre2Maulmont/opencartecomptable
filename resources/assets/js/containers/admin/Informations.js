@@ -116,7 +116,7 @@ export default class Informations extends Component {
               {
                 Header: 'Mémo',
                 accessor: 'memo',
-                width: 400
+                width: 600
               },
               {
                 Header: 'Infos à jour',
@@ -126,7 +126,7 @@ export default class Informations extends Component {
               {
                 Header: 'Date modification',
                 accessor: 'modificationDate',
-                width: 165
+                width: 240
               },
               {
                 Header: 'Adresse IP',
