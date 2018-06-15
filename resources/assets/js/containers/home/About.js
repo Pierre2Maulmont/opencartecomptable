@@ -42,7 +42,7 @@ export default class About extends Component {
               />
               <AboutParagraph
                 title='Open Carte comptable a été réalisé grâce au soutien de :'
-                para1='&bull; l’incubateur des services publics numériques <a href="https://beta.gouv.fr/">Beta.gouv</a><br>&bull; l’association <a href="http://espaceple.org/">Espac’EPLE</a>'
+                para1='&bull; l’incubateur des services publics numériques <a href="https://beta.gouv.fr/">Beta.gouv</a><br>&bull; l’association <a href="http://espaceple.org/">Espac’EPLE</a><br>&bull; l’<a href="http://site.aji-france.com/">AJI</a>'
                 para2='Source des données concernant les établissements : <a href="http://www.data.gouv.fr/fr/">data.gouv.fr</a>'
               />
             </div>
