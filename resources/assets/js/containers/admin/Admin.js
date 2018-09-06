@@ -11,19 +11,9 @@ import AdminActions from './AdminActions'
 class Admin extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      isAdminLogged: false
-    }
+    this.state = {}
     this.handleSubmission = this.handleSubmission.bind(this)
     this.logOut = this.logOut.bind(this)
-  }
-
-  componentDidMount () {
-    const { cookies } = this.props
-    let isAdminLogged = cookies.get('admin') === 'true'
-    this.setState({
-      isAdminLogged
-    })
   }
 
   handleSubmission (adminInput) {
@@ -34,9 +24,7 @@ class Admin extends Component {
       console.log(response)
       if (response.data.length > 0) {
         cookies.set('admin', 'true', { maxAge: 2700 })
-        this.setState({
-          isAdminLogged: true
-        })
+        this.props.logUnlogAdmin(true)
       }
     })
     .catch(error => {
@@ -47,13 +35,11 @@ class Admin extends Component {
   logOut () {
     const { cookies } = this.props
     cookies.set('admin', 'false')
-    this.setState({
-      isAdminLogged: false
-    })
+    this.props.logUnlogAdmin(false)
   }
 
   render () {
-    let { isAdminLogged } = this.state
+    let { isAdminLogged } = this.props
     return (
       <PageComponent>
         <TopSection

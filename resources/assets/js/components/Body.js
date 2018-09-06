@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withCookies } from 'react-cookie'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from '../containers/home/Home'
@@ -11,7 +12,29 @@ import ChangeInfo from '../containers/changeInfo/ChangeInfo'
 import ChangeMemo from '../containers/changeMemo/ChangeMemo'
 import Admin from '../containers/admin/Admin'
 
-export default class Body extends Component {
+class Body extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { isAdminLogged: false }
+    this.logUnlogAdmin = this.logUnlogAdmin.bind(this)
+  }
+
+  // checking whether admin is connected here because we need it sitewide,
+  // now this file is a bit messy though, tbrefactored
+  componentDidMount () {
+    const { cookies } = this.props
+    let isAdminLogged = cookies.get('admin') === 'true'
+    this.setState({
+      isAdminLogged
+    })
+  }
+
+  logUnlogAdmin (isAdminLogged) {
+    this.setState({
+      isAdminLogged
+    })
+  }
+
   buildRoute (path, isExact, Component, title) {
     let routeObject = {
       'path': path,
@@ -25,12 +48,13 @@ export default class Body extends Component {
   renderRoute (routeObject, index) {
     const dynamicTitle = routeObject.title ? (routeObject.title + ' - Open Carte Comptable') : 'Open Carte Comptable'
     const Component = routeObject.Component
+    const { isAdminLogged } = this.state
     return (
       <Route
         key={index}
         exact={routeObject.isExact}
         path={routeObject.path}
-        render={(props) => <Component {...props} dynamicTitle={dynamicTitle} />}
+        render={(props) => <Component {...props} dynamicTitle={dynamicTitle} isAdminLogged={isAdminLogged} logUnlogAdmin={this.logUnlogAdmin} />}
       />
     )
   }
@@ -77,3 +101,5 @@ export default class Body extends Component {
     )
   }
 }
+
+export default withCookies(Body)
