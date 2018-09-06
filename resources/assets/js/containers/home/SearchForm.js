@@ -163,7 +163,7 @@ export default class SearchForm extends Component {
           />
 
           <div
-            className='my-button my-nav-button'
+            className='my-button'
             onClick={() => { this.handleSubmission(this.state) }}
           >
             Rechercher
@@ -299,7 +299,7 @@ export default class SearchForm extends Component {
               />
 
               <div
-                className='my-button my-nav-button'
+                className='my-button'
                 onClick={() => { this.handleSubmission(this.state) }}
               >
                 Rechercher

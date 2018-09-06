@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import ResultsSection from './ResultsSection'
 import Table from './Table'
 import InfoModal from './InfoModal'
+import DeleteSchool from './DeleteSchool'
 
 export default class ResultsTable extends Component {
   render () {
@@ -94,12 +95,7 @@ export default class ResultsTable extends Component {
 
                     {
                       isAdminLogged && <td>
-                        <div
-                          className='my-button'
-                          onClick={() => { return null }}
-                        >
-                          x
-                        </div>
+                        <DeleteSchool codeUai={item.code_uai} />
                       </td>
                     }
 

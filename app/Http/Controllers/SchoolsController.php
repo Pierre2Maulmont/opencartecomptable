@@ -156,6 +156,7 @@ class SchoolsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $response = Etablissement::deleteSchool($id);
+        return $response;
     }
 }
