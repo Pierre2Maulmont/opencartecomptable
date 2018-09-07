@@ -59530,8 +59530,7 @@ var Body = function (_Component) {
     return _this;
   }
 
-  // checking whether admin is connected here because we need it sitewide,
-  // now this file is a bit messy though, tbrefactored
+  // checking whether admin is connected here because we need it site-wide
 
 
   _createClass(Body, [{
@@ -59547,9 +59546,7 @@ var Body = function (_Component) {
   }, {
     key: 'logUnlogAdmin',
     value: function logUnlogAdmin(isAdminLogged) {
-      this.setState({
-        isAdminLogged: isAdminLogged
-      });
+      this.setState({ isAdminLogged: isAdminLogged });
     }
   }, {
     key: 'buildRoute',
@@ -59576,7 +59573,11 @@ var Body = function (_Component) {
         exact: routeObject.isExact,
         path: routeObject.path,
         render: function render(props) {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Component, _extends({}, props, { dynamicTitle: dynamicTitle, isAdminLogged: isAdminLogged, logUnlogAdmin: _this2.logUnlogAdmin }));
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Component, _extends({}, props, {
+            dynamicTitle: dynamicTitle,
+            isAdminLogged: isAdminLogged,
+            logUnlogAdmin: _this2.logUnlogAdmin
+          }));
         }
       });
     }
@@ -59587,7 +59588,9 @@ var Body = function (_Component) {
         exact: isExact,
         path: path,
         render: function render(props) {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '') });
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], {
+            to: redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '')
+          });
         }
       });
     }
@@ -67309,16 +67312,16 @@ var Admin = function (_Component) {
   _createClass(Admin, [{
     key: 'handleSubmission',
     value: function handleSubmission(adminInput) {
-      var _this2 = this;
-
-      var cookies = this.props.cookies;
+      var _props = this.props,
+          cookies = _props.cookies,
+          logUnlogAdmin = _props.logUnlogAdmin;
 
       var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login';
       __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post(requestUrl, adminInput).then(function (response) {
         console.log(response);
         if (response.data.length > 0) {
           cookies.set('admin', 'true', { maxAge: 2700 });
-          _this2.props.logUnlogAdmin(true);
+          logUnlogAdmin(true);
         }
       }).catch(function (error) {
         console.log(error);
@@ -67327,15 +67330,17 @@ var Admin = function (_Component) {
   }, {
     key: 'logOut',
     value: function logOut() {
-      var cookies = this.props.cookies;
+      var _props2 = this.props,
+          cookies = _props2.cookies,
+          logUnlogAdmin = _props2.logUnlogAdmin;
 
       cookies.set('admin', 'false');
-      this.props.logUnlogAdmin(false);
+      logUnlogAdmin(false);
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var isAdminLogged = this.props.isAdminLogged;
 
@@ -67358,7 +67363,7 @@ var Admin = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'a',
               { onClick: function onClick() {
-                  return _this3.logOut();
+                  return _this2.logOut();
                 }, className: 'admin-logout-btn' },
               'D\xE9connexion'
             ),

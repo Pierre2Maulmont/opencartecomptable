@@ -17,14 +17,14 @@ class Admin extends Component {
   }
 
   handleSubmission (adminInput) {
-    const { cookies } = this.props
-    let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login')
+    const { cookies, logUnlogAdmin } = this.props
+    const requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login')
     axios.post(requestUrl, adminInput)
     .then(response => {
       console.log(response)
       if (response.data.length > 0) {
         cookies.set('admin', 'true', { maxAge: 2700 })
-        this.props.logUnlogAdmin(true)
+        logUnlogAdmin(true)
       }
     })
     .catch(error => {
@@ -33,13 +33,13 @@ class Admin extends Component {
   }
 
   logOut () {
-    const { cookies } = this.props
+    const { cookies, logUnlogAdmin } = this.props
     cookies.set('admin', 'false')
-    this.props.logUnlogAdmin(false)
+    logUnlogAdmin(false)
   }
 
   render () {
-    let { isAdminLogged } = this.props
+    const { isAdminLogged } = this.props
     return (
       <PageComponent>
         <TopSection

@@ -19,8 +19,7 @@ class Body extends Component {
     this.logUnlogAdmin = this.logUnlogAdmin.bind(this)
   }
 
-  // checking whether admin is connected here because we need it sitewide,
-  // now this file is a bit messy though, tbrefactored
+  // checking whether admin is connected here because we need it site-wide
   componentDidMount () {
     const { cookies } = this.props
     let isAdminLogged = cookies.get('admin') === 'true'
@@ -30,9 +29,7 @@ class Body extends Component {
   }
 
   logUnlogAdmin (isAdminLogged) {
-    this.setState({
-      isAdminLogged
-    })
+    this.setState({ isAdminLogged })
   }
 
   buildRoute (path, isExact, Component, title) {
@@ -54,7 +51,14 @@ class Body extends Component {
         key={index}
         exact={routeObject.isExact}
         path={routeObject.path}
-        render={(props) => <Component {...props} dynamicTitle={dynamicTitle} isAdminLogged={isAdminLogged} logUnlogAdmin={this.logUnlogAdmin} />}
+        render={
+          (props) => <Component
+            {...props}
+            dynamicTitle={dynamicTitle}
+            isAdminLogged={isAdminLogged}
+            logUnlogAdmin={this.logUnlogAdmin}
+          />
+        }
       />
     )
   }
@@ -64,7 +68,11 @@ class Body extends Component {
       <Route
         exact={isExact}
         path={path}
-        render={(props) => <Redirect to={redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '')} />}
+        render={
+          (props) => <Redirect
+            to={redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '')}
+          />
+        }
       />
     )
   }
