@@ -8,8 +8,17 @@ import DeleteSchool from './DeleteSchool'
 
 export default class ResultsTable extends Component {
   render () {
-    const { schools, isAgencySearch, isAgencyView, agencyId, fetchSchools, isAdminLogged } = this.props
+    const {
+      schools,
+      isAgencySearch,
+      isAgencyView,
+      agencyId,
+      fetchSchools,
+      isAdminLogged
+    } = this.props
+
     let COLUMNNAMES = ['Code UAI', 'UAI agence', 'Nom', 'Commune', 'Département', 'Région', 'Académie', '']
+
     if (isAgencySearch) {
       COLUMNNAMES.splice(0, 1)
     }
@@ -25,9 +34,7 @@ export default class ResultsTable extends Component {
     return (
       <div>
         <ResultsSection>
-          <Table
-            columnNames={COLUMNNAMES}
-          >
+          <Table columnNames={COLUMNNAMES}>
             {
               schools.map(item => {
                 return (
@@ -95,7 +102,10 @@ export default class ResultsTable extends Component {
 
                     {
                       isAdminLogged && <td>
-                        <DeleteSchool codeUai={item.code_uai} />
+                        <DeleteSchool
+                          codeUai={item.code_uai}
+                          fetchSchools={fetchSchools}
+                        />
                       </td>
                     }
 

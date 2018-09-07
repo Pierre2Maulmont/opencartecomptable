@@ -19140,7 +19140,9 @@ var ResultsTable = function (_Component) {
           fetchSchools = _props.fetchSchools,
           isAdminLogged = _props.isAdminLogged;
 
+
       var COLUMNNAMES = ['Code UAI', 'UAI agence', 'Nom', 'Commune', 'Département', 'Région', 'Académie', ''];
+
       if (isAgencySearch) {
         COLUMNNAMES.splice(0, 1);
       }
@@ -19161,9 +19163,7 @@ var ResultsTable = function (_Component) {
           null,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_3__Table__["a" /* default */],
-            {
-              columnNames: COLUMNNAMES
-            },
+            { columnNames: COLUMNNAMES },
             schools.map(function (item) {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'tr',
@@ -19247,7 +19247,10 @@ var ResultsTable = function (_Component) {
                 isAdminLogged && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'td',
                   null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__DeleteSchool__["a" /* default */], { codeUai: item.code_uai })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__DeleteSchool__["a" /* default */], {
+                    codeUai: item.code_uai,
+                    fetchSchools: fetchSchools
+                  })
                 )
               );
             })
@@ -66181,22 +66184,6 @@ var Schools = function (_Component) {
   return Schools;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/*
-<PageComponent>
-  <TopSection
-    title={title}
-    text={text}
-    smallText
-  />
-  <ResultsTable
-    schools={schools}
-    isAgencySearch={isAgencySearch}
-    fetchSchools={this.fetchSchools}
-  />
-</PageComponent>
-*/
-
-
 /* harmony default export */ __webpack_exports__["a"] = (Schools);
 
 /***/ }),
@@ -66390,9 +66377,7 @@ var App = function (_Component) {
       var fetchSchools = this.props.fetchSchools;
 
       var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai;
-      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put(requestUrl, {
-        update: ''
-      }).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put(requestUrl, { update: '' }).then(function (response) {
         fetchSchools();
       }).catch(function (error) {
         console.log(error);
@@ -69874,10 +69859,16 @@ var DeleteSchool = function (_Component) {
   _createClass(DeleteSchool, [{
     key: 'handleSubmission',
     value: function handleSubmission(schoolToDelete) {
+      if (!window.confirm('Êtes-vous sûr(e) de vouloir supprimer cet établissement?')) {
+        return null;
+      }
+      var fetchSchools = this.props.fetchSchools;
+
       var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements' : '/public/api/etablissements';
       requestUrl += '/' + schoolToDelete;
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.delete(requestUrl).then(function (response) {
         console.log(response);
+        fetchSchools();
       }).catch(function (error) {
         console.log(error);
       });
