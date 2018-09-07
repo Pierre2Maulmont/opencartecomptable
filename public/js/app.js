@@ -5148,7 +5148,7 @@ var Form = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
-            className: 'my-button my-nav-button',
+            className: 'my-button',
             name: 'modifier',
             onClick: function onClick() {
               _this3.handleSubmission(_this3.state);
@@ -5675,7 +5675,7 @@ var Form = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
-            className: 'my-button my-nav-button',
+            className: 'my-button',
             name: 'modifier',
             onClick: function onClick() {
               _this6.handleSubmission(_this6.state);
@@ -19103,6 +19103,7 @@ exports.default = SafeHTMLElement;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ResultsSection__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Table__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InfoModal__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DeleteSchool__ = __webpack_require__(246);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19110,6 +19111,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -19135,9 +19137,12 @@ var ResultsTable = function (_Component) {
           isAgencySearch = _props.isAgencySearch,
           isAgencyView = _props.isAgencyView,
           agencyId = _props.agencyId,
-          fetchSchools = _props.fetchSchools;
+          fetchSchools = _props.fetchSchools,
+          isAdminLogged = _props.isAdminLogged;
+
 
       var COLUMNNAMES = ['Code UAI', 'UAI agence', 'Nom', 'Commune', 'Département', 'Région', 'Académie', ''];
+
       if (isAgencySearch) {
         COLUMNNAMES.splice(0, 1);
       }
@@ -19145,6 +19150,9 @@ var ResultsTable = function (_Component) {
         COLUMNNAMES.splice(1, 1);
         COLUMNNAMES.splice(3, 4);
         COLUMNNAMES.push('Recettes annuelles', 'Infos à jour le :', '');
+      }
+      if (isAdminLogged) {
+        COLUMNNAMES.push('');
       }
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -19155,9 +19163,7 @@ var ResultsTable = function (_Component) {
           null,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_3__Table__["a" /* default */],
-            {
-              columnNames: COLUMNNAMES
-            },
+            { columnNames: COLUMNNAMES },
             schools.map(function (item) {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'tr',
@@ -19237,6 +19243,14 @@ var ResultsTable = function (_Component) {
                     },
                     'Changer\xA0d\u2019agence'
                   )
+                ),
+                isAdminLogged && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'td',
+                  null,
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__DeleteSchool__["a" /* default */], {
+                    codeUai: item.code_uai,
+                    fetchSchools: fetchSchools
+                  })
                 )
               );
             })
@@ -59467,16 +59481,18 @@ var Header = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_home_Home__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_statistics_Statistics__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__containers_addSchool_AddSchool__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__containers_schools_Schools__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__containers_agency_Agency__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__containers_changeAgency_ChangeAgency__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__containers_changeInfo_ChangeInfo__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__containers_changeMemo_ChangeMemo__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__containers_admin_Admin__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_cookie__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_cookie__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_home_Home__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__containers_statistics_Statistics__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__containers_addSchool_AddSchool__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__containers_schools_Schools__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__containers_agency_Agency__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__containers_changeAgency_ChangeAgency__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__containers_changeInfo_ChangeInfo__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__containers_changeMemo_ChangeMemo__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__containers_admin_Admin__ = __webpack_require__(223);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -59500,16 +59516,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var Body = function (_Component) {
   _inherits(Body, _Component);
 
-  function Body() {
+  function Body(props) {
     _classCallCheck(this, Body);
 
-    return _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).call(this, props));
+
+    _this.state = { isAdminLogged: false };
+    _this.logUnlogAdmin = _this.logUnlogAdmin.bind(_this);
+    return _this;
   }
 
+  // checking whether admin is connected here because we need it site-wide
+
+
   _createClass(Body, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var cookies = this.props.cookies;
+
+      var isAdminLogged = cookies.get('admin') === 'true';
+      this.setState({
+        isAdminLogged: isAdminLogged
+      });
+    }
+  }, {
+    key: 'logUnlogAdmin',
+    value: function logUnlogAdmin(isAdminLogged) {
+      this.setState({ isAdminLogged: isAdminLogged });
+    }
+  }, {
     key: 'buildRoute',
     value: function buildRoute(path, isExact, Component, title) {
       var routeObject = {
@@ -59523,43 +59562,53 @@ var Body = function (_Component) {
   }, {
     key: 'renderRoute',
     value: function renderRoute(routeObject, index) {
+      var _this2 = this;
+
       var dynamicTitle = routeObject.title ? routeObject.title + ' - Open Carte Comptable' : 'Open Carte Comptable';
       var Component = routeObject.Component;
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], {
+      var isAdminLogged = this.state.isAdminLogged;
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], {
         key: index,
         exact: routeObject.isExact,
         path: routeObject.path,
         render: function render(props) {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Component, _extends({}, props, { dynamicTitle: dynamicTitle }));
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Component, _extends({}, props, {
+            dynamicTitle: dynamicTitle,
+            isAdminLogged: isAdminLogged,
+            logUnlogAdmin: _this2.logUnlogAdmin
+          }));
         }
       });
     }
   }, {
     key: 'renderRedirect',
     value: function renderRedirect(path, isExact, redirect) {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], {
         exact: isExact,
         path: path,
         render: function render(props) {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '') });
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], {
+            to: redirect + (props.match.params.uai !== undefined ? props.match.params.uai : '')
+          });
         }
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
-      var ROUTES = [this.buildRoute('/', true, __WEBPACK_IMPORTED_MODULE_2__containers_home_Home__["a" /* default */], null), this.buildRoute('/statistiques', false, __WEBPACK_IMPORTED_MODULE_3__containers_statistics_Statistics__["a" /* default */], 'Statistiques'), this.buildRoute('/ajouter-etablissement', false, __WEBPACK_IMPORTED_MODULE_4__containers_addSchool_AddSchool__["a" /* default */], null), this.buildRoute('/etablissements', true, __WEBPACK_IMPORTED_MODULE_5__containers_schools_Schools__["a" /* default */], null), this.buildRoute('/agences', true, __WEBPACK_IMPORTED_MODULE_5__containers_schools_Schools__["a" /* default */], null), this.buildRoute('/etablissements/:uai/changer-agence', false, __WEBPACK_IMPORTED_MODULE_7__containers_changeAgency_ChangeAgency__["a" /* default */], null), this.buildRoute('/etablissements/:uai/modifier-informations', false, __WEBPACK_IMPORTED_MODULE_8__containers_changeInfo_ChangeInfo__["a" /* default */], null), this.buildRoute('/etablissements/:uai/modifier-informations-complementaires', false, __WEBPACK_IMPORTED_MODULE_9__containers_changeMemo_ChangeMemo__["a" /* default */], null), this.buildRoute('/etablissements/:uai', false, __WEBPACK_IMPORTED_MODULE_5__containers_schools_Schools__["a" /* default */], null), this.buildRoute('/agences/:uai', false, __WEBPACK_IMPORTED_MODULE_6__containers_agency_Agency__["a" /* default */], null), this.buildRoute('/admin', false, __WEBPACK_IMPORTED_MODULE_10__containers_admin_Admin__["a" /* default */], null)];
+      var ROUTES = [this.buildRoute('/', true, __WEBPACK_IMPORTED_MODULE_3__containers_home_Home__["a" /* default */], null), this.buildRoute('/statistiques', false, __WEBPACK_IMPORTED_MODULE_4__containers_statistics_Statistics__["a" /* default */], 'Statistiques'), this.buildRoute('/ajouter-etablissement', false, __WEBPACK_IMPORTED_MODULE_5__containers_addSchool_AddSchool__["a" /* default */], null), this.buildRoute('/etablissements', true, __WEBPACK_IMPORTED_MODULE_6__containers_schools_Schools__["a" /* default */], null), this.buildRoute('/agences', true, __WEBPACK_IMPORTED_MODULE_6__containers_schools_Schools__["a" /* default */], null), this.buildRoute('/etablissements/:uai/changer-agence', false, __WEBPACK_IMPORTED_MODULE_8__containers_changeAgency_ChangeAgency__["a" /* default */], null), this.buildRoute('/etablissements/:uai/modifier-informations', false, __WEBPACK_IMPORTED_MODULE_9__containers_changeInfo_ChangeInfo__["a" /* default */], null), this.buildRoute('/etablissements/:uai/modifier-informations-complementaires', false, __WEBPACK_IMPORTED_MODULE_10__containers_changeMemo_ChangeMemo__["a" /* default */], null), this.buildRoute('/etablissements/:uai', false, __WEBPACK_IMPORTED_MODULE_6__containers_schools_Schools__["a" /* default */], null), this.buildRoute('/agences/:uai', false, __WEBPACK_IMPORTED_MODULE_7__containers_agency_Agency__["a" /* default */], null), this.buildRoute('/admin', false, __WEBPACK_IMPORTED_MODULE_11__containers_admin_Admin__["a" /* default */], null)];
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["e" /* Switch */],
+          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["e" /* Switch */],
           null,
           ROUTES.map(function (item, index) {
-            return _this2.renderRoute(item, index);
+            return _this3.renderRoute(item, index);
           }),
           this.renderRedirect('/:uai(\\d{7}[A-Z])', true, '/etablissements/'),
           this.renderRedirect('/', false, '/')
@@ -59571,7 +59620,7 @@ var Body = function (_Component) {
   return Body;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Body);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_cookie__["withCookies"])(Body));
 
 /***/ }),
 /* 158 */
@@ -60297,7 +60346,7 @@ var SearchForm = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             {
-              className: 'my-button my-nav-button',
+              className: 'my-button',
               onClick: function onClick() {
                 _this2.handleSubmission(_this2.state);
               }
@@ -60706,7 +60755,7 @@ var SearchForm = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 {
-                  className: 'my-button my-nav-button',
+                  className: 'my-button',
                   onClick: function onClick() {
                     _this3.handleSubmission(_this3.state);
                   }
@@ -66094,6 +66143,7 @@ var Schools = function (_Component) {
     key: 'render',
     value: function render() {
       var schools = this.state.schools;
+      var isAdminLogged = this.props.isAdminLogged;
 
       var title = '';
       var text = '';
@@ -66127,7 +66177,8 @@ var Schools = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_ResultsTable__["a" /* default */], {
           schools: schools,
           isAgencySearch: isAgencySearch,
-          fetchSchools: this.fetchSchools
+          fetchSchools: this.fetchSchools,
+          isAdminLogged: isAdminLogged
         })
       );
     }
@@ -66135,22 +66186,6 @@ var Schools = function (_Component) {
 
   return Schools;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/*
-<PageComponent>
-  <TopSection
-    title={title}
-    text={text}
-    smallText
-  />
-  <ResultsTable
-    schools={schools}
-    isAgencySearch={isAgencySearch}
-    fetchSchools={this.fetchSchools}
-  />
-</PageComponent>
-*/
-
 
 /* harmony default export */ __webpack_exports__["a"] = (Schools);
 
@@ -66345,9 +66380,7 @@ var App = function (_Component) {
       var fetchSchools = this.props.fetchSchools;
 
       var requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai;
-      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put(requestUrl, {
-        update: ''
-      }).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.put(requestUrl, { update: '' }).then(function (response) {
         fetchSchools();
       }).catch(function (error) {
         console.log(error);
@@ -67270,39 +67303,25 @@ var Admin = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Admin.__proto__ || Object.getPrototypeOf(Admin)).call(this, props));
 
-    _this.state = {
-      isAdminLogged: false
-    };
+    _this.state = {};
     _this.handleSubmission = _this.handleSubmission.bind(_this);
     _this.logOut = _this.logOut.bind(_this);
     return _this;
   }
 
   _createClass(Admin, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var cookies = this.props.cookies;
-
-      var isAdminLogged = cookies.get('admin') === 'true';
-      this.setState({
-        isAdminLogged: isAdminLogged
-      });
-    }
-  }, {
     key: 'handleSubmission',
     value: function handleSubmission(adminInput) {
-      var _this2 = this;
-
-      var cookies = this.props.cookies;
+      var _props = this.props,
+          cookies = _props.cookies,
+          logUnlogAdmin = _props.logUnlogAdmin;
 
       var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login';
       __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post(requestUrl, adminInput).then(function (response) {
         console.log(response);
         if (response.data.length > 0) {
           cookies.set('admin', 'true', { maxAge: 2700 });
-          _this2.setState({
-            isAdminLogged: true
-          });
+          logUnlogAdmin(true);
         }
       }).catch(function (error) {
         console.log(error);
@@ -67311,19 +67330,19 @@ var Admin = function (_Component) {
   }, {
     key: 'logOut',
     value: function logOut() {
-      var cookies = this.props.cookies;
+      var _props2 = this.props,
+          cookies = _props2.cookies,
+          logUnlogAdmin = _props2.logUnlogAdmin;
 
       cookies.set('admin', 'false');
-      this.setState({
-        isAdminLogged: false
-      });
+      logUnlogAdmin(false);
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
-      var isAdminLogged = this.state.isAdminLogged;
+      var isAdminLogged = this.props.isAdminLogged;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_3__components_PageComponent__["a" /* default */],
@@ -67344,7 +67363,7 @@ var Admin = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'a',
               { onClick: function onClick() {
-                  return _this3.logOut();
+                  return _this2.logOut();
                 }, className: 'admin-logout-btn' },
               'D\xE9connexion'
             ),
@@ -69808,6 +69827,81 @@ var Scroller = Object(__WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* withRout
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var DeleteSchool = function (_Component) {
+  _inherits(DeleteSchool, _Component);
+
+  function DeleteSchool() {
+    _classCallCheck(this, DeleteSchool);
+
+    return _possibleConstructorReturn(this, (DeleteSchool.__proto__ || Object.getPrototypeOf(DeleteSchool)).apply(this, arguments));
+  }
+
+  _createClass(DeleteSchool, [{
+    key: 'handleSubmission',
+    value: function handleSubmission(schoolToDelete) {
+      if (!window.confirm('Êtes-vous sûr(e) de vouloir supprimer cet établissement?')) {
+        return null;
+      }
+      var fetchSchools = this.props.fetchSchools;
+
+      var requestUrl = window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements' : '/public/api/etablissements';
+      requestUrl += '/' + schoolToDelete;
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.delete(requestUrl).then(function (response) {
+        console.log(response);
+        fetchSchools();
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var codeUai = this.props.codeUai;
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+          className: 'my-button my-small-button delete-button',
+          onClick: function onClick() {
+            _this2.handleSubmission(codeUai);
+          }
+        },
+        '\xD7'
+      );
+    }
+  }]);
+
+  return DeleteSchool;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (DeleteSchool);
 
 /***/ })
 /******/ ]);

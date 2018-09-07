@@ -695,6 +695,12 @@ button {
   padding: 0px 8px;
 }
 
+.delete-button {
+  width: 30px !important;
+  color: #e00f0f !important;
+  font-weight: bold;
+}
+
 .my-button:hover {
   cursor: pointer;
   color: #558782 !important;

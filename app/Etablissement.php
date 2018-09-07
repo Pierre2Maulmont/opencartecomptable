@@ -101,4 +101,10 @@ class Etablissement extends Model
 
     return;
   }
+
+  public static function deleteSchool($code_uai)
+  {
+    DB::table('etablissements')->where('code_uai', $code_uai)->delete();
+    return;
+  }
 }

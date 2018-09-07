@@ -34,12 +34,10 @@ export default class App extends Component {
   }
 
   handleUpdate () {
-    let codeUai = this.props.school.code_uai
-    let { fetchSchools } = this.props
-    let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai
-    axios.put(requestUrl, {
-      update: ''
-    })
+    const codeUai = this.props.school.code_uai
+    const { fetchSchools } = this.props
+    const requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/etablissements/' : '/public/api/etablissements/') + codeUai
+    axios.put(requestUrl, { update: '' })
     .then(response => {
       fetchSchools()
     })

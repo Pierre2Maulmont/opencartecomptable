@@ -48,6 +48,7 @@ export default class Schools extends Component {
 
   render () {
     const { schools } = this.state
+    const { isAdminLogged } = this.props
     let title = ''
     let text = ''
     let isAgencySearch = false
@@ -80,23 +81,9 @@ export default class Schools extends Component {
           schools={schools}
           isAgencySearch={isAgencySearch}
           fetchSchools={this.fetchSchools}
+          isAdminLogged={isAdminLogged}
         />
       </PageComponent>
     )
   }
 }
-
-/*
-<PageComponent>
-  <TopSection
-    title={title}
-    text={text}
-    smallText
-  />
-  <ResultsTable
-    schools={schools}
-    isAgencySearch={isAgencySearch}
-    fetchSchools={this.fetchSchools}
-  />
-</PageComponent>
-*/

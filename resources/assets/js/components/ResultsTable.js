@@ -4,11 +4,21 @@ import { NavLink } from 'react-router-dom'
 import ResultsSection from './ResultsSection'
 import Table from './Table'
 import InfoModal from './InfoModal'
+import DeleteSchool from './DeleteSchool'
 
 export default class ResultsTable extends Component {
   render () {
-    const { schools, isAgencySearch, isAgencyView, agencyId, fetchSchools } = this.props
+    const {
+      schools,
+      isAgencySearch,
+      isAgencyView,
+      agencyId,
+      fetchSchools,
+      isAdminLogged
+    } = this.props
+
     let COLUMNNAMES = ['Code UAI', 'UAI agence', 'Nom', 'Commune', 'Département', 'Région', 'Académie', '']
+
     if (isAgencySearch) {
       COLUMNNAMES.splice(0, 1)
     }
@@ -17,13 +27,14 @@ export default class ResultsTable extends Component {
       COLUMNNAMES.splice(3, 4)
       COLUMNNAMES.push('Recettes annuelles', 'Infos à jour le :', '')
     }
+    if (isAdminLogged) {
+      COLUMNNAMES.push('')
+    }
 
     return (
       <div>
         <ResultsSection>
-          <Table
-            columnNames={COLUMNNAMES}
-          >
+          <Table columnNames={COLUMNNAMES}>
             {
               schools.map(item => {
                 return (
@@ -88,6 +99,15 @@ export default class ResultsTable extends Component {
                       Changer&nbsp;d’agence
                       </NavLink>
                     </td>
+
+                    {
+                      isAdminLogged && <td>
+                        <DeleteSchool
+                          codeUai={item.code_uai}
+                          fetchSchools={fetchSchools}
+                        />
+                      </td>
+                    }
 
                   </tr>
                 )

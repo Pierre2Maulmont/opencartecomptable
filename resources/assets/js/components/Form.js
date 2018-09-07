@@ -316,7 +316,7 @@ export default class Form extends Component {
         />
 
         <div
-          className='my-button my-nav-button'
+          className='my-button'
           name='modifier'
           onClick={() => { this.handleSubmission(this.state) }}
         >
@@ -548,7 +548,7 @@ export default class Form extends Component {
         />
 
         <div
-          className='my-button my-nav-button'
+          className='my-button'
           name='modifier'
           onClick={() => { this.handleSubmission(this.state) }}
         >

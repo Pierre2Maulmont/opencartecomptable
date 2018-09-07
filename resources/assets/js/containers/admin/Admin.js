@@ -11,32 +11,20 @@ import AdminActions from './AdminActions'
 class Admin extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      isAdminLogged: false
-    }
+    this.state = {}
     this.handleSubmission = this.handleSubmission.bind(this)
     this.logOut = this.logOut.bind(this)
   }
 
-  componentDidMount () {
-    const { cookies } = this.props
-    let isAdminLogged = cookies.get('admin') === 'true'
-    this.setState({
-      isAdminLogged
-    })
-  }
-
   handleSubmission (adminInput) {
-    const { cookies } = this.props
-    let requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login')
+    const { cookies, logUnlogAdmin } = this.props
+    const requestUrl = (window.env === 'production' ? 'https://opencartecomptable.herokuapp.com/api/admin/login' : '/public/api/admin/login')
     axios.post(requestUrl, adminInput)
     .then(response => {
       console.log(response)
       if (response.data.length > 0) {
         cookies.set('admin', 'true', { maxAge: 2700 })
-        this.setState({
-          isAdminLogged: true
-        })
+        logUnlogAdmin(true)
       }
     })
     .catch(error => {
@@ -45,15 +33,13 @@ class Admin extends Component {
   }
 
   logOut () {
-    const { cookies } = this.props
+    const { cookies, logUnlogAdmin } = this.props
     cookies.set('admin', 'false')
-    this.setState({
-      isAdminLogged: false
-    })
+    logUnlogAdmin(false)
   }
 
   render () {
-    let { isAdminLogged } = this.state
+    const { isAdminLogged } = this.props
     return (
       <PageComponent>
         <TopSection
