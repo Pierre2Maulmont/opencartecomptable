@@ -1,0 +1,6 @@
+# Notes PHP
+
+- Le point virgule marque la fin de l'instruction :
+<?php echo "Ceci est du texte"; ?>
+<?php echo "Ceci est du <strong>texte</strong>"; ?>
+<?php echo "Cette ligne a été écrite \"uniquement\" en PHP."; ?>
